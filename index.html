@@ -1,0 +1,12727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+  <style>
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+
+:root {
+  --bg: #100605;
+  --red: #760d0d;
+  --red2: #b91c1c;
+  --gold: #f3c44e;
+  --gold2: #ffe59a;
+  --cream: #fff9ef;
+  --muted: #cfaca0;
+  --line: rgba(243, 196, 78, 0.18);
+  --green: #4ade80;
+  --danger: #fb7185;
+  --shadow: 0 28px 85px rgba(18, 0, 0, 0.48);
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  background: var(--bg);
+}
+
+
+body {
+  margin: 0;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  color:
+    var(--cream);
+
+  font-family:
+    Inter,
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 8% 5%,
+      rgba(
+        190,
+        24,
+        24,
+        0.31
+      ),
+      transparent 29rem
+    ),
+    radial-gradient(
+      circle at 92% 18%,
+      rgba(
+        243,
+        196,
+        78,
+        0.12
+      ),
+      transparent 28rem
+    ),
+    linear-gradient(
+      150deg,
+      #0c0303,
+      #270606 34%,
+      #5b0b0b 70%,
+      #210605
+    );
+}
+
+
+body.modal-open {
+  overflow: hidden;
+}
+
+
+button,
+input {
+  font: inherit;
+}
+
+
+button {
+  border: 0;
+}
+
+
+button:focus-visible,
+input:focus-visible {
+  outline:
+    3px solid
+    var(--gold);
+
+  outline-offset:
+    3px;
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.power-bg {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -1;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+
+.power-bg span {
+  position: absolute;
+
+  color:
+    rgba(
+      255,
+      221,
+      145,
+      0.05
+    );
+
+  font:
+    2.2rem
+    "Archivo Black";
+}
+
+
+.power-bg span:nth-child(1) {
+  top: 9%;
+  left: 2%;
+}
+
+
+.power-bg span:nth-child(2) {
+  top: 34%;
+  right: 3%;
+}
+
+
+.power-bg span:nth-child(3) {
+  bottom: 26%;
+  left: 5%;
+}
+
+
+.power-bg span:nth-child(4) {
+  bottom: 8%;
+  right: 12%;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+  width:
+    min(
+      1140px,
+      calc(
+        100% - 30px
+      )
+    );
+
+  margin: auto;
+
+  padding:
+    28px
+    0
+    55px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero,
+.screen-card {
+  border:
+    1px solid
+    rgba(
+      243,
+      196,
+      78,
+      0.2
+    );
+
+  box-shadow:
+    var(--shadow);
+}
+
+
+.hero {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 330px;
+
+  padding:
+    44px
+    52px;
+
+  border-radius:
+    30px;
+
+  background:
+    radial-gradient(
+      circle at 82% 45%,
+      rgba(
+        243,
+        196,
+        78,
+        0.08
+      ),
+      transparent 28rem
+    ),
+    linear-gradient(
+      135deg,
+      rgba(
+        31,
+        5,
+        5,
+        0.97
+      ),
+      rgba(
+        105,
+        10,
+        10,
+        0.9
+      )
+    );
+}
+
+
+.hero-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      0,
+      1fr
+    )
+    minmax(
+      300px,
+      0.72fr
+    );
+
+  gap:
+    50px;
+
+  align-items:
+    center;
+
+  min-height:
+    240px;
+}
+
+
+.hero-copy {
+  position: relative;
+
+  z-index: 3;
+}
+
+
+.eyebrow,
+.kicker {
+  color:
+    var(--gold);
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.16em;
+
+  text-transform:
+    uppercase;
+}
+
+
+.hero .eyebrow {
+  margin-bottom:
+    16px;
+}
+
+
+.hero h1 {
+  margin:
+    0;
+
+  color:
+    var(--cream);
+
+  font-family:
+    "Archivo Black",
+    sans-serif;
+
+  font-size:
+    clamp(
+      3rem,
+      7vw,
+      5.5rem
+    );
+
+  line-height:
+    0.92;
+
+  letter-spacing:
+    -0.055em;
+}
+
+
+.hero h1 span {
+  color:
+    var(--gold);
+
+  white-space:
+    nowrap;
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.hero-visual {
+  position: relative;
+
+  display: grid;
+
+  place-items: center;
+
+  width: 100%;
+
+  min-height:
+    250px;
+}
+
+
+.math-core {
+  position: relative;
+
+  z-index: 4;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 172px;
+
+  height: 172px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      222,
+      141,
+      0.36
+    );
+
+  border-radius:
+    50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #b91c1c,
+      #5d0808
+    );
+
+  box-shadow:
+    0
+    0
+    58px
+    rgba(
+      239,
+      68,
+      68,
+      0.22
+    );
+
+  animation:
+    corePulse
+    3.5s
+    ease-in-out
+    infinite;
+}
+
+
+.math-core strong {
+  color:
+    white;
+
+  font-family:
+    "Archivo Black",
+    sans-serif;
+
+  font-size:
+    3.2rem;
+
+  line-height:
+    1;
+}
+
+
+.math-core small {
+  color:
+    var(--gold2);
+
+  font-size:
+    0.62rem;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.2em;
+}
+
+
+.orbit {
+  position: absolute;
+
+  border:
+    1px solid
+    rgba(
+      243,
+      196,
+      78,
+      0.18
+    );
+
+  border-radius:
+    50%;
+
+  pointer-events:
+    none;
+}
+
+
+.orbit-one {
+  width:
+    238px;
+
+  height:
+    238px;
+
+  animation:
+    spin
+    16s
+    linear
+    infinite;
+}
+
+
+.orbit-two {
+  width:
+    305px;
+
+  height:
+    175px;
+
+  transform:
+    rotate(
+      -20deg
+    );
+
+  animation:
+    spinReverse
+    20s
+    linear
+    infinite;
+}
+
+
+/* =========================================================
+   FLOATING SYMBOLS
+========================================================= */
+
+.floating-chip {
+  position: absolute;
+
+  z-index: 5;
+
+  display: grid;
+
+  place-items: center;
+
+  min-width:
+    50px;
+
+  height:
+    48px;
+
+  padding:
+    0
+    10px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
+
+  border-radius:
+    14px;
+
+  color:
+    #2d0805;
+
+  background:
+    var(--gold);
+
+  box-shadow:
+    0
+    10px
+    28px
+    rgba(
+      0,
+      0,
+      0,
+      0.4
+    );
+
+  font-family:
+    "Archivo Black",
+    sans-serif;
+
+  font-size:
+    1rem;
+
+  animation:
+    floatChip
+    3s
+    ease-in-out
+    infinite;
+}
+
+
+.chip-a {
+  top:
+    2px;
+
+  left:
+    18%;
+
+  transform:
+    rotate(
+      -10deg
+    );
+}
+
+
+.chip-b {
+  right:
+    7%;
+
+  bottom:
+    8px;
+
+  transform:
+    rotate(
+      8deg
+    );
+
+  animation-delay:
+    -0.7s;
+}
+
+
+.chip-c {
+  top:
+    37%;
+
+  right:
+    0;
+
+  color:
+    white;
+
+  background:
+    #b91c1c;
+
+  transform:
+    rotate(
+      12deg
+    );
+
+  animation-delay:
+    -1.4s;
+}
+
+
+.chip-d {
+  bottom:
+    18%;
+
+  left:
+    3%;
+
+  color:
+    white;
+
+  background:
+    #7f1d1d;
+
+  transform:
+    rotate(
+      -9deg
+    );
+
+  animation-delay:
+    -2.1s;
+}
+
+
+/* =========================================================
+   HERO ANIMATIONS
+========================================================= */
+
+@keyframes spin {
+
+  to {
+    transform:
+      rotate(
+        360deg
+      );
+  }
+
+}
+
+
+@keyframes spinReverse {
+
+  from {
+    transform:
+      rotate(
+        -20deg
+      );
+  }
+
+  to {
+    transform:
+      rotate(
+        -380deg
+      );
+  }
+
+}
+
+
+@keyframes floatChip {
+
+  0%,
+  100% {
+    translate:
+      0 0;
+  }
+
+  50% {
+    translate:
+      0 -8px;
+  }
+
+}
+
+
+@keyframes corePulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0
+      0
+      58px
+      rgba(
+        239,
+        68,
+        68,
+        0.22
+      );
+  }
+
+  50% {
+    box-shadow:
+      0
+      0
+      82px
+      rgba(
+        243,
+        196,
+        78,
+        0.28
+      );
+  }
+
+}
+
+
+/* =========================================================
+   GENERAL SCREEN
+========================================================= */
+
+main {
+  margin-top:
+    22px;
+}
+
+
+.screen-card {
+  padding:
+    30px;
+
+  border-radius:
+    30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        31,
+        6,
+        6,
+        0.96
+      ),
+      rgba(
+        72,
+        8,
+        8,
+        0.91
+      )
+    );
+}
+
+
+.screen-heading {
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+
+  align-items:
+    flex-start;
+
+  margin-bottom:
+    22px;
+}
+
+
+.screen-heading h2,
+.result h2 {
+  margin:
+    7px
+    0;
+
+  font:
+    clamp(
+      1.7rem,
+      4vw,
+      2.45rem
+    )
+    "Archivo Black";
+}
+
+
+.screen-heading p,
+.panel-head p,
+.dialog p {
+  margin:
+    0;
+
+  color:
+    var(--muted);
+
+  font-size:
+    0.78rem;
+}
+
+
+.ready {
+  padding:
+    9px
+    13px;
+
+  border:
+    1px solid
+    rgba(
+      74,
+      222,
+      128,
+      0.22
+    );
+
+  border-radius:
+    999px;
+
+  color:
+    #bbf7d0;
+
+  background:
+    rgba(
+      22,
+      101,
+      52,
+      0.16
+    );
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    900;
+}
+
+
+/* =========================================================
+   SETUP PANELS
+========================================================= */
+
+.setup-grid {
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap:
+    17px;
+}
+
+
+.panel {
+  padding:
+    20px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:
+    22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        87,
+        12,
+        10,
+        0.52
+      ),
+      rgba(
+        24,
+        5,
+        5,
+        0.82
+      )
+    );
+}
+
+
+.panel.full {
+  grid-column:
+    1 /
+    -1;
+}
+
+
+.panel-head {
+  display:
+    flex;
+
+  gap:
+    13px;
+
+  align-items:
+    center;
+
+  margin-bottom:
+    17px;
+}
+
+
+.panel-head > span {
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  width:
+    39px;
+
+  height:
+    39px;
+
+  border:
+    1px solid
+    rgba(
+      243,
+      196,
+      78,
+      0.2
+    );
+
+  border-radius:
+    13px;
+
+  color:
+    var(--gold2);
+
+  background:
+    rgba(
+      243,
+      196,
+      78,
+      0.08
+    );
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    900;
+}
+
+
+.panel-head h3 {
+  margin:
+    0
+    0
+    3px;
+
+  font-size:
+    0.96rem;
+}
+
+
+/* =========================================================
+   COMPACT SELECTORS
+========================================================= */
+
+.selector {
+  display:
+    grid;
+
+  grid-template-columns:
+    auto
+    1fr
+    auto;
+
+  gap:
+    15px;
+
+  align-items:
+    center;
+
+  width:
+    100%;
+
+  min-height:
+    82px;
+
+  padding:
+    14px
+    15px;
+
+  border:
+    1px solid
+    rgba(
+      245,
+      181,
+      45,
+      0.28
+    );
+
+  border-radius:
+    18px;
+
+  color:
+    #fff6df;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(
+        77,
+        10,
+        10,
+        0.82
+      ),
+      rgba(
+        39,
+        5,
+        5,
+        0.92
+      )
+    );
+
+  text-align:
+    left;
+
+  cursor:
+    pointer;
+
+  transition:
+    0.18s;
+}
+
+
+.selector:hover {
+  transform:
+    translateY(
+      -2px
+    );
+
+  border-color:
+    rgba(
+      255,
+      198,
+      58,
+      0.78
+    );
+}
+
+
+.selector-icon {
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  width:
+    54px;
+
+  height:
+    54px;
+
+  border-radius:
+    15px;
+
+  color:
+    #3a0808;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffd258,
+      #e5a522
+    );
+
+  font:
+    1.05rem
+    "Archivo Black";
+}
+
+
+.selector small {
+  display:
+    block;
+
+  color:
+    var(--muted);
+
+  font-size:
+    0.62rem;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.08em;
+}
+
+
+.selector strong {
+  display:
+    block;
+
+  margin:
+    4px
+    0;
+}
+
+
+.selector em {
+  display:
+    block;
+
+  overflow:
+    hidden;
+
+  color:
+    var(--muted);
+
+  font-size:
+    0.69rem;
+
+  font-style:
+    normal;
+
+  text-overflow:
+    ellipsis;
+
+  white-space:
+    nowrap;
+}
+
+
+.selector b {
+  color:
+    var(--gold);
+
+  font-size:
+    1.2rem;
+}
+
+
+/* =========================================================
+   TIME SETUP
+========================================================= */
+
+.time-grid {
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap:
+    10px;
+}
+
+
+.time-card {
+  min-height:
+    92px;
+
+  border:
+    1px solid
+    rgba(
+      243,
+      196,
+      78,
+      0.13
+    );
+
+  border-radius:
+    17px;
+
+  color:
+    white;
+
+  background:
+    rgba(
+      20,
+      4,
+      4,
+      0.66
+    );
+
+  cursor:
+    pointer;
+}
+
+
+.time-card strong {
+  display:
+    block;
+
+  color:
+    var(--gold2);
+
+  font:
+    1.5rem
+    "Archivo Black";
+}
+
+
+.time-card span {
+  color:
+    var(--muted);
+
+  font-size:
+    0.72rem;
+}
+
+
+.time-card.active {
+  background:
+    var(--gold);
+
+  border-color:
+    var(--gold2);
+}
+
+
+.time-card.active strong,
+.time-card.active span {
+  color:
+    #320805;
+}
+
+
+.custom-time {
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  align-items:
+    end;
+
+  gap:
+    14px;
+
+  margin-top:
+    14px;
+
+  padding:
+    18px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:
+    16px;
+
+  background:
+    rgba(
+      20,
+      4,
+      4,
+      0.48
+    );
+}
+
+
+.custom-time label {
+  width:
+    min(
+      180px,
+      42%
+    );
+
+  color:
+    var(--muted);
+
+  font-size:
+    0.7rem;
+
+  font-weight:
+    800;
+}
+
+
+.custom-time input {
+  width:
+    100%;
+
+  min-height:
+    54px;
+
+  margin-top:
+    7px;
+
+  border:
+    1px solid
+    rgba(
+      243,
+      196,
+      78,
+      0.2
+    );
+
+  border-radius:
+    14px;
+
+  color:
+    var(--cream);
+
+  background:
+    rgba(
+      12,
+      2,
+      2,
+      0.78
+    );
+
+  text-align:
+    center;
+
+  font-weight:
+    900;
+}
+
+
+.custom-time b {
+  padding-bottom:
+    12px;
+
+  color:
+    var(--gold);
+
+  font-size:
+    1.8rem;
+}
+
+
+/* =========================================================
+   LAUNCH BUTTON
+========================================================= */
+
+.launch {
+  display:
+    grid;
+
+  grid-template-columns:
+    auto
+    1fr
+    auto;
+
+  gap:
+    13px;
+
+  align-items:
+    center;
+
+  width:
+    100%;
+
+  min-height:
+    70px;
+
+  margin-top:
+    19px;
+
+  padding:
+    12px
+    18px;
+
+  border-radius:
+    18px;
+
+  color:
+    #310805;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--gold),
+      #d8971d
+    );
+
+  cursor:
+    pointer;
+
+  text-align:
+    left;
+}
+
+
+.launch > span:first-child {
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  width:
+    41px;
+
+  height:
+    41px;
+
+  border-radius:
+    13px;
+
+  color:
+    var(--gold2);
+
+  background:
+    #5a0a08;
+}
+
+
+.launch strong,
+.launch small {
+  display:
+    block;
+}
+
+
+.launch small {
+  opacity:
+    0.7;
+}
+
+
+.launch b {
+  font-size:
+    1.4rem;
+}
+
+
+/* =========================================================
+   GAME TIMER
+========================================================= */
+
+.timer {
+  display:
+    grid;
+
+  grid-template-columns:
+    auto
+    1fr;
+
+  gap:
+    16px;
+
+  align-items:
+    center;
+
+  margin-bottom:
+    16px;
+
+  padding:
+    18px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:
+    20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        243,
+        196,
+        78,
+        0.1
+      ),
+      rgba(
+        96,
+        10,
+        10,
+        0.42
+      )
+    );
+}
+
+
+.timer > span {
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  width:
+    60px;
+
+  height:
+    60px;
+
+  border-radius:
+    18px;
+
+  color:
+    #340805;
+
+  background:
+    var(--gold);
+
+  font-size:
+    1.5rem;
+
+  font-weight:
+    900;
+}
+
+
+.timer small {
+  display:
+    block;
+
+  color:
+    var(--muted);
+
+  font-size:
+    0.63rem;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.12em;
+}
+
+
+.timer strong {
+  display:
+    block;
+
+  color:
+    var(--gold);
+
+  font:
+    clamp(
+      2rem,
+      6vw,
+      3.5rem
+    )
+    "Archivo Black";
+}
+
+
+.progress {
+  grid-column:
+    1 /
+    -1;
+
+  height:
+    10px;
+
+  overflow:
+    hidden;
+
+  border-radius:
+    999px;
+
+  background:
+    #120202;
+}
+
+
+.progress i {
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ef4444,
+      var(--gold)
+    );
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      1fr
+    );
+
+  gap:
+    10px;
+
+  margin-bottom:
+    16px;
+}
+
+
+.stats > div,
+.result-grid > div {
+  padding:
+    14px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:
+    16px;
+
+  background:
+    rgba(
+      24,
+      5,
+      5,
+      0.7
+    );
+}
+
+
+.stats small,
+.result-grid small {
+  display:
+    block;
+
+  color:
+    var(--muted);
+
+  font-size:
+    0.62rem;
+
+  text-transform:
+    uppercase;
+}
+
+
+.stats strong,
+.result-grid strong {
+  display:
+    block;
+
+  margin-top:
+    4px;
+
+  color:
+    var(--gold);
+
+  font-size:
+    1.15rem;
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+.question-box {
+  min-height:
+    420px;
+
+  padding:
+    38px
+    20px;
+
+  border:
+    1px solid
+    rgba(
+      243,
+      196,
+      78,
+      0.2
+    );
+
+  border-radius:
+    25px;
+
+  background:
+    radial-gradient(
+      circle at 50% 18%,
+      rgba(
+        239,
+        68,
+        68,
+        0.13
+      ),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(
+        69,
+        8,
+        8,
+        0.96
+      ),
+      rgba(
+        18,
+        3,
+        3,
+        0.97
+      )
+    );
+
+  text-align:
+    center;
+}
+
+
+.badges {
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  gap:
+    8px;
+
+  flex-wrap:
+    wrap;
+
+  margin-bottom:
+    18px;
+}
+
+
+.badges span {
+  padding:
+    8px
+    13px;
+
+  border-radius:
+    999px;
+
+  font-size:
+    0.67rem;
+
+  font-weight:
+    900;
+}
+
+
+.badges span:first-child {
+  color:
+    var(--gold2);
+
+  background:
+    rgba(
+      243,
+      196,
+      78,
+      0.07
+    );
+}
+
+
+.badges span:last-child {
+  color:
+    #fecaca;
+
+  background:
+    rgba(
+      185,
+      28,
+      28,
+      0.18
+    );
+}
+
+
+.command {
+  color:
+    #e7c8bc;
+
+  font-size:
+    0.8rem;
+
+  font-weight:
+    800;
+}
+
+
+.question {
+  margin:
+    15px
+    auto;
+
+  max-width:
+    930px;
+
+  color:
+    #fff;
+
+  font:
+    clamp(
+      1.8rem,
+      5vw,
+      3.15rem
+    )
+    /
+    1.3
+    "Archivo Black";
+}
+
+
+.question sup,
+.choices sup,
+.solution sup {
+  font-size:
+    0.58em;
+}
+
+
+.frac {
+  display:
+    inline-flex;
+
+  vertical-align:
+    middle;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  line-height:
+    1.05;
+}
+
+
+.frac .top {
+  padding:
+    0
+    0.18em
+    0.1em;
+
+  border-bottom:
+    0.07em solid;
+}
+
+
+.frac .bottom {
+  padding:
+    0.1em
+    0.18em
+    0;
+}
+
+
+.note {
+  min-height:
+    20px;
+
+  margin-bottom:
+    20px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    0.75rem;
+}
+
+
+/* =========================================================
+   TYPED ANSWER
+========================================================= */
+
+#typedArea {
+  width:
+    min(
+      560px,
+      100%
+    );
+
+  margin:
+    auto;
+}
+
+
+#typedArea label {
+  display:
+    block;
+
+  margin-bottom:
+    8px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    0.62rem;
+
+  font-weight:
+    900;
+}
+
+
+#answerInput {
+  width:
+    100%;
+
+  min-height:
+    72px;
+
+  border:
+    2px solid
+    rgba(
+      243,
+      196,
+      78,
+      0.22
+    );
+
+  border-radius:
+    18px;
+
+  outline:
+    none;
+
+  color:
+    var(--cream);
+
+  background:
+    rgba(
+      12,
+      2,
+      2,
+      0.72
+    );
+
+  text-align:
+    center;
+
+  font:
+    clamp(
+      1.3rem,
+      5vw,
+      2.1rem
+    )
+    "Archivo Black";
+}
+
+
+#answerInput:focus {
+  border-color:
+    var(--gold);
+
+  box-shadow:
+    0
+    0
+    0
+    4px
+    rgba(
+      243,
+      196,
+      78,
+      0.08
+    );
+}
+
+
+.symbols {
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  gap:
+    7px;
+
+  flex-wrap:
+    wrap;
+
+  margin-top:
+    10px;
+}
+
+
+.symbols button {
+  min-width:
+    42px;
+
+  height:
+    38px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:
+    10px;
+
+  color:
+    var(--gold2);
+
+  background:
+    rgba(
+      70,
+      8,
+      8,
+      0.6
+    );
+
+  cursor:
+    pointer;
+
+  font-weight:
+    900;
+}
+
+
+/* =========================================================
+   MULTIPLE CHOICE
+========================================================= */
+
+.choices {
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap:
+    10px;
+
+  width:
+    min(
+      780px,
+      100%
+    );
+
+  margin:
+    auto;
+}
+
+
+.choice {
+  min-height:
+    68px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:
+    15px;
+
+  color:
+    white;
+
+  background:
+    rgba(
+      23,
+      4,
+      4,
+      0.68
+    );
+
+  cursor:
+    pointer;
+
+  font-weight:
+    900;
+}
+
+
+.choice:hover {
+  border-color:
+    var(--gold);
+}
+
+
+.choice.selected {
+  border-color:
+    var(--gold);
+
+  color:
+    var(--gold2);
+
+  background:
+    rgba(
+      243,
+      196,
+      78,
+      0.12
+    );
+}
+
+
+/* =========================================================
+   FEEDBACK / SOLUTION
+========================================================= */
+
+.feedback {
+  min-height:
+    44px;
+
+  margin:
+    17px
+    auto
+    0;
+
+  color:
+    #d9b9ad;
+
+  font-size:
+    0.82rem;
+
+  font-weight:
+    800;
+}
+
+
+.feedback.good {
+  color:
+    #86efac;
+}
+
+
+.feedback.bad {
+  color:
+    #fda4af;
+}
+
+
+.solution {
+  max-width:
+    790px;
+
+  margin:
+    17px
+    auto
+    0;
+
+  padding:
+    18px;
+
+  border:
+    1px solid
+    rgba(
+      243,
+      196,
+      78,
+      0.22
+    );
+
+  border-radius:
+    15px;
+
+  background:
+    rgba(
+      243,
+      196,
+      78,
+      0.055
+    );
+
+  color:
+    #e8cfc6;
+
+  text-align:
+    left;
+
+  line-height:
+    1.7;
+}
+
+
+.law {
+  display:
+    inline-block;
+
+  margin:
+    0
+    6px
+    7px
+    0;
+
+  padding:
+    5px
+    8px;
+
+  border-radius:
+    8px;
+
+  background:
+    var(--gold);
+
+  color:
+    #3a0905;
+
+  font-size:
+    0.6rem;
+
+  font-weight:
+    900;
+}
+
+
+.final {
+  margin-top:
+    10px;
+
+  padding-top:
+    10px;
+
+  border-top:
+    1px solid
+    var(--line);
+
+  color:
+    #fff4d1;
+
+  font:
+    1rem
+    "Archivo Black";
+}
+
+
+/* =========================================================
+   GAME ACTIONS
+========================================================= */
+
+.actions {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  gap:
+    11px;
+
+  margin-top:
+    14px;
+}
+
+
+.actions button,
+.secondary {
+  min-height:
+    58px;
+
+  border-radius:
+    16px;
+
+  cursor:
+    pointer;
+
+  font-weight:
+    900;
+}
+
+
+.check {
+  background:
+    linear-gradient(
+      135deg,
+      var(--gold),
+      #d8971d
+    );
+
+  color:
+    #320805;
+}
+
+
+.solution-btn {
+  border:
+    1px solid
+    var(--line);
+
+  background:
+    rgba(
+      92,
+      10,
+      10,
+      0.46
+    );
+
+  color:
+    var(--gold2);
+}
+
+
+.quit {
+  border:
+    1px solid
+    rgba(
+      251,
+      113,
+      133,
+      0.35
+    );
+
+  background:
+    rgba(
+      136,
+      19,
+      55,
+      0.24
+    );
+
+  color:
+    #fecdd3;
+}
+
+
+.actions.revealed {
+  grid-template-columns:
+    1.3fr
+    0.7fr;
+}
+
+
+.actions.revealed
+.solution-btn {
+  display:
+    none;
+}
+
+
+/* =========================================================
+   RESULT SCREEN
+========================================================= */
+
+.result {
+  text-align:
+    center;
+}
+
+
+.result-icon {
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  width:
+    80px;
+
+  height:
+    80px;
+
+  margin:
+    0
+    auto
+    18px;
+
+  border-radius:
+    23px;
+
+  background:
+    var(--gold);
+
+  color:
+    #320805;
+
+  font:
+    1.6rem
+    "Archivo Black";
+}
+
+
+.result-grid {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      1fr
+    );
+
+  gap:
+    11px;
+
+  margin:
+    25px
+    0;
+}
+
+
+.end-actions {
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap:
+    11px;
+}
+
+
+.end-actions
+.launch {
+  margin:
+    0;
+}
+
+
+.secondary {
+  border:
+    1px solid
+    var(--line);
+
+  background:
+    rgba(
+      53,
+      7,
+      7,
+      0.8
+    );
+
+  color:
+    #fff4dc;
+}
+
+
+.correct-answer {
+  color:
+    #ff9aa8;
+
+  font-weight:
+    900;
+}
+
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.modal {
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  z-index:
+    100;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  padding:
+    18px;
+
+  background:
+    rgba(
+      10,
+      1,
+      1,
+      0.82
+    );
+
+  backdrop-filter:
+    blur(
+      10px
+    );
+}
+
+
+.dialog {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  width:
+    min(
+      720px,
+      100%
+    );
+
+  max-height:
+    88vh;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid
+    rgba(
+      243,
+      196,
+      78,
+      0.22
+    );
+
+  border-radius:
+    24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #4b0908,
+      #170303
+    );
+
+  box-shadow:
+    0
+    35px
+    100px
+    rgba(
+      0,
+      0,
+      0,
+      0.58
+    );
+}
+
+
+.dialog.small {
+  width:
+    min(
+      560px,
+      100%
+    );
+}
+
+
+.dialog-head {
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  gap:
+    18px;
+
+  padding:
+    22px;
+}
+
+
+.dialog-head h2 {
+  margin:
+    7px
+    0;
+
+  font:
+    clamp(
+      1.35rem,
+      4vw,
+      2rem
+    )
+    "Archivo Black";
+}
+
+
+.close {
+  width:
+    38px;
+
+  height:
+    38px;
+
+  border-radius:
+    12px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
+
+  color:
+    white;
+
+  cursor:
+    pointer;
+
+  font-size:
+    1.3rem;
+}
+
+
+.modal-tools {
+  display:
+    flex;
+
+  gap:
+    9px;
+
+  padding:
+    0
+    22px
+    14px;
+}
+
+
+.modal-tools button,
+.done {
+  padding:
+    9px
+    13px;
+
+  border-radius:
+    11px;
+
+  background:
+    var(--gold);
+
+  color:
+    #320805;
+
+  cursor:
+    pointer;
+
+  font-weight:
+    900;
+}
+
+
+.modal-tools
+.ghost {
+  border:
+    1px solid
+    var(--line);
+
+  background:
+    rgba(
+      93,
+      10,
+      10,
+      0.46
+    );
+
+  color:
+    var(--gold2);
+}
+
+
+.modal-body {
+  overflow:
+    auto;
+
+  padding:
+    0
+    22px
+    15px;
+}
+
+
+.modal-body.single {
+  padding-top:
+    2px;
+}
+
+
+/* =========================================================
+   POPUP OPTION
+========================================================= */
+
+.option {
+  position:
+    relative;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  width:
+    100%;
+
+  gap:
+    13px;
+
+  min-height:
+    76px;
+
+  margin-bottom:
+    9px;
+
+  padding:
+    12px
+    45px
+    12px
+    12px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:
+    15px;
+
+  color:
+    #fff;
+
+  background:
+    rgba(
+      20,
+      3,
+      3,
+      0.58
+    );
+
+  cursor:
+    pointer;
+
+  text-align:
+    left;
+}
+
+
+.option > span {
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  min-width:
+    48px;
+
+  height:
+    44px;
+
+  padding:
+    0
+    8px;
+
+  border-radius:
+    13px;
+
+  color:
+    var(--gold2);
+
+  background:
+    rgba(
+      185,
+      28,
+      28,
+      0.22
+    );
+
+  font:
+    0.72rem
+    "Archivo Black";
+}
+
+
+.option strong,
+.option small {
+  display:
+    block;
+}
+
+
+.option small {
+  margin-top:
+    3px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    0.67rem;
+}
+
+
+.option b {
+  position:
+    absolute;
+
+  top:
+    10px;
+
+  right:
+    10px;
+
+  display:
+    none;
+
+  width:
+    22px;
+
+  height:
+    22px;
+
+  place-items:
+    center;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--gold);
+
+  color:
+    #3a0905;
+}
+
+
+.option.active {
+  border-color:
+    rgba(
+      243,
+      196,
+      78,
+      0.65
+    );
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(
+        243,
+        196,
+        78,
+        0.1
+      ),
+      rgba(
+        107,
+        11,
+        11,
+        0.4
+      )
+    );
+}
+
+
+.option.active > span {
+  background:
+    var(--gold);
+
+  color:
+    #320805;
+}
+
+
+.option.active b {
+  display:
+    grid;
+}
+
+
+.done {
+  min-height:
+    56px;
+
+  margin:
+    0
+    22px
+    22px;
+}
+
+
+/* =========================================================
+   RUN HISTORY
+========================================================= */
+
+.run-history {
+  margin-top:
+    28px;
+
+  padding-top:
+    25px;
+
+  border-top:
+    1px solid
+    rgba(
+      243,
+      196,
+      78,
+      0.16
+    );
+
+  text-align:
+    left;
+}
+
+
+.run-history-head {
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    end;
+
+  gap:
+    16px;
+
+  margin-bottom:
+    15px;
+}
+
+
+.run-history-head h3 {
+  margin:
+    6px
+    0
+    0;
+
+  color:
+    var(--cream);
+
+  font-family:
+    "Archivo Black",
+    sans-serif;
+
+  font-size:
+    1.35rem;
+}
+
+
+.run-history-head > span {
+  padding:
+    7px
+    10px;
+
+  border:
+    1px solid
+    rgba(
+      243,
+      196,
+      78,
+      0.17
+    );
+
+  border-radius:
+    999px;
+
+  color:
+    var(--gold2);
+
+  background:
+    rgba(
+      243,
+      196,
+      78,
+      0.06
+    );
+
+  font-size:
+    0.58rem;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.08em;
+}
+
+
+.history-list {
+  display:
+    grid;
+
+  gap:
+    9px;
+}
+
+
+.history-item {
+  position:
+    relative;
+
+  overflow:
+    hidden;
+
+  padding:
+    14px
+    16px;
+
+  border:
+    1px solid
+    rgba(
+      243,
+      196,
+      78,
+      0.15
+    );
+
+  border-radius:
+    15px;
+
+  background:
+    rgba(
+      14,
+      3,
+      3,
+      0.54
+    );
+}
+
+
+.history-item::before {
+  position:
+    absolute;
+
+  top:
+    0;
+
+  bottom:
+    0;
+
+  left:
+    0;
+
+  width:
+    3px;
+
+  content:
+    "";
+}
+
+
+.history-correct::before {
+  background:
+    #34d399;
+}
+
+
+.history-wrong::before {
+  background:
+    #fb7185;
+}
+
+
+.history-question {
+  color:
+    #fff8ee;
+
+  font-size:
+    0.79rem;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.55;
+}
+
+
+.history-question strong {
+  color:
+    inherit;
+}
+
+
+.history-correct
+.history-question strong {
+  color:
+    #86efac;
+}
+
+
+.history-wrong
+.history-question strong {
+  color:
+    #fda4af;
+}
+
+
+.history-question .frac {
+  font-size:
+    0.95em;
+}
+
+
+.history-meta {
+  margin-top:
+    6px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    0.65rem;
+
+  font-weight:
+    650;
+
+  line-height:
+    1.45;
+}
+
+
+.history-correct
+.history-meta {
+  color:
+    #9fc9b7;
+}
+
+
+.history-wrong
+.history-meta {
+  color:
+    #d7a2aa;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media
+(max-width: 900px) {
+
+  .hero {
+    min-height:
+      0;
+
+    padding:
+      38px
+      34px;
+  }
+
+
+  .hero-content {
+    grid-template-columns:
+      minmax(
+        0,
+        1fr
+      )
+      minmax(
+        235px,
+        0.72fr
+      );
+
+    gap:
+      25px;
+  }
+
+
+  .hero h1 {
+    font-size:
+      clamp(
+        2.6rem,
+        7vw,
+        4.5rem
+      );
+  }
+
+
+  .hero-visual {
+    display:
+      grid;
+
+    min-height:
+      225px;
+
+    transform:
+      scale(
+        0.88
+      );
+
+    transform-origin:
+      center;
+  }
+
+
+  .setup-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .panel.full {
+    grid-column:
+      auto;
+  }
+
+
+  .result-grid {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+}
+
+
+@media
+(max-width: 650px) {
+
+  .app {
+    width:
+      min(
+        100% - 16px,
+        1140px
+      );
+
+    padding-top:
+      8px;
+  }
+
+
+  .hero {
+    padding:
+      28px
+      22px
+      25px;
+
+    border-radius:
+      22px;
+  }
+
+
+  .hero-content {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      12px;
+
+    text-align:
+      center;
+  }
+
+
+  .hero-copy {
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    align-items:
+      center;
+  }
+
+
+  .hero .eyebrow {
+    margin-bottom:
+      10px;
+  }
+
+
+  .hero h1 {
+    font-size:
+      clamp(
+        2.65rem,
+        14vw,
+        4rem
+      );
+
+    line-height:
+      0.92;
+  }
+
+
+  .hero-visual {
+    display:
+      grid;
+
+    width:
+      min(
+        300px,
+        100%
+      );
+
+    min-height:
+      230px;
+
+    margin:
+      8px
+      auto
+      0;
+
+    transform:
+      scale(
+        0.82
+      );
+
+    transform-origin:
+      center;
+  }
+
+
+  .screen-card {
+    padding:
+      21px;
+
+    border-radius:
+      22px;
+  }
+
+
+  .screen-heading {
+    flex-direction:
+      column;
+  }
+
+
+  .stats {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+
+  .choices,
+  .actions,
+  .actions.revealed,
+  .end-actions,
+  .result-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .run-history-head {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .panel {
+    padding: 16px;
+  }
+
+  .selector {
+    min-height: 74px;
+    padding: 12px;
+    gap: 11px;
+  }
+
+  .selector-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .time-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .time-card {
+    min-height: 78px;
+  }
+
+  .custom-time {
+    padding: 14px 10px;
+    gap: 8px;
+  }
+
+  .custom-time label {
+    width: 44%;
+  }
+
+  .question-box {
+    min-height: 0;
+    padding: 28px 14px;
+  }
+
+  .question {
+    font-size: clamp(1.55rem, 8vw, 2.4rem);
+    overflow-wrap: anywhere;
+  }
+
+  .launch,
+  .secondary,
+  .actions button {
+    min-height: 56px;
+  }
+
+  .history-item {
+    padding: 13px 14px;
+  }
+}
+
+  </style>
+
+</head>
+
+<body>
+
+
+  <div
+    class="power-bg"
+    aria-hidden="true"
+  >
+    <span>xᵃ · xᵇ = xᵃ⁺ᵇ</span>
+    <span>(xᵃ)ᵇ = xᵃᵇ</span>
+    <span>x⁻ᵃ = 1/xᵃ</span>
+    <span>x⁰ = 1</span>
+  </div>
+
+
+  <div class="app">
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <header class="hero">
+
+      <div class="hero-content">
+
+        <div class="hero-copy">
+
+          <div class="eyebrow">
+            UPCAT-AUDD
+          </div>
+
+          <h1>
+            Exponent
+            <span>xⁿ</span>
+            <br>
+            Arena
+          </h1>
+
+        </div>
+
+
+        <div
+          class="hero-visual"
+          aria-hidden="true"
+        >
+
+          <div class="orbit orbit-one"></div>
+
+          <div class="orbit orbit-two"></div>
+
+
+          <div class="math-core">
+
+            <small>
+              EXPONENT
+            </small>
+
+            <strong>
+              xⁿ
+            </strong>
+
+            <small>
+              ARENA
+            </small>
+
+          </div>
+
+
+          <span class="floating-chip chip-a">
+            x²
+          </span>
+
+          <span class="floating-chip chip-b">
+            x⁻³
+          </span>
+
+          <span class="floating-chip chip-c">
+            ½
+          </span>
+
+          <span class="floating-chip chip-d">
+            aᵐ
+          </span>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <main>
+
+      <!-- =====================================================
+           SETUP SCREEN
+      ====================================================== -->
+
+      <section
+        class="screen-card"
+        id="setupScreen"
+      >
+
+        <div class="screen-heading">
+
+          <div>
+
+            <div class="kicker">
+              Arena Setup
+            </div>
+
+            <h2>
+              Build Your Exponent Drill
+            </h2>
+
+            <p>
+              Default: all exponent modes,
+              Intermediate, Random answer format,
+              Untimed.
+            </p>
+
+          </div>
+
+
+          <div class="ready">
+            ● READY
+          </div>
+
+        </div>
+
+
+        <div
+          class="setup-grid"
+          id="setupGrid"
+        >
+
+          <!-- =================================================
+               01 EXPONENT MODES
+          ================================================== -->
+
+          <section class="panel full">
+
+            <div class="panel-head">
+
+              <span>
+                01
+              </span>
+
+              <div>
+
+                <h3>
+                  Exponent Modes
+                </h3>
+
+                <p>
+                  Choose which exponent skills can appear.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <button
+              class="selector"
+              id="modeSelector"
+              type="button"
+            >
+
+              <span class="selector-icon">
+                xⁿ
+              </span>
+
+              <span>
+
+                <small>
+                  CURRENT MODE POOL
+                </small>
+
+                <strong id="modeTitle">
+                  All Exponent Modes
+                </strong>
+
+                <em id="modeDesc">
+                  All 8 exponent skills are active
+                </em>
+
+              </span>
+
+              <b>
+                →
+              </b>
+
+            </button>
+
+          </section>
+
+
+          <!-- =================================================
+               02 DIFFICULTY
+          ================================================== -->
+
+          <section class="panel">
+
+            <div class="panel-head">
+
+              <span>
+                02
+              </span>
+
+              <div>
+
+                <h3>
+                  Difficulty
+                </h3>
+
+                <p>
+                  Controls how many exponent laws are combined.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <button
+              class="selector"
+              id="difficultySelector"
+              type="button"
+            >
+
+              <span class="selector-icon">
+                ◆
+              </span>
+
+              <span>
+
+                <small>
+                  CURRENT DIFFICULTY
+                </small>
+
+                <strong id="difficultyTitle">
+                  Intermediate
+                </strong>
+
+                <em id="difficultyDesc">
+                  2–3 laws combined
+                </em>
+
+              </span>
+
+              <b>
+                →
+              </b>
+
+            </button>
+
+          </section>
+
+
+          <!-- =================================================
+               03 ANSWER FORMAT
+          ================================================== -->
+
+          <section class="panel">
+
+            <div class="panel-head">
+
+              <span>
+                03
+              </span>
+
+              <div>
+
+                <h3>
+                  Answer Format
+                </h3>
+
+                <p>
+                  Choose how answers will be entered.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <button
+              class="selector"
+              id="answerSelector"
+              type="button"
+            >
+
+              <span class="selector-icon">
+                ↯
+              </span>
+
+              <span>
+
+                <small>
+                  CURRENT FORMAT
+                </small>
+
+                <strong id="answerTitle">
+                  Random
+                </strong>
+
+                <em id="answerDesc">
+                  Typed + multiple choice
+                </em>
+
+              </span>
+
+              <b>
+                →
+              </b>
+
+            </button>
+
+          </section>
+
+
+          <!-- =================================================
+               04 TIME MODE
+          ================================================== -->
+
+          <section class="panel full">
+
+            <div class="panel-head">
+
+              <span>
+                04
+              </span>
+
+              <div>
+
+                <h3>
+                  Time Mode
+                </h3>
+
+                <p>
+                  Untimed tracks elapsed time.
+                  Timed uses your custom countdown.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="time-grid"
+              id="timeChoices"
+            >
+
+              <button
+                class="time-card active"
+                data-time="untimed"
+                type="button"
+              >
+
+                <strong>
+                  ∞
+                </strong>
+
+                <span>
+                  Untimed
+                </span>
+
+              </button>
+
+
+              <button
+                class="time-card"
+                data-time="timed"
+                type="button"
+              >
+
+                <strong>
+                  ⏱
+                </strong>
+
+                <span>
+                  Timed
+                </span>
+
+              </button>
+
+            </div>
+
+
+            <div
+              class="custom-time hidden"
+              id="customTime"
+            >
+
+              <label>
+
+                Minutes
+
+                <input
+                  id="minutes"
+                  type="number"
+                  min="0"
+                  max="99"
+                  value="5"
+                >
+
+              </label>
+
+
+              <b>
+                :
+              </b>
+
+
+              <label>
+
+                Seconds
+
+                <input
+                  id="seconds"
+                  type="number"
+                  min="0"
+                  max="59"
+                  value="0"
+                >
+
+              </label>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!-- START -->
+
+        <button
+          class="launch"
+          id="startBtn"
+          type="button"
+        >
+
+          <span>
+            ▶
+          </span>
+
+          <span>
+
+            <strong>
+              Simulan ang Bakbakan
+            </strong>
+
+            <small id="setupSummaryText">
+              All Exponent Modes · Intermediate · Random · Untimed
+            </small>
+
+          </span>
+
+          <b>
+            →
+          </b>
+
+        </button>
+
+      </section>
+
+
+      <!-- =====================================================
+           GAME SCREEN
+      ====================================================== -->
+
+      <section
+        class="screen-card hidden"
+        id="gameScreen"
+      >
+
+        <div class="screen-heading">
+
+          <div>
+
+            <div
+              class="kicker"
+              id="gameKicker"
+            >
+              Exponent Arena
+            </div>
+
+            <h2 id="gameTitle">
+              Bakbakan Na
+            </h2>
+
+          </div>
+
+
+          <div class="ready">
+            ● ACTIVE
+          </div>
+
+        </div>
+
+
+        <div class="timer">
+
+          <span id="timerIcon">
+            ∞
+          </span>
+
+          <div>
+
+            <small id="timerLabel">
+              ELAPSED TIME
+            </small>
+
+            <strong id="timerDisplay">
+              0:00.0
+            </strong>
+
+          </div>
+
+
+          <div
+            class="progress hidden"
+            id="progress"
+          >
+
+            <i id="progressBar"></i>
+
+          </div>
+
+        </div>
+
+
+        <div class="stats">
+
+          <div>
+            <small>Question</small>
+            <strong id="questionStat">1</strong>
+          </div>
+
+          <div>
+            <small>Correct</small>
+            <strong id="correctStat">0</strong>
+          </div>
+
+          <div>
+            <small>Streak</small>
+            <strong id="streakStat">0</strong>
+          </div>
+
+          <div>
+            <small>Errors</small>
+            <strong id="errorStat">0 / 2</strong>
+          </div>
+
+        </div>
+
+
+        <div class="question-box">
+
+          <div class="badges">
+
+            <span id="attemptBadge">
+              UNANG SUBOK
+            </span>
+
+            <span id="typeBadge">
+              PRODUCT RULE
+            </span>
+
+          </div>
+
+
+          <div
+            class="command"
+            id="command"
+          >
+            Simplify.
+          </div>
+
+
+          <div
+            class="question"
+            id="questionText"
+          >
+            x³ · x⁴
+          </div>
+
+
+          <div
+            class="note"
+            id="note"
+          ></div>
+
+
+          <div id="typedArea">
+
+            <label>
+              YOUR ANSWER
+            </label>
+
+            <input
+              id="answerInput"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Type your answer"
+            >
+
+
+            <div
+              class="symbols"
+              id="symbols"
+            >
+
+              <button
+                type="button"
+                data-add="x"
+              >
+                x
+              </button>
+
+              <button
+                type="button"
+                data-add="y"
+              >
+                y
+              </button>
+
+              <button
+                type="button"
+                data-add="^"
+              >
+                ^
+              </button>
+
+              <button
+                type="button"
+                data-add="/"
+              >
+                /
+              </button>
+
+              <button
+                type="button"
+                data-add="("
+              >
+                (
+              </button>
+
+              <button
+                type="button"
+                data-add=")"
+              >
+                )
+              </button>
+
+              <button
+                type="button"
+                data-add="-"
+              >
+                −
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="choices hidden"
+            id="choices"
+          ></div>
+
+
+          <div
+            class="feedback"
+            id="feedback"
+          >
+            Solve carefully, then check your answer.
+          </div>
+
+
+          <div
+            class="solution hidden"
+            id="solution"
+          ></div>
+
+        </div>
+
+
+        <div
+          class="actions"
+          id="actions"
+        >
+
+          <button
+            class="quit"
+            id="quitBtn"
+            type="button"
+          >
+            Quit Run
+          </button>
+
+
+          <button
+            class="solution-btn"
+            id="solutionBtn"
+            type="button"
+          >
+            Solution
+          </button>
+
+
+          <button
+            class="check"
+            id="checkBtn"
+            type="button"
+          >
+            ✓ Check Answer
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           RESULT SCREEN
+      ====================================================== -->
+
+      <section
+        class="screen-card result hidden"
+        id="resultScreen"
+      >
+
+        <div
+          class="result-icon"
+          id="resultIcon"
+        >
+          xⁿ
+        </div>
+
+        <div class="kicker">
+          BAKBAKAN SUMMARY
+        </div>
+
+        <h2 id="resultTitle">
+          Run Ended
+        </h2>
+
+        <div
+          id="correctAnswer"
+          class="correct-answer hidden"
+        ></div>
+
+        <p id="resultSetup"></p>
+
+
+        <div class="result-grid">
+
+          <div>
+            <strong id="finalCorrect">0</strong>
+            <small>Correct</small>
+          </div>
+
+          <div>
+            <strong id="finalAccuracy">0%</strong>
+            <small>Accuracy</small>
+          </div>
+
+          <div>
+            <strong id="finalStreak">0</strong>
+            <small>Best Streak</small>
+          </div>
+
+          <div>
+            <strong id="finalQuestions">0</strong>
+            <small>Questions</small>
+          </div>
+
+        </div>
+
+
+      <div class="end-actions">
+
+  <button
+    class="secondary"
+    id="setupBtn"
+    type="button"
+  >
+    Change Setup
+  </button>
+
+
+  <button
+    class="launch"
+    id="againBtn"
+    type="button"
+  >
+
+    <span>
+      ↻
+    </span>
+
+    <span>
+
+      <strong>
+        Play Again
+      </strong>
+
+      <small>
+        Same setup
+      </small>
+
+    </span>
+
+  </button>
+
+</div>
+
+
+        <!-- =====================================================
+             RUN QUESTION HISTORY
+        ====================================================== -->
+
+        <div
+          class="run-history"
+          id="runHistory"
+        >
+
+          <div class="run-history-head">
+
+            <div>
+
+              <div class="kicker">
+                QUESTION REVIEW
+              </div>
+
+              <h3>
+                Run Breakdown
+              </h3>
+
+            </div>
+
+            <span id="historyCount">
+              0 QUESTIONS
+            </span>
+
+          </div>
+
+
+          <div
+            class="history-list"
+            id="historyList"
+          ></div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- =========================================================
+       EXPONENT MODE POPUP
+  ========================================================== -->
+
+  <div
+    class="modal hidden"
+    id="modeModal"
+  >
+
+    <div class="dialog">
+
+      <div class="dialog-head">
+
+        <div>
+
+          <div class="kicker">
+            CUSTOM MODE POOL
+          </div>
+
+          <h2>
+            Choose Exponent Modes
+          </h2>
+
+          <p>
+            Select one or more skills.
+          </p>
+
+        </div>
+
+
+        <button
+          class="close"
+          data-close="modeModal"
+          type="button"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="modal-tools">
+
+        <button
+          id="selectAll"
+          type="button"
+        >
+          Select All
+        </button>
+
+        <button
+          id="clearAll"
+          class="ghost"
+          type="button"
+        >
+          Clear All
+        </button>
+
+      </div>
+
+
+      <div
+        class="modal-body"
+        id="modeList"
+      >
+
+        <button
+          class="option active"
+          data-mode="basicPowers"
+          type="button"
+        >
+
+          <span>
+            2⁵
+          </span>
+
+          <div>
+            <strong>Basic Powers</strong>
+            <small>Signs, parentheses, integer powers.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+
+        <button
+          class="option active"
+          data-mode="productQuotient"
+          type="button"
+        >
+
+          <span>
+            ×÷
+          </span>
+
+          <div>
+            <strong>Product & Quotient Laws</strong>
+            <small>Add and subtract exponents correctly.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+
+        <button
+          class="option active"
+          data-mode="powerRules"
+          type="button"
+        >
+
+          <span>
+            (xᵃ)ᵇ
+          </span>
+
+          <div>
+            <strong>Power Rules</strong>
+            <small>Power of a power and product.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+
+        <button
+          class="option active"
+          data-mode="zeroNegative"
+          type="button"
+        >
+
+          <span>
+            x⁻ⁿ
+          </span>
+
+          <div>
+            <strong>Zero & Negative Exponents</strong>
+            <small>Rewrite with positive exponents.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+
+        <button
+          class="option active"
+          data-mode="fractional"
+          type="button"
+        >
+
+          <span>
+            x½
+          </span>
+
+          <div>
+            <strong>Fractional Exponents</strong>
+            <small>Perfect roots and rational exponents.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+
+        <button
+          class="option active"
+          data-mode="fullSimplification"
+          type="button"
+        >
+
+          <span>
+            Σ
+          </span>
+
+          <div>
+            <strong>Full Simplification</strong>
+            <small>Several laws in one expression.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+
+        <button
+          class="option active"
+          data-mode="equations"
+          type="button"
+        >
+
+          <span>
+            =
+          </span>
+
+          <div>
+            <strong>Exponential Equations</strong>
+            <small>Rewrite bases and solve for x.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+
+        <button
+          class="option active"
+          data-mode="cetMixed"
+          type="button"
+        >
+
+          <span>
+            ⚠
+          </span>
+
+          <div>
+            <strong>CET Mixed Challenge</strong>
+            <small>Trap-heavy combinations.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+      </div>
+
+
+      <button
+        class="done"
+        id="modeDone"
+        type="button"
+      >
+        Done · 8 Selected
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       DIFFICULTY POPUP
+  ========================================================== -->
+
+  <div
+    class="modal hidden"
+    id="difficultyModal"
+  >
+
+    <div class="dialog small">
+
+      <div class="dialog-head">
+
+        <div>
+
+          <div class="kicker">
+            DIFFICULTY
+          </div>
+
+          <h2>
+            Choose Difficulty
+          </h2>
+
+        </div>
+
+
+        <button
+          class="close"
+          data-close="difficultyModal"
+          type="button"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div
+        class="modal-body single"
+        id="difficultyList"
+      >
+
+        <button
+          class="option"
+          data-difficulty="foundation"
+          type="button"
+        >
+
+          <span>
+            1
+          </span>
+
+          <div>
+            <strong>Foundation</strong>
+            <small>One law at a time.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+
+        <button
+          class="option active"
+          data-difficulty="intermediate"
+          type="button"
+        >
+
+          <span>
+            2
+          </span>
+
+          <div>
+            <strong>Intermediate</strong>
+            <small>Usually 2–3 laws combined.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+
+        <button
+          class="option"
+          data-difficulty="cet"
+          type="button"
+        >
+
+          <span>
+            ⚡
+          </span>
+
+          <div>
+            <strong>CET Challenge</strong>
+            <small>Layered, deceptive, trap-heavy.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       ANSWER FORMAT POPUP
+  ========================================================== -->
+
+  <div
+    class="modal hidden"
+    id="answerModal"
+  >
+
+    <div class="dialog small">
+
+      <div class="dialog-head">
+
+        <div>
+
+          <div class="kicker">
+            ANSWER FORMAT
+          </div>
+
+          <h2>
+            Choose Answer Format
+          </h2>
+
+        </div>
+
+
+        <button
+          class="close"
+          data-close="answerModal"
+          type="button"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div
+        class="modal-body single"
+        id="answerList"
+      >
+
+        <button
+          class="option"
+          data-answer="typed"
+          type="button"
+        >
+
+          <span>
+            ⌨
+          </span>
+
+          <div>
+            <strong>Type Answer</strong>
+            <small>No choices. Best for mastery.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+
+        <button
+          class="option"
+          data-answer="choices"
+          type="button"
+        >
+
+          <span>
+            AB
+          </span>
+
+          <div>
+            <strong>Multiple Choice</strong>
+            <small>Four CET-style choices.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+
+        <button
+          class="option active"
+          data-answer="random"
+          type="button"
+        >
+
+          <span>
+            ↯
+          </span>
+
+          <div>
+            <strong>Random</strong>
+            <small>Typed + multiple choice.</small>
+          </div>
+
+          <b>✓</b>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
+
+  <script>
+
+"use strict";
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+const $ =
+  (id) =>
+    document.getElementById(
+      id
+    );
+
+
+const randomFrom =
+  (array) =>
+    array[
+      Math.floor(
+        Math.random() *
+        array.length
+      )
+    ];
+
+
+const randomInteger =
+  (
+    min,
+    max
+  ) =>
+    Math.floor(
+      Math.random() *
+      (
+        max -
+        min +
+        1
+      )
+    ) +
+    min;
+
+
+function shuffle(
+  array
+) {
+
+  const copy =
+    [
+      ...array
+    ];
+
+
+  for (
+    let i =
+      copy.length -
+      1;
+
+    i >
+    0;
+
+    i--
+  ) {
+
+    const j =
+      Math.floor(
+        Math.random() *
+        (
+          i +
+          1
+        )
+      );
+
+
+    [
+      copy[i],
+      copy[j]
+    ] =
+    [
+      copy[j],
+      copy[i]
+    ];
+
+  }
+
+
+  return copy;
+}
+
+
+function gcd(
+  a,
+  b
+) {
+
+  a =
+    Math.abs(a);
+
+  b =
+    Math.abs(b);
+
+
+  while (b) {
+
+    [
+      a,
+      b
+    ] =
+    [
+      b,
+      a % b
+    ];
+
+  }
+
+
+  return (
+    a ||
+    1
+  );
+}
+
+
+function reduceFraction(
+  numerator,
+  denominator = 1
+) {
+
+  if (
+    denominator <
+    0
+  ) {
+
+    numerator *=
+      -1;
+
+    denominator *=
+      -1;
+
+  }
+
+
+  const divisor =
+    gcd(
+      numerator,
+      denominator
+    );
+
+
+  return [
+    numerator /
+    divisor,
+
+    denominator /
+    divisor
+  ];
+}
+
+
+function sup(
+  exponent
+) {
+
+  return (
+    `<sup>${
+      String(
+        exponent
+      )
+        .replaceAll(
+          "-",
+          "−"
+        )
+    }</sup>`
+  );
+}
+
+
+function powerHtml(
+  base,
+  exponent
+) {
+
+  return (
+    `${base}${sup(
+      exponent
+    )}`
+  );
+}
+
+
+function fractionHtml(
+  numerator,
+  denominator
+) {
+
+  return (
+    `<span class="frac">` +
+      `<span class="top">` +
+        `${numerator}` +
+      `</span>` +
+      `<span class="bottom">` +
+        `${denominator}` +
+      `</span>` +
+    `</span>`
+  );
+}
+
+
+function formatCountdown(
+  seconds
+) {
+
+  const safe =
+    Math.max(
+      0,
+      seconds
+    );
+
+
+  return (
+    `${
+      Math.floor(
+        safe /
+        60
+      )
+    }:` +
+    `${
+      String(
+        Math.ceil(
+          safe
+        ) %
+        60
+      )
+        .padStart(
+          2,
+          "0"
+        )
+    }`
+  );
+}
+
+
+function formatElapsed(
+  milliseconds
+) {
+
+  const tenths =
+    Math.floor(
+      milliseconds /
+      100
+    );
+
+
+  const minutes =
+    Math.floor(
+      tenths /
+      600
+    );
+
+
+  const seconds =
+    Math.floor(
+      (
+        tenths %
+        600
+      ) /
+      10
+    );
+
+
+  return (
+    `${minutes}:` +
+    `${
+      String(
+        seconds
+      )
+        .padStart(
+          2,
+          "0"
+        )
+    }.` +
+    `${
+      tenths %
+      10
+    }`
+  );
+}
+
+
+/* =========================================================
+   MODES
+========================================================= */
+
+const ALL_MODES = [
+  "basicPowers",
+  "productQuotient",
+  "powerRules",
+  "zeroNegative",
+  "fractional",
+  "fullSimplification",
+  "equations",
+  "cetMixed"
+];
+
+
+const MODE_LABELS = {
+
+  basicPowers:
+    "Basic Powers",
+
+  productQuotient:
+    "Product & Quotient",
+
+  powerRules:
+    "Power Rules",
+
+  zeroNegative:
+    "Zero & Negative",
+
+  fractional:
+    "Fractional Exponents",
+
+  fullSimplification:
+    "Full Simplification",
+
+  equations:
+    "Exponential Equations",
+
+  cetMixed:
+    "CET Mixed Challenge"
+
+};
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+const state = {
+
+  modes:
+    [
+      ...ALL_MODES
+    ],
+
+  difficulty:
+    "intermediate",
+
+  answerFormat:
+    "random",
+
+  timeMode:
+    "untimed",
+
+  question:
+    null,
+
+  questionNumber:
+    0,
+
+  correct:
+    0,
+
+  scored:
+    0,
+
+  streak:
+    0,
+
+  bestStreak:
+    0,
+
+  errors:
+    0,
+
+  waiting:
+    false,
+
+  revealed:
+    false,
+
+  selectedChoice:
+    null,
+
+  renderFormat:
+    "typed",
+
+  ended:
+    false,
+
+  startTime:
+    0,
+
+  timerId:
+    null,
+
+  totalSeconds:
+    0,
+
+  remaining:
+    0,
+
+  lastAnswer:
+    "",
+
+  history:
+    [],
+
+  currentQuestionErrors:
+    0
+
+};
+
+
+/* =========================================================
+   DOM
+========================================================= */
+
+const setupScreen =
+  $("setupScreen");
+
+const gameScreen =
+  $("gameScreen");
+
+const resultScreen =
+  $("resultScreen");
+
+
+const setupSummaryText =
+  $("setupSummaryText");
+
+const setupGrid =
+  $("setupGrid");
+
+
+const modeSelector =
+  $("modeSelector");
+
+const modeTitle =
+  $("modeTitle");
+
+const modeDesc =
+  $("modeDesc");
+
+
+const difficultySelector =
+  $("difficultySelector");
+
+const difficultyTitle =
+  $("difficultyTitle");
+
+const difficultyDesc =
+  $("difficultyDesc");
+
+
+const answerSelector =
+  $("answerSelector");
+
+const answerTitle =
+  $("answerTitle");
+
+const answerDesc =
+  $("answerDesc");
+
+
+const modeModal =
+  $("modeModal");
+
+const difficultyModal =
+  $("difficultyModal");
+
+const answerModal =
+  $("answerModal");
+
+
+const modeList =
+  $("modeList");
+
+const difficultyList =
+  $("difficultyList");
+
+const answerList =
+  $("answerList");
+
+const modeDone =
+  $("modeDone");
+
+
+const timeChoices =
+  $("timeChoices");
+
+const customTime =
+  $("customTime");
+
+const minutes =
+  $("minutes");
+
+const seconds =
+  $("seconds");
+
+
+const gameKicker =
+  $("gameKicker");
+
+const gameTitle =
+  $("gameTitle");
+
+const timerIcon =
+  $("timerIcon");
+
+const timerLabel =
+  $("timerLabel");
+
+const timerDisplay =
+  $("timerDisplay");
+
+const progress =
+  $("progress");
+
+const progressBar =
+  $("progressBar");
+
+
+const questionStat =
+  $("questionStat");
+
+const correctStat =
+  $("correctStat");
+
+const streakStat =
+  $("streakStat");
+
+const errorStat =
+  $("errorStat");
+
+
+const attemptBadge =
+  $("attemptBadge");
+
+const typeBadge =
+  $("typeBadge");
+
+const command =
+  $("command");
+
+const questionText =
+  $("questionText");
+
+const note =
+  $("note");
+
+
+const typedArea =
+  $("typedArea");
+
+const answerInput =
+  $("answerInput");
+
+const choices =
+  $("choices");
+
+const feedback =
+  $("feedback");
+
+const solution =
+  $("solution");
+
+const actions =
+  $("actions");
+
+
+const checkBtn =
+  $("checkBtn");
+
+const solutionBtn =
+  $("solutionBtn");
+
+const quitBtn =
+  $("quitBtn");
+
+
+const historyList =
+  $("historyList");
+
+const historyCount =
+  $("historyCount");
+
+
+/* =========================================================
+   MODAL HELPERS
+========================================================= */
+
+function openModal(
+  modal
+) {
+
+  modal
+    .classList
+    .remove(
+      "hidden"
+    );
+
+
+  document
+    .body
+    .classList
+    .add(
+      "modal-open"
+    );
+
+}
+
+
+function closeModal(
+  modal
+) {
+
+  modal
+    .classList
+    .add(
+      "hidden"
+    );
+
+
+  const allClosed =
+    [
+      modeModal,
+      difficultyModal,
+      answerModal
+    ]
+      .every(
+        (
+          item
+        ) =>
+          item
+            .classList
+            .contains(
+              "hidden"
+            )
+      );
+
+
+  if (
+    allClosed
+  ) {
+
+    document
+      .body
+      .classList
+      .remove(
+        "modal-open"
+      );
+
+  }
+
+}
+
+
+function setSingleActive(
+  parent,
+  button
+) {
+
+  parent
+    .querySelectorAll(
+      ".option"
+    )
+    .forEach(
+      (
+        item
+      ) => {
+
+        item
+          .classList
+          .toggle(
+            "active",
+            item ===
+            button
+          );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   MODE SETTINGS
+========================================================= */
+
+function updateModeDone() {
+
+  const count =
+    modeList
+      .querySelectorAll(
+        ".option.active"
+      )
+      .length;
+
+
+  modeDone.textContent =
+    `Done · ${count} Selected`;
+
+}
+
+
+function updateModeDisplay() {
+
+  if (
+    state.modes.length ===
+    ALL_MODES.length
+  ) {
+
+    modeTitle.textContent =
+      "All Exponent Modes";
+
+
+    modeDesc.textContent =
+      "All 8 exponent skills are active";
+
+
+    return;
+  }
+
+
+  modeTitle.textContent =
+    `${state.modes.length} Exponent Mode${
+      state.modes.length ===
+      1
+        ? ""
+        : "s"
+    } Selected`;
+
+
+  modeDesc.textContent =
+    state.modes
+      .map(
+        (
+          mode
+        ) =>
+          MODE_LABELS[
+            mode
+          ]
+      )
+      .join(
+        " · "
+      );
+
+}
+
+
+/* =========================================================
+   DIFFICULTY DISPLAY
+========================================================= */
+
+function updateDifficultyDisplay() {
+
+  const settings = {
+
+    foundation: [
+      "Foundation",
+      "One law at a time"
+    ],
+
+    intermediate: [
+      "Intermediate",
+      "2–3 laws combined"
+    ],
+
+    cet: [
+      "CET Challenge",
+      "Layered and deceptive"
+    ]
+
+  };
+
+
+  difficultyTitle.textContent =
+    settings[
+      state.difficulty
+    ][0];
+
+
+  difficultyDesc.textContent =
+    settings[
+      state.difficulty
+    ][1];
+
+}
+
+
+/* =========================================================
+   ANSWER FORMAT DISPLAY
+========================================================= */
+
+function updateAnswerDisplay() {
+
+  const settings = {
+
+    typed: [
+      "Type Answer",
+      "No choices · best for mastery"
+    ],
+
+    choices: [
+      "Multiple Choice",
+      "Four CET-style choices"
+    ],
+
+    random: [
+      "Random",
+      "Typed + multiple choice"
+    ]
+
+  };
+
+
+  answerTitle.textContent =
+    settings[
+      state.answerFormat
+    ][0];
+
+
+  answerDesc.textContent =
+    settings[
+      state.answerFormat
+    ][1];
+
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+function getTimerSeconds() {
+
+  const minuteValue =
+    Math.max(
+      0,
+      Math.min(
+        99,
+        Number(
+          minutes.value
+        ) ||
+        0
+      )
+    );
+
+
+  const secondValue =
+    Math.max(
+      0,
+      Math.min(
+        59,
+        Number(
+          seconds.value
+        ) ||
+        0
+      )
+    );
+
+
+  return (
+    minuteValue *
+    60 +
+    secondValue
+  );
+
+}
+
+
+function updateSummary() {
+
+  const modeLabel =
+    state.modes.length ===
+    ALL_MODES.length
+      ? "All Exponent Modes"
+      : `${state.modes.length} Custom Modes`;
+
+
+  const difficultyLabel = {
+
+    foundation:
+      "Foundation",
+
+    intermediate:
+      "Intermediate",
+
+    cet:
+      "CET Challenge"
+
+  }[
+    state.difficulty
+  ];
+
+
+  const answerLabel = {
+
+    typed:
+      "Type Answer",
+
+    choices:
+      "Multiple Choice",
+
+    random:
+      "Random"
+
+  }[
+    state.answerFormat
+  ];
+
+
+  const timeLabel =
+    state.timeMode ===
+    "untimed"
+      ? "Untimed"
+      : `Timed · ${
+          formatCountdown(
+            getTimerSeconds()
+          )
+        }`;
+
+
+  setupSummaryText.textContent =
+    `${modeLabel} · ` +
+    `${difficultyLabel} · ` +
+    `${answerLabel} · ` +
+    `${timeLabel}`;
+
+}
+
+
+/* =========================================================
+   SETUP EVENTS
+========================================================= */
+
+modeSelector
+  .addEventListener(
+    "click",
+    () => {
+
+      openModal(
+        modeModal
+      );
+
+    }
+  );
+
+
+difficultySelector
+  .addEventListener(
+    "click",
+    () => {
+
+      openModal(
+        difficultyModal
+      );
+
+    }
+  );
+
+
+answerSelector
+  .addEventListener(
+    "click",
+    () => {
+
+      openModal(
+        answerModal
+      );
+
+    }
+  );
+
+
+document
+  .querySelectorAll(
+    "[data-close]"
+  )
+  .forEach(
+    (
+      button
+    ) => {
+
+      button
+        .addEventListener(
+          "click",
+          () => {
+
+            closeModal(
+              $(
+                button
+                  .dataset
+                  .close
+              )
+            );
+
+          }
+        );
+
+    }
+  );
+
+
+[
+  modeModal,
+  difficultyModal,
+  answerModal
+]
+  .forEach(
+    (
+      modal
+    ) => {
+
+      modal
+        .addEventListener(
+          "click",
+          (
+            event
+          ) => {
+
+            if (
+              event.target ===
+              modal
+            ) {
+
+              closeModal(
+                modal
+              );
+
+            }
+
+          }
+        );
+
+    }
+  );
+
+
+document
+  .addEventListener(
+    "keydown",
+    (
+      event
+    ) => {
+
+      if (
+        event.key ===
+        "Escape"
+      ) {
+
+        [
+          modeModal,
+          difficultyModal,
+          answerModal
+        ]
+          .forEach(
+            closeModal
+          );
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   MODE POPUP
+========================================================= */
+
+modeList
+  .addEventListener(
+    "click",
+    (
+      event
+    ) => {
+
+      const button =
+        event.target.closest(
+          ".option"
+        );
+
+
+      if (
+        !button
+      ) {
+        return;
+      }
+
+
+      button
+        .classList
+        .toggle(
+          "active"
+        );
+
+
+      updateModeDone();
+
+    }
+  );
+
+
+$("selectAll")
+  .addEventListener(
+    "click",
+    () => {
+
+      modeList
+        .querySelectorAll(
+          ".option"
+        )
+        .forEach(
+          (
+            option
+          ) => {
+
+            option
+              .classList
+              .add(
+                "active"
+              );
+
+          }
+        );
+
+
+      updateModeDone();
+
+    }
+  );
+
+
+$("clearAll")
+  .addEventListener(
+    "click",
+    () => {
+
+      modeList
+        .querySelectorAll(
+          ".option"
+        )
+        .forEach(
+          (
+            option
+          ) => {
+
+            option
+              .classList
+              .remove(
+                "active"
+              );
+
+          }
+        );
+
+
+      updateModeDone();
+
+    }
+  );
+
+
+modeDone
+  .addEventListener(
+    "click",
+    () => {
+
+      const selected =
+        [
+          ...modeList
+            .querySelectorAll(
+              ".option.active"
+            )
+        ]
+          .map(
+            (
+              option
+            ) =>
+              option
+                .dataset
+                .mode
+          );
+
+
+      if (
+        !selected.length
+      ) {
+
+        alert(
+          "Pumili ng kahit isang exponent mode."
+        );
+
+        return;
+      }
+
+
+      state.modes =
+        selected;
+
+
+      updateModeDisplay();
+
+      updateSummary();
+
+      closeModal(
+        modeModal
+      );
+
+    }
+  );
+
+
+/* =========================================================
+   DIFFICULTY POPUP
+========================================================= */
+
+difficultyList
+  .addEventListener(
+    "click",
+    (
+      event
+    ) => {
+
+      const button =
+        event.target.closest(
+          ".option"
+        );
+
+
+      if (
+        !button
+      ) {
+        return;
+      }
+
+
+      setSingleActive(
+        difficultyList,
+        button
+      );
+
+
+      state.difficulty =
+        button
+          .dataset
+          .difficulty;
+
+
+      updateDifficultyDisplay();
+
+      updateSummary();
+
+      closeModal(
+        difficultyModal
+      );
+
+    }
+  );
+
+
+/* =========================================================
+   ANSWER FORMAT POPUP
+========================================================= */
+
+answerList
+  .addEventListener(
+    "click",
+    (
+      event
+    ) => {
+
+      const button =
+        event.target.closest(
+          ".option"
+        );
+
+
+      if (
+        !button
+      ) {
+        return;
+      }
+
+
+      setSingleActive(
+        answerList,
+        button
+      );
+
+
+      state.answerFormat =
+        button
+          .dataset
+          .answer;
+
+
+      updateAnswerDisplay();
+
+      updateSummary();
+
+      closeModal(
+        answerModal
+      );
+
+    }
+  );
+
+
+/* =========================================================
+   TIME MODE
+========================================================= */
+
+timeChoices
+  .addEventListener(
+    "click",
+    (
+      event
+    ) => {
+
+      const button =
+        event.target.closest(
+          "button"
+        );
+
+
+      if (
+        !button
+      ) {
+        return;
+      }
+
+
+      timeChoices
+        .querySelectorAll(
+          "button"
+        )
+        .forEach(
+          (
+            item
+          ) => {
+
+            item
+              .classList
+              .toggle(
+                "active",
+                item ===
+                button
+              );
+
+          }
+        );
+
+
+      state.timeMode =
+        button
+          .dataset
+          .time;
+
+
+      customTime
+        .classList
+        .toggle(
+          "hidden",
+          state.timeMode !==
+          "timed"
+        );
+
+
+      updateSummary();
+
+    }
+  );
+
+
+minutes
+  .addEventListener(
+    "input",
+    updateSummary
+  );
+
+
+seconds
+  .addEventListener(
+    "input",
+    updateSummary
+  );
+
+
+/* =========================================================
+   ANSWER OBJECTS
+========================================================= */
+
+function numberAnswer(
+  value,
+  display = null
+) {
+
+  return {
+
+    kind:
+      "number",
+
+    value,
+
+    display:
+      display ??
+      String(
+        value
+      )
+
+  };
+
+}
+
+
+function monomialAnswer(
+  numerator = 1,
+  denominator = 1,
+  powers = {}
+) {
+
+  [
+    numerator,
+    denominator
+  ] =
+    reduceFraction(
+      numerator,
+      denominator
+    );
+
+
+  Object
+    .keys(
+      powers
+    )
+    .forEach(
+      (
+        variable
+      ) => {
+
+        if (
+          !powers[
+            variable
+          ]
+        ) {
+
+          delete powers[
+            variable
+          ];
+
+        }
+
+      }
+    );
+
+
+  return {
+
+    kind:
+      "mono",
+
+    num:
+      numerator,
+
+    den:
+      denominator,
+
+    powers
+
+  };
+
+}
+
+
+/* =========================================================
+   ANSWER FORMATTING
+========================================================= */
+
+function monomialPlain(
+  answer
+) {
+
+  const top = [];
+
+  const bottom = [];
+
+
+  const absCoefficient =
+    Math.abs(
+      answer.num
+    );
+
+
+  const sign =
+    answer.num <
+    0
+      ? "-"
+      : "";
+
+
+  const hasPositiveVariable =
+    Object
+      .values(
+        answer.powers
+      )
+      .some(
+        (
+          exponent
+        ) =>
+          exponent >
+          0
+      );
+
+
+  if (
+    absCoefficient !==
+    1 ||
+    !hasPositiveVariable
+  ) {
+
+    top.push(
+      absCoefficient
+    );
+
+  }
+
+
+  Object
+    .keys(
+      answer.powers
+    )
+    .sort()
+    .forEach(
+      (
+        variable
+      ) => {
+
+        const exponent =
+          answer
+            .powers[
+              variable
+            ];
+
+
+        const term =
+          exponent ===
+          1 ||
+          exponent ===
+          -1
+            ? variable
+            : `${variable}^${
+                Math.abs(
+                  exponent
+                )
+              }`;
+
+
+        if (
+          exponent >
+          0
+        ) {
+
+          top.push(
+            term
+          );
+
+        } else {
+
+          bottom.push(
+            term
+          );
+
+        }
+
+      }
+    );
+
+
+  if (
+    answer.den !==
+    1
+  ) {
+
+    bottom.unshift(
+      answer.den
+    );
+
+  }
+
+
+  const numerator =
+    sign +
+    (
+      top.join(
+        ""
+      ) ||
+      "1"
+    );
+
+
+  if (
+    !bottom.length
+  ) {
+
+    return numerator;
+
+  }
+
+
+  return (
+    `${numerator}/(` +
+    `${bottom.join("")})`
+  );
+
+}
+
+
+function monomialHtml(
+  answer
+) {
+
+  const top = [];
+
+  const bottom = [];
+
+
+  const absCoefficient =
+    Math.abs(
+      answer.num
+    );
+
+
+  const sign =
+    answer.num <
+    0
+      ? "−"
+      : "";
+
+
+  const hasPositiveVariable =
+    Object
+      .values(
+        answer.powers
+      )
+      .some(
+        (
+          exponent
+        ) =>
+          exponent >
+          0
+      );
+
+
+  if (
+    absCoefficient !==
+    1 ||
+    !hasPositiveVariable
+  ) {
+
+    top.push(
+      absCoefficient
+    );
+
+  }
+
+
+  Object
+    .keys(
+      answer.powers
+    )
+    .sort()
+    .forEach(
+      (
+        variable
+      ) => {
+
+        const exponent =
+          answer
+            .powers[
+              variable
+            ];
+
+
+        const term =
+          exponent ===
+          1 ||
+          exponent ===
+          -1
+            ? variable
+            : `${variable}${
+                sup(
+                  Math.abs(
+                    exponent
+                  )
+                )
+              }`;
+
+
+        if (
+          exponent >
+          0
+        ) {
+
+          top.push(
+            term
+          );
+
+        } else {
+
+          bottom.push(
+            term
+          );
+
+        }
+
+      }
+    );
+
+
+  if (
+    answer.den !==
+    1
+  ) {
+
+    bottom.unshift(
+      answer.den
+    );
+
+  }
+
+
+  const numerator =
+    sign +
+    (
+      top.join(
+        ""
+      ) ||
+      "1"
+    );
+
+
+  if (
+    !bottom.length
+  ) {
+
+    return numerator;
+
+  }
+
+
+  return fractionHtml(
+    numerator,
+    bottom.join(
+      ""
+    )
+  );
+
+}
+
+
+function answerPlain(
+  answer
+) {
+
+  return (
+    answer.kind ===
+    "number"
+      ? answer.display
+      : monomialPlain(
+          answer
+        )
+  );
+
+}
+
+
+function answerHtml(
+  answer
+) {
+
+  return (
+    answer.kind ===
+    "number"
+      ? answer.display
+      : monomialHtml(
+          answer
+        )
+  );
+
+}
+
+
+function answerKey(
+  answer
+) {
+
+  if (
+    answer.kind ===
+    "number"
+  ) {
+
+    return (
+      `n:${
+        Math.round(
+          answer.value *
+          1e9
+        ) /
+        1e9
+      }`
+    );
+
+  }
+
+
+  const variables =
+    Object
+      .keys(
+        answer.powers
+      )
+      .sort()
+      .map(
+        (
+          variable
+        ) =>
+          `${variable}:${
+            answer
+              .powers[
+                variable
+              ]
+          }`
+      )
+      .join(
+        ","
+      );
+
+
+  return (
+    `m:${
+      answer.num
+    }/${
+      answer.den
+    }|${
+      variables
+    }`
+  );
+
+}
+
+
+/* =========================================================
+   TYPED MONOMIAL PARSER
+========================================================= */
+
+function parseMonomial(
+  raw
+) {
+
+  let text =
+    String(
+      raw
+    )
+      .toLowerCase()
+      .replace(
+        /[×·*\s]/g,
+        ""
+      )
+      .replaceAll(
+        "−",
+        "-"
+      );
+
+
+  if (
+    !text
+  ) {
+    return null;
+  }
+
+
+  const parts =
+    text.split(
+      "/"
+    );
+
+
+  if (
+    parts.length >
+    2
+  ) {
+    return null;
+  }
+
+
+  function parsePart(
+    part
+  ) {
+
+    part =
+      part.replace(
+        /^\((.*)\)$/,
+        "$1"
+      );
+
+
+    let sign =
+      1;
+
+
+    if (
+      part[0] ===
+      "-"
+    ) {
+
+      sign =
+        -1;
+
+      part =
+        part.slice(
+          1
+        );
+
+    }
+
+
+    let coefficient =
+      sign;
+
+
+    const powers =
+      {};
+
+
+    let index =
+      0;
+
+
+    while (
+      index <
+      part.length
+    ) {
+
+      if (
+        /[0-9.]/.test(
+          part[
+            index
+          ]
+        )
+      ) {
+
+        let end =
+          index;
+
+
+        while (
+          end <
+          part.length &&
+          /[0-9.]/.test(
+            part[
+              end
+            ]
+          )
+        ) {
+
+          end++;
+
+        }
+
+
+        const number =
+          Number(
+            part.slice(
+              index,
+              end
+            )
+          );
+
+
+        if (
+          !Number.isFinite(
+            number
+          )
+        ) {
+          return null;
+        }
+
+
+        coefficient *=
+          number;
+
+
+        index =
+          end;
+
+
+        continue;
+
+      }
+
+
+      if (
+        /[a-z]/.test(
+          part[
+            index
+          ]
+        )
+      ) {
+
+        const variable =
+          part[
+            index
+          ];
+
+
+        index++;
+
+
+        let exponent =
+          1;
+
+
+        if (
+          part[
+            index
+          ] ===
+          "^"
+        ) {
+
+          index++;
+
+
+          let exponentSign =
+            1;
+
+
+          if (
+            part[
+              index
+            ] ===
+            "-"
+          ) {
+
+            exponentSign =
+              -1;
+
+            index++;
+
+          }
+
+
+          let end =
+            index;
+
+
+          while (
+            end <
+            part.length &&
+            /\d/.test(
+              part[
+                end
+              ]
+            )
+          ) {
+
+            end++;
+
+          }
+
+
+          if (
+            end ===
+            index
+          ) {
+            return null;
+          }
+
+
+          exponent =
+            exponentSign *
+            Number(
+              part.slice(
+                index,
+                end
+              )
+            );
+
+
+          index =
+            end;
+
+        }
+
+
+        powers[
+          variable
+        ] =
+          (
+            powers[
+              variable
+            ] ||
+            0
+          ) +
+          exponent;
+
+
+        continue;
+
+      }
+
+
+      if (
+        part[
+          index
+        ] ===
+        "(" ||
+        part[
+          index
+        ] ===
+        ")"
+      ) {
+
+        index++;
+
+        continue;
+
+      }
+
+
+      return null;
+
+    }
+
+
+    return {
+
+      coefficient,
+      powers
+
+    };
+
+  }
+
+
+  const numerator =
+    parsePart(
+      parts[0]
+    );
+
+
+  const denominator =
+    parts[1]
+      ? parsePart(
+          parts[1]
+        )
+      : {
+          coefficient:
+            1,
+
+          powers:
+            {}
+        };
+
+
+  if (
+    !numerator ||
+    !denominator ||
+    !denominator
+      .coefficient
+  ) {
+
+    return null;
+
+  }
+
+
+  const powers =
+    {
+      ...numerator
+        .powers
+    };
+
+
+  Object
+    .entries(
+      denominator
+        .powers
+    )
+    .forEach(
+      ([
+        variable,
+        exponent
+      ]) => {
+
+        powers[
+          variable
+        ] =
+          (
+            powers[
+              variable
+            ] ||
+            0
+          ) -
+          exponent;
+
+      }
+    );
+
+
+  return monomialAnswer(
+    numerator
+      .coefficient,
+
+    denominator
+      .coefficient,
+
+    powers
+  );
+
+}
+
+
+/* =========================================================
+   ANSWER CHECK
+========================================================= */
+
+function isCorrect(
+  input,
+  expected
+) {
+
+  if (
+    expected.kind ===
+    "number"
+  ) {
+
+    const text =
+      String(
+        input
+      )
+        .trim()
+        .replaceAll(
+          "−",
+          "-"
+        );
+
+
+    let value;
+
+
+    if (
+      /^[-+]?\d+(\.\d+)?$/.test(
+        text
+      )
+    ) {
+
+      value =
+        Number(
+          text
+        );
+
+    } else {
+
+      const match =
+        text.match(
+          /^([-+]?\d+(?:\.\d+)?)\/([-+]?\d+(?:\.\d+)?)$/
+        );
+
+
+      if (
+        !match ||
+        Number(
+          match[2]
+        ) ===
+        0
+      ) {
+
+        return false;
+
+      }
+
+
+      value =
+        Number(
+          match[1]
+        ) /
+        Number(
+          match[2]
+        );
+
+    }
+
+
+    return (
+      Math.abs(
+        value -
+        expected.value
+      ) <
+      1e-8
+    );
+
+  }
+
+
+  const parsed =
+    parseMonomial(
+      input
+    );
+
+
+  return (
+    parsed &&
+    answerKey(
+      parsed
+    ) ===
+    answerKey(
+      expected
+    )
+  );
+
+}
+
+
+/* =========================================================
+   QUESTION FACTORY
+========================================================= */
+
+function createQuestion(
+  type,
+  instruction,
+  html,
+  answer,
+  laws,
+  steps,
+  noteText = ""
+) {
+
+  return {
+
+    type,
+
+    command:
+      instruction,
+
+    html,
+
+    answer,
+
+    note:
+      noteText,
+
+    solution:
+      `${
+        laws
+          .map(
+            (
+              law
+            ) =>
+              `<span class="law">${law}</span>`
+          )
+          .join(
+            ""
+          )
+      }` +
+      `${
+        steps
+          .map(
+            (
+              step
+            ) =>
+              `<div>${step}</div>`
+          )
+          .join(
+            ""
+          )
+      }` +
+      `<div class="final">` +
+        `Answer: ${
+          answerHtml(
+            answer
+          )
+        }` +
+      `</div>`
+
+  };
+
+}
+
+
+function difficultyMax() {
+
+  if (
+    state.difficulty ===
+    "foundation"
+  ) {
+
+    return 5;
+
+  }
+
+
+  if (
+    state.difficulty ===
+    "cet"
+  ) {
+
+    return 9;
+
+  }
+
+
+  return 7;
+}
+
+
+/* =========================================================
+   BASIC POWERS
+========================================================= */
+
+function generateBasicPowers() {
+
+  let base =
+    randomInteger(
+      2,
+      difficultyMax()
+    );
+
+
+  const exponent =
+    randomInteger(
+      2,
+      state.difficulty ===
+      "cet"
+        ? 5
+        : 4
+    );
+
+
+  const variant =
+    state.difficulty ===
+    "foundation"
+      ? 0
+      : randomInteger(
+          0,
+          3
+        );
+
+
+  if (
+    variant ===
+    0
+  ) {
+
+    const value =
+      base **
+      exponent;
+
+
+    return createQuestion(
+
+      "BASIC POWERS",
+
+      "Evaluate.",
+
+      powerHtml(
+        base,
+        exponent
+      ),
+
+      numberAnswer(
+        value
+      ),
+
+      [
+        "Definition of Exponents"
+      ],
+
+      [
+        `${powerHtml(
+          base,
+          exponent
+        )} = <strong>${value}</strong>`
+      ]
+
+    );
+
+  }
+
+
+  if (
+    variant ===
+    1
+  ) {
+
+    base =
+      randomInteger(
+        2,
+        5
+      );
+
+
+    const value =
+      (
+        -base
+      ) **
+      exponent;
+
+
+    return createQuestion(
+
+      "SIGN TRAP",
+
+      "Evaluate carefully.",
+
+      `(${-base})${sup(
+        exponent
+      )}`,
+
+      numberAnswer(
+        value
+      ),
+
+      [
+        "Parentheses & Signs"
+      ],
+
+      [
+        "The negative is inside the parentheses.",
+
+        `= <strong>${value}</strong>`
+      ]
+
+    );
+
+  }
+
+
+  if (
+    variant ===
+    2
+  ) {
+
+    base =
+      randomInteger(
+        2,
+        5
+      );
+
+
+    const value =
+      -(
+        base **
+        exponent
+      );
+
+
+    return createQuestion(
+
+      "SIGN TRAP",
+
+      "Evaluate carefully.",
+
+      `−${powerHtml(
+        base,
+        exponent
+      )}`,
+
+      numberAnswer(
+        value
+      ),
+
+      [
+        "Order of Operations"
+      ],
+
+      [
+        `Exponent first: ${
+          base **
+          exponent
+        }.`,
+
+        `Then apply the outside negative: <strong>${value}</strong>`
+      ]
+
+    );
+
+  }
+
+
+  const numerator =
+    randomFrom(
+      [
+        2,
+        3
+      ]
+    );
+
+
+  const denominator =
+    randomFrom(
+      [
+        2,
+        3,
+        4
+      ]
+        .filter(
+          (
+            number
+          ) =>
+            number !==
+            numerator
+        )
+    );
+
+
+  const top =
+    numerator **
+    exponent;
+
+
+  const bottom =
+    denominator **
+    exponent;
+
+
+  const [
+    reducedTop,
+    reducedBottom
+  ] =
+    reduceFraction(
+      top,
+      bottom
+    );
+
+
+  return createQuestion(
+
+    "FRACTION POWER",
+
+    "Evaluate. Fraction allowed.",
+
+    `(${
+      fractionHtml(
+        numerator,
+        denominator
+      )
+    })${
+      sup(
+        exponent
+      )
+    }`,
+
+    numberAnswer(
+      reducedTop /
+      reducedBottom,
+
+      `${reducedTop}/${reducedBottom}`
+    ),
+
+    [
+      "Power of a Quotient"
+    ],
+
+    [
+      `Raise numerator and denominator to ${exponent}.`,
+
+      `= <strong>${reducedTop}/${reducedBottom}</strong>`
+    ]
+
+  );
+
+}
+
+
+/* =========================================================
+   PRODUCT / QUOTIENT
+========================================================= */
+
+function generateProductQuotient() {
+
+  const a =
+    randomInteger(
+      2,
+      difficultyMax()
+    );
+
+
+  const b =
+    randomInteger(
+      2,
+      difficultyMax()
+    );
+
+
+  const c =
+    state.difficulty ===
+    "foundation"
+      ? 0
+      : randomInteger(
+          1,
+          Math.max(
+            1,
+            difficultyMax() -
+            1
+          )
+        );
+
+
+  if (
+    state.difficulty ===
+    "foundation" ||
+    Math.random() <
+    0.5
+  ) {
+
+    const finalExponent =
+      a +
+      b -
+      c;
+
+
+    const answer =
+      monomialAnswer(
+        1,
+        1,
+        {
+          x:
+            finalExponent
+        }
+      );
+
+
+    return createQuestion(
+
+      "PRODUCT / QUOTIENT",
+
+      "Simplify. Positive exponents only.",
+
+      c
+        ? fractionHtml(
+            `${powerHtml(
+              "x",
+              a
+            )} · ${
+              powerHtml(
+                "x",
+                b
+              )
+            }`,
+
+            powerHtml(
+              "x",
+              c
+            )
+          )
+        : `${
+            powerHtml(
+              "x",
+              a
+            )
+          } · ${
+            powerHtml(
+              "x",
+              b
+            )
+          }`,
+
+      answer,
+
+      c
+        ? [
+            "Product Rule",
+            "Quotient Rule"
+          ]
+        : [
+            "Product Rule"
+          ],
+
+      [
+        `x exponent: ${a} + ${b}${
+          c
+            ? ` − ${c}`
+            : ""
+        } = <strong>${finalExponent}</strong>.`
+      ]
+
+    );
+
+  }
+
+
+  const d =
+    randomInteger(
+      1,
+      6
+    );
+
+
+  const f =
+    randomInteger(
+      1,
+      6
+    );
+
+
+  const g =
+    randomInteger(
+      1,
+      5
+    );
+
+
+  const answer =
+    monomialAnswer(
+      1,
+      1,
+      {
+        x:
+          a +
+          b -
+          c,
+
+        y:
+          d +
+          f -
+          g
+      }
+    );
+
+
+  return createQuestion(
+
+    "PRODUCT / QUOTIENT",
+
+    "Simplify. Positive exponents only.",
+
+    fractionHtml(
+
+      `${powerHtml(
+        "x",
+        a
+      )}${
+        powerHtml(
+          "y",
+          d
+        )
+      } · ${
+        powerHtml(
+          "x",
+          b
+        )
+      }${
+        powerHtml(
+          "y",
+          f
+        )
+      }`,
+
+      `${powerHtml(
+        "x",
+        c
+      )}${
+        powerHtml(
+          "y",
+          g
+        )
+      }`
+
+    ),
+
+    answer,
+
+    [
+      "Product Rule",
+      "Quotient Rule"
+    ],
+
+    [
+      `For x: ${a} + ${b} − ${c} = ${a + b - c}.`,
+
+      `For y: ${d} + ${f} − ${g} = ${d + f - g}.`
+    ]
+
+  );
+
+}
+
+
+/* =========================================================
+   POWER RULES
+========================================================= */
+
+function generatePowerRules() {
+
+  const exponent =
+    randomInteger(
+      2,
+      state.difficulty ===
+      "cet"
+        ? 4
+        : 3
+    );
+
+
+  const innerExponent =
+    randomInteger(
+      2,
+      6
+    );
+
+
+  if (
+    state.difficulty ===
+    "foundation"
+  ) {
+
+    const answer =
+      monomialAnswer(
+        1,
+        1,
+        {
+          x:
+            innerExponent *
+            exponent
+        }
+      );
+
+
+    return createQuestion(
+
+      "POWER OF A POWER",
+
+      "Simplify.",
+
+      `(${
+        powerHtml(
+          "x",
+          innerExponent
+        )
+      })${
+        sup(
+          exponent
+        )
+      }`,
+
+      answer,
+
+      [
+        "Power of a Power"
+      ],
+
+      [
+        `Multiply exponents: ${innerExponent} × ${exponent} = <strong>${
+          innerExponent *
+          exponent
+        }</strong>.`
+      ]
+
+    );
+
+  }
+
+
+  const coefficient =
+    randomInteger(
+      2,
+      state.difficulty ===
+      "cet"
+        ? 5
+        : 4
+    );
+
+
+  const yExponent =
+    Math.random() <
+    0.45
+      ? -randomInteger(
+          1,
+          5
+        )
+      : randomInteger(
+          1,
+          5
+        );
+
+
+  const answer =
+    monomialAnswer(
+
+      coefficient **
+      exponent,
+
+      1,
+
+      {
+        x:
+          innerExponent *
+          exponent,
+
+        y:
+          yExponent *
+          exponent
+      }
+
+    );
+
+
+  return createQuestion(
+
+    "POWER RULES",
+
+    "Simplify completely. Positive exponents only.",
+
+    `(${coefficient}${
+      powerHtml(
+        "x",
+        innerExponent
+      )
+    }${
+      powerHtml(
+        "y",
+        yExponent
+      )
+    })${
+      sup(
+        exponent
+      )
+    }`,
+
+    answer,
+
+    [
+      "Power of a Product",
+      "Power of a Power",
+      "Negative Exponent Rule"
+    ],
+
+    [
+      `Coefficient: ${coefficient}${sup(exponent)} = ${
+        coefficient **
+        exponent
+      }.`,
+
+      `Multiply each variable exponent by ${exponent}.`
+    ]
+
+  );
+
+}
+
+
+/* =========================================================
+   ZERO / NEGATIVE EXPONENTS
+========================================================= */
+
+/* =========================================================
+   ZERO / NEGATIVE EXPONENTS — UPGRADED
+========================================================= */
+
+function generateZeroNegative() {
+
+  /* =======================================================
+     FOUNDATION
+     One main idea at a time
+  ======================================================= */
+
+  if (
+    state.difficulty ===
+    "foundation"
+  ) {
+
+    const variant =
+      randomInteger(
+        0,
+        2
+      );
+
+
+    /* -------------------------------------------------------
+       FOUNDATION 1
+       ZERO EXPONENT
+
+       x^0
+       y^0
+       5^0
+    ------------------------------------------------------- */
+
+    if (
+      variant ===
+      0
+    ) {
+
+      const base =
+        randomFrom(
+          [
+            "x",
+            "y",
+            "5",
+            "7",
+            "a"
+          ]
+        );
+
+
+      return createQuestion(
+
+        "ZERO EXPONENT",
+
+        "Simplify.",
+
+        powerHtml(
+          base,
+          0
+        ),
+
+        numberAnswer(
+          1
+        ),
+
+        [
+          "Zero Exponent Rule"
+        ],
+
+        [
+          `Any nonzero base raised to 0 equals <strong>1</strong>.`
+        ]
+
+      );
+
+    }
+
+
+    /* -------------------------------------------------------
+       FOUNDATION 2
+       SIMPLE NEGATIVE EXPONENT
+
+       x^-4
+       =
+       1/x^4
+    ------------------------------------------------------- */
+
+    if (
+      variant ===
+      1
+    ) {
+
+      const exponent =
+        randomInteger(
+          2,
+          6
+        );
+
+
+      const variable =
+        randomFrom(
+          [
+            "x",
+            "y",
+            "a"
+          ]
+        );
+
+
+      const answer =
+        monomialAnswer(
+          1,
+          1,
+          {
+            [variable]:
+              -exponent
+          }
+        );
+
+
+      return createQuestion(
+
+        "NEGATIVE EXPONENT",
+
+        "Rewrite using positive exponents only.",
+
+        powerHtml(
+          variable,
+          -exponent
+        ),
+
+        answer,
+
+        [
+          "Negative Exponent Rule"
+        ],
+
+        [
+          `${powerHtml(
+            variable,
+            -exponent
+          )} = ${
+            fractionHtml(
+              "1",
+              powerHtml(
+                variable,
+                exponent
+              )
+            )
+          }.`
+        ]
+
+      );
+
+    }
+
+
+    /* -------------------------------------------------------
+       FOUNDATION 3
+       NEGATIVE EXPONENT IN DENOMINATOR
+
+       1
+       ───
+       x^-4
+
+       =
+       x^4
+    ------------------------------------------------------- */
+
+    const exponent =
+      randomInteger(
+        2,
+        6
+      );
+
+
+    const variable =
+      randomFrom(
+        [
+          "x",
+          "y"
+        ]
+      );
+
+
+    const answer =
+      monomialAnswer(
+        1,
+        1,
+        {
+          [variable]:
+            exponent
+        }
+      );
+
+
+    return createQuestion(
+
+      "RECIPROCAL TRAP",
+
+      "Simplify using positive exponents only.",
+
+      fractionHtml(
+        "1",
+        powerHtml(
+          variable,
+          -exponent
+        )
+      ),
+
+      answer,
+
+      [
+        "Negative Exponent Rule"
+      ],
+
+      [
+        `A negative exponent in the denominator moves to the numerator.`,
+
+        `${fractionHtml(
+          "1",
+          powerHtml(
+            variable,
+            -exponent
+          )
+        )} = <strong>${
+          powerHtml(
+            variable,
+            exponent
+          )
+        }</strong>.`
+      ]
+
+    );
+
+  }
+
+
+  /* =======================================================
+     INTERMEDIATE
+     Combine two or more exponent rules
+  ======================================================= */
+
+  if (
+    state.difficulty ===
+    "intermediate"
+  ) {
+
+    const variant =
+      randomInteger(
+        0,
+        2
+      );
+
+
+    /* -------------------------------------------------------
+       INTERMEDIATE 1
+       COEFFICIENT + QUOTIENT + NEGATIVE EXPONENTS
+
+          6x^-a y^b
+          ----------
+          2x^c y^-d
+    ------------------------------------------------------- */
+
+    if (
+      variant ===
+      0
+    ) {
+
+      const coefficient =
+        randomFrom(
+          [
+            2,
+            3,
+            4
+          ]
+        );
+
+
+      const multiplier =
+        randomFrom(
+          [
+            2,
+            3
+          ]
+        );
+
+
+      const topCoefficient =
+        coefficient *
+        multiplier;
+
+
+      const bottomCoefficient =
+        coefficient;
+
+
+      const a =
+        randomInteger(
+          1,
+          5
+        );
+
+
+      const b =
+        randomInteger(
+          1,
+          5
+        );
+
+
+      const c =
+        randomInteger(
+          1,
+          5
+        );
+
+
+      const d =
+        randomInteger(
+          1,
+          5
+        );
+
+
+      const answer =
+        monomialAnswer(
+
+          multiplier,
+
+          1,
+
+          {
+            x:
+              -a -
+              c,
+
+            y:
+              b +
+              d
+          }
+
+        );
+
+
+      return createQuestion(
+
+        "NEGATIVE EXPONENT QUOTIENT",
+
+        "Simplify completely. Positive exponents only.",
+
+        fractionHtml(
+
+          `${topCoefficient}${
+            powerHtml(
+              "x",
+              -a
+            )
+          }${
+            powerHtml(
+              "y",
+              b
+            )
+          }`,
+
+          `${bottomCoefficient}${
+            powerHtml(
+              "x",
+              c
+            )
+          }${
+            powerHtml(
+              "y",
+              -d
+            )
+          }`
+
+        ),
+
+        answer,
+
+        [
+          "Quotient Rule",
+          "Negative Exponent Rule"
+        ],
+
+        [
+          `Coefficient: ${topCoefficient} ÷ ${bottomCoefficient} = ${multiplier}.`,
+
+          `For x: −${a} − ${c} = ${-a - c}.`,
+
+          `For y: ${b} − (−${d}) = ${b + d}.`,
+
+          `Rewrite all remaining negative exponents using positive exponents.`
+        ]
+
+      );
+
+    }
+
+
+    /* -------------------------------------------------------
+       INTERMEDIATE 2
+       POWER OF A PRODUCT + NEGATIVE EXPONENTS
+
+       (2x^-a y^b)^2
+    ------------------------------------------------------- */
+
+    if (
+      variant ===
+      1
+    ) {
+
+      const coefficient =
+        randomFrom(
+          [
+            2,
+            3
+          ]
+        );
+
+
+      const outerPower =
+        2;
+
+
+      const a =
+        randomInteger(
+          1,
+          4
+        );
+
+
+      const b =
+        randomInteger(
+          1,
+          4
+        );
+
+
+      const answer =
+        monomialAnswer(
+
+          coefficient **
+          outerPower,
+
+          1,
+
+          {
+            x:
+              -a *
+              outerPower,
+
+            y:
+              b *
+              outerPower
+          }
+
+        );
+
+
+      return createQuestion(
+
+        "POWER + NEGATIVE EXPONENT",
+
+        "Simplify completely. Positive exponents only.",
+
+        `(${coefficient}${
+          powerHtml(
+            "x",
+            -a
+          )
+        }${
+          powerHtml(
+            "y",
+            b
+          )
+        })${
+          sup(
+            outerPower
+          )
+        }`,
+
+        answer,
+
+        [
+          "Power of a Product",
+          "Power of a Power",
+          "Negative Exponent Rule"
+        ],
+
+        [
+          `Raise the coefficient to ${outerPower}.`,
+
+          `Multiply each exponent by ${outerPower}.`,
+
+          `x exponent: −${a} × ${outerPower} = ${-a * outerPower}.`,
+
+          `y exponent: ${b} × ${outerPower} = ${b * outerPower}.`,
+
+          `Move the negative x exponent to the denominator.`
+        ]
+
+      );
+
+    }
+
+
+    /* -------------------------------------------------------
+       INTERMEDIATE 3
+       ENTIRE FRACTION TO -1
+
+           x^-a
+          -------
+            y^b
+
+       raised to -1
+    ------------------------------------------------------- */
+
+    const a =
+      randomInteger(
+        1,
+        5
+      );
+
+
+    const b =
+      randomInteger(
+        1,
+        5
+      );
+
+
+    const answer =
+      monomialAnswer(
+
+        1,
+
+        1,
+
+        {
+          x:
+            a,
+
+          y:
+            b
+        }
+
+      );
+
+
+    return createQuestion(
+
+      "RECIPROCAL POWER",
+
+      "Simplify using positive exponents only.",
+
+      `(${
+        fractionHtml(
+          powerHtml(
+            "x",
+            -a
+          ),
+          powerHtml(
+            "y",
+            b
+          )
+        )
+      })${
+        sup(
+          -1
+        )
+      }`,
+
+      answer,
+
+      [
+        "Negative Power Rule",
+        "Negative Exponent Rule"
+      ],
+
+      [
+        `An exponent of −1 takes the reciprocal of the entire fraction.`,
+
+        `The reciprocal is ${
+          fractionHtml(
+            powerHtml(
+              "y",
+              b
+            ),
+            powerHtml(
+              "x",
+              -a
+            )
+          )
+        }.`,
+
+        `Move x${sup(-a)} to the numerator.`,
+
+        `Final answer: <strong>${
+          powerHtml(
+            "x",
+            a
+          )
+        }${
+          powerHtml(
+            "y",
+            b
+          )
+        }</strong>.`
+      ]
+
+    );
+
+  }
+
+
+  /* =======================================================
+     CET CHALLENGE
+     Layer several rules together
+  ======================================================= */
+
+  const variant =
+    randomInteger(
+      0,
+      3
+    );
+
+
+  /* ---------------------------------------------------------
+     CET 1
+     POWER + QUOTIENT + NEGATIVE EXPONENTS
+
+       (2x^-a y^b)^2
+       --------------
+        4x^-c y^-d
+  --------------------------------------------------------- */
+
+  if (
+    variant ===
+    0
+  ) {
+
+    const a =
+      randomInteger(
+        1,
+        4
+      );
+
+
+    const b =
+      randomInteger(
+        1,
+        4
+      );
+
+
+    const c =
+      randomInteger(
+        1,
+        4
+      );
+
+
+    const d =
+      randomInteger(
+        1,
+        4
+      );
+
+
+    const xExponent =
+      -2 *
+      a +
+      c;
+
+
+    const yExponent =
+      2 *
+      b +
+      d;
+
+
+    const answer =
+      monomialAnswer(
+
+        1,
+
+        1,
+
+        {
+          x:
+            xExponent,
+
+          y:
+            yExponent
+        }
+
+      );
+
+
+    return createQuestion(
+
+      "CET NEGATIVE EXPONENT MIX",
+
+      "Simplify completely. Positive exponents only.",
+
+      fractionHtml(
+
+        `(2${
+          powerHtml(
+            "x",
+            -a
+          )
+        }${
+          powerHtml(
+            "y",
+            b
+          )
+        })${
+          sup(
+            2
+          )
+        }`,
+
+        `4${
+          powerHtml(
+            "x",
+            -c
+          )
+        }${
+          powerHtml(
+            "y",
+            -d
+          )
+        }`
+
+      ),
+
+      answer,
+
+      [
+        "Power of a Product",
+        "Power of a Power",
+        "Quotient Rule",
+        "Negative Exponent Rule"
+      ],
+
+      [
+        `Expand the numerator power first.`,
+
+        `Coefficient: 2² ÷ 4 = 1.`,
+
+        `For x: −${2 * a} − (−${c}) = ${xExponent}.`,
+
+        `For y: ${2 * b} − (−${d}) = ${yExponent}.`,
+
+        `Rewrite any negative resulting exponent using positive exponents.`
+      ]
+
+    );
+
+  }
+
+
+  /* ---------------------------------------------------------
+     CET 2
+     WHOLE QUOTIENT TO -1
+
+       (x^-a y^b / x^c y^-d)^-1
+  --------------------------------------------------------- */
+
+  if (
+    variant ===
+    1
+  ) {
+
+    const a =
+      randomInteger(
+        1,
+        5
+      );
+
+
+    const b =
+      randomInteger(
+        1,
+        5
+      );
+
+
+    const c =
+      randomInteger(
+        1,
+        5
+      );
+
+
+    const d =
+      randomInteger(
+        1,
+        5
+      );
+
+
+    const answer =
+      monomialAnswer(
+
+        1,
+
+        1,
+
+        {
+          x:
+            a +
+            c,
+
+          y:
+            -(
+              b +
+              d
+            )
+        }
+
+      );
+
+
+    return createQuestion(
+
+      "CET RECIPROCAL TRAP",
+
+      "Simplify completely. Positive exponents only.",
+
+      `(${
+        fractionHtml(
+
+          `${powerHtml(
+            "x",
+            -a
+          )}${
+            powerHtml(
+              "y",
+              b
+            )
+          }`,
+
+          `${powerHtml(
+            "x",
+            c
+          )}${
+            powerHtml(
+              "y",
+              -d
+            )
+          }`
+
+        )
+      })${
+        sup(
+          -1
+        )
+      }`,
+
+      answer,
+
+      [
+        "Negative Power Rule",
+        "Quotient Rule",
+        "Negative Exponent Rule"
+      ],
+
+      [
+        `First simplify inside the fraction.`,
+
+        `x exponent inside: −${a} − ${c} = ${-a - c}.`,
+
+        `y exponent inside: ${b} − (−${d}) = ${b + d}.`,
+
+        `The outside exponent −1 reverses the signs of all resulting exponents.`,
+
+        `Final exponents: x${sup(a + c)} and y${sup(-(b + d))}.`
+      ]
+
+    );
+
+  }
+
+
+  /* ---------------------------------------------------------
+     CET 3
+     ZERO EXPONENTS MIXED WITH NEGATIVES
+
+       3x^0 y^-b
+       ----------
+       6x^-c y^0
+  --------------------------------------------------------- */
+
+  if (
+    variant ===
+    2
+  ) {
+
+    const b =
+      randomInteger(
+        2,
+        6
+      );
+
+
+    const c =
+      randomInteger(
+        2,
+        6
+      );
+
+
+    const answer =
+      monomialAnswer(
+
+        1,
+
+        2,
+
+        {
+          x:
+            c,
+
+          y:
+            -b
+        }
+
+      );
+
+
+    return createQuestion(
+
+      "ZERO + NEGATIVE EXPONENT TRAP",
+
+      "Simplify completely. Positive exponents only.",
+
+      fractionHtml(
+
+        `3${
+          powerHtml(
+            "x",
+            0
+          )
+        }${
+          powerHtml(
+            "y",
+            -b
+          )
+        }`,
+
+        `6${
+          powerHtml(
+            "x",
+            -c
+          )
+        }${
+          powerHtml(
+            "y",
+            0
+          )
+        }`
+
+      ),
+
+      answer,
+
+      [
+        "Zero Exponent Rule",
+        "Quotient Rule",
+        "Negative Exponent Rule"
+      ],
+
+      [
+        `x⁰ = 1 and y⁰ = 1.`,
+
+        `3/6 reduces to 1/2.`,
+
+        `For x: 0 − (−${c}) = ${c}.`,
+
+        `For y: −${b} − 0 = −${b}.`,
+
+        `Move y${sup(-b)} to the denominator.`
+      ]
+
+    );
+
+  }
+
+
+  /* ---------------------------------------------------------
+     CET 4
+     NEGATIVE OUTER POWER
+
+       (2x^-a / y^b)^-2
+
+     Reciprocal first, then square.
+  --------------------------------------------------------- */
+
+  const a =
+    randomInteger(
+      1,
+      4
+    );
+
+
+  const b =
+    randomInteger(
+      1,
+      4
+    );
+
+
+  const answer =
+    monomialAnswer(
+
+      1,
+
+      4,
+
+      {
+        x:
+          2 *
+          a,
+
+        y:
+          2 *
+          b
+      }
+
+    );
+
+
+  return createQuestion(
+
+    "NEGATIVE OUTER POWER",
+
+    "Simplify completely. Positive exponents only.",
+
+    `(${
+      fractionHtml(
+
+        `2${
+          powerHtml(
+            "x",
+            -a
+          )
+        }`,
+
+        powerHtml(
+          "y",
+          b
+        )
+
+      )
+    })${
+      sup(
+        -2
+      )
+    }`,
+
+    answer,
+
+    [
+      "Negative Power Rule",
+      "Power of a Quotient",
+      "Power of a Power"
+    ],
+
+    [
+      `The exponent −2 means take the reciprocal, then square.`,
+
+      `Reciprocal: ${
+        fractionHtml(
+          `${powerHtml(
+            "x",
+            a
+          )}${
+            powerHtml(
+              "y",
+              b
+            )
+          }`,
+          "2"
+        )
+      }.`,
+
+      `Square everything.`,
+
+      `Final coefficient: 1/4.`
+    ]
+
+  );
+
+}
+
+
+/* =========================================================
+   FRACTIONAL EXPONENTS — UPGRADED
+========================================================= */
+
+function generateFractional() {
+
+  /* =======================================================
+     PERFECT-POWER DATABASE
+  ======================================================= */
+
+  const numericalTemplates = [
+
+    {
+      base:
+        16,
+
+      root:
+        2,
+
+      max:
+        3
+    },
+
+    {
+      base:
+        25,
+
+      root:
+        2,
+
+      max:
+        3
+    },
+
+    {
+      base:
+        36,
+
+      root:
+        2,
+
+      max:
+        3
+    },
+
+    {
+      base:
+        49,
+
+      root:
+        2,
+
+      max:
+        3
+    },
+
+    {
+      base:
+        64,
+
+      root:
+        2,
+
+      max:
+        3
+    },
+
+    {
+      base:
+        81,
+
+      root:
+        2,
+
+      max:
+        3
+    },
+
+    {
+      base:
+        8,
+
+      root:
+        3,
+
+      max:
+        2
+    },
+
+    {
+      base:
+        27,
+
+      root:
+        3,
+
+      max:
+        2
+    },
+
+    {
+      base:
+        64,
+
+      root:
+        3,
+
+      max:
+        2
+    },
+
+    {
+      base:
+        125,
+
+      root:
+        3,
+
+      max:
+        2
+    },
+
+    {
+      base:
+        16,
+
+      root:
+        4,
+
+      max:
+        3
+    },
+
+    {
+      base:
+        81,
+
+      root:
+        4,
+
+      max:
+        3
+    }
+
+  ];
+
+
+  /* =======================================================
+     FOUNDATION
+     Direct rational-exponent evaluation
+  ======================================================= */
+
+  if (
+    state.difficulty ===
+    "foundation"
+  ) {
+
+    const template =
+      randomFrom(
+        numericalTemplates
+      );
+
+
+    const rootValue =
+      Math.round(
+        template.base **
+        (
+          1 /
+          template.root
+        )
+      );
+
+
+    return createQuestion(
+
+      "FRACTIONAL EXPONENT",
+
+      "Evaluate.",
+
+      `${template.base}<sup>1/${template.root}</sup>`,
+
+      numberAnswer(
+        rootValue
+      ),
+
+      [
+        "Rational Exponent Rule"
+      ],
+
+      [
+        `${
+          template.base
+        }<sup>1/${template.root}</sup> means take the ${
+          template.root ===
+          2
+            ? "square"
+            : template.root ===
+              3
+              ? "cube"
+              : "fourth"
+        } root.`,
+
+        `Answer: <strong>${rootValue}</strong>.`
+      ]
+
+    );
+
+  }
+
+
+  /* =======================================================
+     INTERMEDIATE
+     Multiple structures
+  ======================================================= */
+
+  if (
+    state.difficulty ===
+    "intermediate"
+  ) {
+
+    const variant =
+      randomInteger(
+        0,
+        3
+      );
+
+
+    /* -------------------------------------------------------
+       INTERMEDIATE 1
+       DIRECT NUMERICAL FRACTIONAL EXPONENT
+
+       81^(3/2)
+       27^(2/3)
+    ------------------------------------------------------- */
+
+    if (
+      variant ===
+      0
+    ) {
+
+      const template =
+        randomFrom(
+          numericalTemplates
+        );
+
+
+      let numeratorExponent =
+        randomInteger(
+          1,
+          template.max
+        );
+
+
+      if (
+        gcd(
+          numeratorExponent,
+          template.root
+        ) !==
+        1 &&
+        numeratorExponent !==
+        1
+      ) {
+
+        numeratorExponent =
+          1;
+
+      }
+
+
+      const rootValue =
+        Math.round(
+          template.base **
+          (
+            1 /
+            template.root
+          )
+        );
+
+
+      const value =
+        rootValue **
+        numeratorExponent;
+
+
+      return createQuestion(
+
+        "FRACTIONAL EXPONENT",
+
+        "Evaluate.",
+
+        `${template.base}<sup>${numeratorExponent}/${template.root}</sup>`,
+
+        numberAnswer(
+          value
+        ),
+
+        [
+          "Rational Exponent Rule"
+        ],
+
+        [
+          `Take the ${
+            template.root ===
+            2
+              ? "square"
+              : template.root ===
+                3
+                ? "cube"
+                : "fourth"
+          } root first: ${rootValue}.`,
+
+          `Then raise ${rootValue} to ${numeratorExponent}.`,
+
+          `Answer: <strong>${value}</strong>.`
+        ]
+
+      );
+
+    }
+
+
+    /* -------------------------------------------------------
+       INTERMEDIATE 2
+       PRODUCT OF FRACTIONAL EXPONENTS
+
+       x^(1/2) · x^(3/2)
+       =
+       x^2
+    ------------------------------------------------------- */
+
+    if (
+      variant ===
+      1
+    ) {
+
+      const denominator =
+        randomFrom(
+          [
+            2,
+            3
+          ]
+        );
+
+
+      const firstNumerator =
+        randomInteger(
+          1,
+          denominator
+        );
+
+
+      const finalExponent =
+        randomInteger(
+          2,
+          4
+        );
+
+
+      const secondNumerator =
+        finalExponent *
+        denominator -
+        firstNumerator;
+
+
+      const answer =
+        monomialAnswer(
+          1,
+          1,
+          {
+            x:
+              finalExponent
+          }
+        );
+
+
+      return createQuestion(
+
+        "FRACTIONAL PRODUCT RULE",
+
+        "Simplify.",
+
+        `${powerHtml(
+          "x",
+          `${firstNumerator}/${denominator}`
+        )} · ${
+          powerHtml(
+            "x",
+            `${secondNumerator}/${denominator}`
+          )
+        }`,
+
+        answer,
+
+        [
+          "Product Rule",
+          "Fractional Exponents"
+        ],
+
+        [
+          `Add the exponents.`,
+
+          `${firstNumerator}/${denominator} + ${secondNumerator}/${denominator} = ${finalExponent}.`,
+
+          `Answer: <strong>${
+            powerHtml(
+              "x",
+              finalExponent
+            )
+          }</strong>.`
+        ]
+
+      );
+
+    }
+
+
+    /* -------------------------------------------------------
+       INTERMEDIATE 3
+       QUOTIENT OF FRACTIONAL EXPONENTS
+
+       x^(7/2)
+       -------
+       x^(3/2)
+
+       =
+       x^2
+    ------------------------------------------------------- */
+
+    if (
+      variant ===
+      2
+    ) {
+
+      const denominator =
+        randomFrom(
+          [
+            2,
+            3
+          ]
+        );
+
+
+      const lowerNumerator =
+        randomInteger(
+          1,
+          denominator +
+          1
+        );
+
+
+      const finalExponent =
+        randomInteger(
+          1,
+          4
+        );
+
+
+      const upperNumerator =
+        lowerNumerator +
+        finalExponent *
+        denominator;
+
+
+      const answer =
+        monomialAnswer(
+          1,
+          1,
+          {
+            x:
+              finalExponent
+          }
+        );
+
+
+      return createQuestion(
+
+        "FRACTIONAL QUOTIENT RULE",
+
+        "Simplify.",
+
+        fractionHtml(
+
+          powerHtml(
+            "x",
+            `${upperNumerator}/${denominator}`
+          ),
+
+          powerHtml(
+            "x",
+            `${lowerNumerator}/${denominator}`
+          )
+
+        ),
+
+        answer,
+
+        [
+          "Quotient Rule",
+          "Fractional Exponents"
+        ],
+
+        [
+          `Subtract the exponents.`,
+
+          `${upperNumerator}/${denominator} − ${lowerNumerator}/${denominator} = ${finalExponent}.`,
+
+          `Answer: <strong>${
+            powerHtml(
+              "x",
+              finalExponent
+            )
+          }</strong>.`
+        ]
+
+      );
+
+    }
+
+
+    /* -------------------------------------------------------
+       INTERMEDIATE 4
+       POWER OF A FRACTIONAL POWER
+
+       (x^(2/3))^3
+       =
+       x^2
+    ------------------------------------------------------- */
+
+    const denominator =
+      randomFrom(
+        [
+          2,
+          3,
+          4
+        ]
+      );
+
+
+    let numerator =
+      randomInteger(
+        1,
+        denominator -
+        1
+      );
+
+
+    while (
+      gcd(
+        numerator,
+        denominator
+      ) !==
+      1
+    ) {
+
+      numerator =
+        randomInteger(
+          1,
+          denominator -
+          1
+        );
+
+    }
+
+
+    const outerPower =
+      denominator;
+
+
+    const answer =
+      monomialAnswer(
+        1,
+        1,
+        {
+          x:
+            numerator
+        }
+      );
+
+
+    return createQuestion(
+
+      "POWER OF A FRACTIONAL POWER",
+
+      "Simplify.",
+
+      `(${
+        powerHtml(
+          "x",
+          `${numerator}/${denominator}`
+        )
+      })${
+        sup(
+          outerPower
+        )
+      }`,
+
+      answer,
+
+      [
+        "Power of a Power"
+      ],
+
+      [
+        `Multiply the exponents:`,
+
+        `${numerator}/${denominator} × ${outerPower} = ${numerator}.`,
+
+        `Answer: <strong>${
+          powerHtml(
+            "x",
+            numerator
+          )
+        }</strong>.`
+      ]
+
+    );
+
+  }
+
+
+  /* =======================================================
+     CET CHALLENGE
+     Mixed rational-exponent laws
+  ======================================================= */
+
+  const variant =
+    randomInteger(
+      0,
+      4
+    );
+
+
+  /* ---------------------------------------------------------
+     CET 1
+     NEGATIVE FRACTIONAL EXPONENT
+
+     16^(-3/2)
+  --------------------------------------------------------- */
+
+  if (
+    variant ===
+    0
+  ) {
+
+    const template =
+      randomFrom(
+        numericalTemplates
+          .filter(
+            (
+              item
+            ) =>
+              item.max >=
+              2
+          )
+      );
+
+
+    let numeratorExponent =
+      randomInteger(
+        1,
+        template.max
+      );
+
+
+    if (
+      gcd(
+        numeratorExponent,
+        template.root
+      ) !==
+      1
+    ) {
+
+      numeratorExponent =
+        1;
+
+    }
+
+
+    const rootValue =
+      Math.round(
+        template.base **
+        (
+          1 /
+          template.root
+        )
+      );
+
+
+    const positiveValue =
+      rootValue **
+      numeratorExponent;
+
+
+    return createQuestion(
+
+      "NEGATIVE FRACTIONAL EXPONENT",
+
+      "Evaluate. Fraction allowed.",
+
+      `${template.base}<sup>−${numeratorExponent}/${template.root}</sup>`,
+
+      numberAnswer(
+        1 /
+        positiveValue,
+        `1/${positiveValue}`
+      ),
+
+      [
+        "Rational Exponent Rule",
+        "Negative Exponent Rule"
+      ],
+
+      [
+        `Ignore the negative temporarily.`,
+
+        `Take the ${
+          template.root ===
+          2
+            ? "square"
+            : template.root ===
+              3
+              ? "cube"
+              : "fourth"
+        } root: ${rootValue}.`,
+
+        `Raise to ${numeratorExponent}: ${positiveValue}.`,
+
+        `The negative exponent means take the reciprocal.`,
+
+        `Answer: <strong>1/${positiveValue}</strong>.`
+      ]
+
+    );
+
+  }
+
+
+  /* ---------------------------------------------------------
+     CET 2
+     COEFFICIENT + VARIABLE
+
+     (16x^4)^(1/2)
+     =
+     4x^2
+  --------------------------------------------------------- */
+
+  if (
+    variant ===
+    1
+  ) {
+
+    const template =
+      randomFrom(
+        [
+          {
+            coefficient:
+              16,
+
+            variablePower:
+              4,
+
+            numerator:
+              1,
+
+            denominator:
+              2,
+
+            coefficientAnswer:
+              4,
+
+            variableAnswer:
+              2
+          },
+
+          {
+            coefficient:
+              25,
+
+            variablePower:
+              6,
+
+            numerator:
+              1,
+
+            denominator:
+              2,
+
+            coefficientAnswer:
+              5,
+
+            variableAnswer:
+              3
+          },
+
+          {
+            coefficient:
+              27,
+
+            variablePower:
+              6,
+
+            numerator:
+              2,
+
+            denominator:
+              3,
+
+            coefficientAnswer:
+              9,
+
+            variableAnswer:
+              4
+          },
+
+          {
+            coefficient:
+              64,
+
+            variablePower:
+              9,
+
+            numerator:
+              2,
+
+            denominator:
+              3,
+
+            coefficientAnswer:
+              16,
+
+            variableAnswer:
+              6
+          }
+        ]
+      );
+
+
+    const answer =
+      monomialAnswer(
+
+        template.coefficientAnswer,
+
+        1,
+
+        {
+          x:
+            template.variableAnswer
+        }
+
+      );
+
+
+    return createQuestion(
+
+      "RATIONAL POWER OF A PRODUCT",
+
+      "Simplify.",
+
+      `(${template.coefficient}${
+        powerHtml(
+          "x",
+          template.variablePower
+        )
+      })<sup>${template.numerator}/${template.denominator}</sup>`,
+
+      answer,
+
+      [
+        "Power of a Product",
+        "Rational Exponent Rule"
+      ],
+
+      [
+        `Apply the fractional exponent to both factors.`,
+
+        `${template.coefficient}<sup>${template.numerator}/${template.denominator}</sup> = ${template.coefficientAnswer}.`,
+
+        `x exponent: ${template.variablePower} × ${template.numerator}/${template.denominator} = ${template.variableAnswer}.`
+      ]
+
+    );
+
+  }
+
+
+  /* ---------------------------------------------------------
+     CET 3
+     TWO VARIABLES + FRACTIONAL QUOTIENT
+
+       x^(5/2)y^(2/3)
+       ----------------
+       x^(1/2)y^(-1/3)
+
+       =
+       x^2 y
+  --------------------------------------------------------- */
+
+  if (
+    variant ===
+    2
+  ) {
+
+    const xFinal =
+      randomInteger(
+        1,
+        3
+      );
+
+
+    const yFinal =
+      randomInteger(
+        1,
+        3
+      );
+
+
+    const xDen =
+      2;
+
+
+    const yDen =
+      3;
+
+
+    const xBottomNum =
+      1;
+
+
+    const xTopNum =
+      xBottomNum +
+      xFinal *
+      xDen;
+
+
+    const yBottomNum =
+      -1;
+
+
+    const yTopNum =
+      yBottomNum +
+      yFinal *
+      yDen;
+
+
+    const answer =
+      monomialAnswer(
+        1,
+        1,
+        {
+          x:
+            xFinal,
+
+          y:
+            yFinal
+        }
+      );
+
+
+    return createQuestion(
+
+      "CET FRACTIONAL QUOTIENT",
+
+      "Simplify completely.",
+
+      fractionHtml(
+
+        `${powerHtml(
+          "x",
+          `${xTopNum}/${xDen}`
+        )}${
+          powerHtml(
+            "y",
+            `${yTopNum}/${yDen}`
+          )
+        }`,
+
+        `${powerHtml(
+          "x",
+          `${xBottomNum}/${xDen}`
+        )}${
+          powerHtml(
+            "y",
+            `−1/${yDen}`
+          )
+        }`
+
+      ),
+
+      answer,
+
+      [
+        "Quotient Rule",
+        "Fractional Exponents",
+        "Negative Exponent Rule"
+      ],
+
+      [
+        `For x: ${xTopNum}/${xDen} − ${xBottomNum}/${xDen} = ${xFinal}.`,
+
+        `For y: ${yTopNum}/${yDen} − (−1/${yDen}) = ${yFinal}.`,
+
+        `Final answer: <strong>${
+          powerHtml(
+            "x",
+            xFinal
+          )
+        }${
+          powerHtml(
+            "y",
+            yFinal
+          )
+        }</strong>.`
+      ]
+
+    );
+
+  }
+
+
+  /* ---------------------------------------------------------
+     CET 4
+     NESTED FRACTIONAL POWERS
+
+     (x^(2/3)y^(-1/2))^6
+  --------------------------------------------------------- */
+
+  if (
+    variant ===
+    3
+  ) {
+
+    const xNumerator =
+      randomFrom(
+        [
+          1,
+          2
+        ]
+      );
+
+
+    const xDenominator =
+      3;
+
+
+    const yNumerator =
+      1;
+
+
+    const yDenominator =
+      2;
+
+
+    const outerPower =
+      6;
+
+
+    const xFinal =
+      xNumerator *
+      (
+        outerPower /
+        xDenominator
+      );
+
+
+    const yFinal =
+      -yNumerator *
+      (
+        outerPower /
+        yDenominator
+      );
+
+
+    const answer =
+      monomialAnswer(
+
+        1,
+
+        1,
+
+        {
+          x:
+            xFinal,
+
+          y:
+            yFinal
+        }
+
+      );
+
+
+    return createQuestion(
+
+      "NESTED FRACTIONAL POWER",
+
+      "Simplify completely. Positive exponents only.",
+
+      `(${
+        powerHtml(
+          "x",
+          `${xNumerator}/${xDenominator}`
+        )
+      }${
+        powerHtml(
+          "y",
+          `−${yNumerator}/${yDenominator}`
+        )
+      })${
+        sup(
+          outerPower
+        )
+      }`,
+
+      answer,
+
+      [
+        "Power of a Product",
+        "Power of a Power",
+        "Negative Exponent Rule"
+      ],
+
+      [
+        `Multiply each exponent by ${outerPower}.`,
+
+        `For x: ${xNumerator}/${xDenominator} × ${outerPower} = ${xFinal}.`,
+
+        `For y: −${yNumerator}/${yDenominator} × ${outerPower} = ${yFinal}.`,
+
+        `Rewrite the negative y exponent in the denominator.`
+      ]
+
+    );
+
+  }
+
+
+  /* ---------------------------------------------------------
+     CET 5
+     PRODUCT WITH POSITIVE + NEGATIVE FRACTIONAL EXPONENTS
+
+     x^(5/2) · x^(-1/2)
+     =
+     x^2
+  --------------------------------------------------------- */
+
+  const denominator =
+    randomFrom(
+      [
+        2,
+        3
+      ]
+    );
+
+
+  const negativeNumerator =
+    randomInteger(
+      1,
+      denominator
+    );
+
+
+  const finalExponent =
+    randomInteger(
+      1,
+      4
+    );
+
+
+  const positiveNumerator =
+    finalExponent *
+    denominator +
+    negativeNumerator;
+
+
+  const answer =
+    monomialAnswer(
+      1,
+      1,
+      {
+        x:
+          finalExponent
+      }
+    );
+
+
+  return createQuestion(
+
+    "CET FRACTIONAL PRODUCT",
+
+    "Simplify.",
+
+    `${powerHtml(
+      "x",
+      `${positiveNumerator}/${denominator}`
+    )} · ${
+      powerHtml(
+        "x",
+        `−${negativeNumerator}/${denominator}`
+      )
+    }`,
+
+    answer,
+
+    [
+      "Product Rule",
+      "Negative Exponent Rule",
+      "Fractional Exponents"
+    ],
+
+    [
+      `Add the exponents.`,
+
+      `${positiveNumerator}/${denominator} + (−${negativeNumerator}/${denominator}) = ${finalExponent}.`,
+
+      `Answer: <strong>${
+        powerHtml(
+          "x",
+          finalExponent
+        )
+      }</strong>.`
+    ]
+
+  );
+
+}
+
+
+/* =========================================================
+   FULL SIMPLIFICATION
+========================================================= */
+
+function generateFullSimplification() {
+
+  const outerPower =
+    state.difficulty ===
+    "foundation"
+      ? 2
+      : randomInteger(
+          2,
+          3
+        );
+
+
+  const a =
+    randomInteger(
+      1,
+      4
+    );
+
+
+  const b =
+    randomInteger(
+      1,
+      4
+    );
+
+
+  const c =
+    randomInteger(
+      1,
+      4
+    );
+
+
+  const d =
+    randomInteger(
+      1,
+      4
+    );
+
+
+  const e =
+    randomInteger(
+      1,
+      4
+    );
+
+
+  const coefficientOne =
+    randomInteger(
+      2,
+      4
+    );
+
+
+  const coefficientTwo =
+    randomInteger(
+      2,
+      4
+    );
+
+
+  const denominatorCoefficient =
+    randomInteger(
+      2,
+      6
+    );
+
+
+  const firstY =
+    state.difficulty ===
+    "foundation"
+      ? b
+      : -b;
+
+
+  const answer =
+    monomialAnswer(
+
+      (
+        coefficientOne **
+        outerPower
+      ) *
+      coefficientTwo,
+
+      denominatorCoefficient,
+
+      {
+        x:
+          a *
+          outerPower +
+          c -
+          e,
+
+        y:
+          firstY *
+          outerPower +
+          d +
+          1
+      }
+
+    );
+
+
+  return createQuestion(
+
+    "FULL SIMPLIFICATION",
+
+    "Simplify completely. Positive exponents only.",
+
+    fractionHtml(
+
+      `(${coefficientOne}${
+        powerHtml(
+          "x",
+          a
+        )
+      }${
+        powerHtml(
+          "y",
+          firstY
+        )
+      })${
+        sup(
+          outerPower
+        )
+      } · ${coefficientTwo}${
+        powerHtml(
+          "x",
+          c
+        )
+      }${
+        powerHtml(
+          "y",
+          d
+        )
+      }`,
+
+      `${denominatorCoefficient}${
+        powerHtml(
+          "x",
+          e
+        )
+      }${
+        powerHtml(
+          "y",
+          -1
+        )
+      }`
+
+    ),
+
+    answer,
+
+    [
+      "Power of a Product",
+      "Power of a Power",
+      "Product Rule",
+      "Quotient Rule",
+      "Negative Exponent Rule"
+    ],
+
+    [
+      `Distribute the outer power ${outerPower}.`,
+
+      "Combine coefficient and variable exponents.",
+
+      "Rewrite negative exponents across the fraction bar."
+    ]
+
+  );
+
+}
+
+
+/* =========================================================
+   EXPONENTIAL EQUATIONS
+========================================================= */
+
+function linearTerm(
+  coefficient,
+  constant
+) {
+
+  let result =
+    coefficient ===
+    1
+      ? "x"
+      : coefficient ===
+        -1
+        ? "−x"
+        : `${coefficient}x`;
+
+
+  if (
+    constant >
+    0
+  ) {
+
+    result +=
+      ` + ${constant}`;
+
+  }
+
+
+  if (
+    constant <
+    0
+  ) {
+
+    result +=
+      ` − ${
+        Math.abs(
+          constant
+        )
+      }`;
+
+  }
+
+
+  return result;
+}
+
+
+function generateEquations() {
+
+  const pair =
+    randomFrom(
+      [
+        {
+          left:
+            4,
+
+          right:
+            8,
+
+          p:
+            2,
+
+          q:
+            3,
+
+          base:
+            2
+        },
+
+        {
+          left:
+            9,
+
+          right:
+            3,
+
+          p:
+            2,
+
+          q:
+            1,
+
+          base:
+            3
+        },
+
+        {
+          left:
+            27,
+
+          right:
+            9,
+
+          p:
+            3,
+
+          q:
+            2,
+
+          base:
+            3
+        },
+
+        {
+          left:
+            16,
+
+          right:
+            8,
+
+          p:
+            4,
+
+          q:
+            3,
+
+          base:
+            2
+        }
+      ]
+    );
+
+
+  let leftCoefficient =
+    state.difficulty ===
+    "foundation"
+      ? 1
+      : randomInteger(
+          1,
+          2
+        );
+
+
+  let rightCoefficient =
+    state.difficulty ===
+    "cet"
+      ? randomInteger(
+          1,
+          2
+        )
+      : 1;
+
+
+  let leftConstant;
+
+  let rightConstant;
+
+  let denominator;
+
+  let answer;
+
+  let guard =
+    0;
+
+
+  do {
+
+    leftConstant =
+      randomInteger(
+        -5,
+        5
+      );
+
+
+    rightConstant =
+      randomInteger(
+        -5,
+        5
+      );
+
+
+    denominator =
+      pair.p *
+      leftCoefficient -
+      pair.q *
+      rightCoefficient;
+
+
+    answer =
+      (
+        pair.q *
+        rightConstant -
+        pair.p *
+        leftConstant
+      ) /
+      denominator;
+
+
+    guard++;
+
+  }
+  while (
+    (
+      !denominator ||
+      !Number.isInteger(
+        answer
+      ) ||
+      Math.abs(
+        answer
+      ) >
+      12
+    ) &&
+    guard <
+    200
+  );
+
+
+  if (
+    !Number.isInteger(
+      answer
+    )
+  ) {
+
+    leftCoefficient =
+      1;
+
+    rightCoefficient =
+      1;
+
+    leftConstant =
+      0;
+
+    rightConstant =
+      pair.p -
+      pair.q;
+
+
+    denominator =
+      pair.p -
+      pair.q;
+
+
+    answer =
+      pair.q *
+      rightConstant /
+      denominator;
+
+  }
+
+
+  const leftExponent =
+    linearTerm(
+      leftCoefficient,
+      leftConstant
+    );
+
+
+  const rightExponent =
+    linearTerm(
+      rightCoefficient,
+      rightConstant
+    );
+
+
+  return createQuestion(
+
+    "EXPONENTIAL EQUATION",
+
+    "Solve for x. Do not use logarithms.",
+
+    `${pair.left}${
+      sup(
+        leftExponent
+      )
+    } = ${pair.right}${
+      sup(
+        rightExponent
+      )
+    }`,
+
+    numberAnswer(
+      answer
+    ),
+
+    [
+      "Rewrite to a Common Base",
+      "One-to-One Property"
+    ],
+
+    [
+      `Rewrite both sides using base ${pair.base}.`,
+
+      `Equate exponents: <strong>${pair.p}(${leftExponent}) = ${pair.q}(${rightExponent})</strong>.`,
+
+      `Solve: x = <strong>${answer}</strong>.`
+    ]
+
+  );
+
+}
+
+
+/* =========================================================
+   CET MIXED
+========================================================= */
+
+function generateCETMixed() {
+
+  const variant =
+    randomInteger(
+      0,
+      2
+    );
+
+
+  if (
+    variant ===
+    0
+  ) {
+
+    const a =
+      randomInteger(
+        2,
+        7
+      );
+
+
+    const b =
+      randomInteger(
+        2,
+        5
+      );
+
+
+    const c =
+      randomInteger(
+        1,
+        6
+      );
+
+
+    const finalExponent =
+      a *
+      b -
+      c;
+
+
+    const answer =
+      monomialAnswer(
+        1,
+        1,
+        {
+          x:
+            finalExponent
+        }
+      );
+
+
+    return createQuestion(
+
+      "CET COMBINATION",
+
+      "Simplify completely.",
+
+      fractionHtml(
+
+        `(${powerHtml(
+          "x",
+          a
+        )})${
+          sup(
+            b
+          )
+        }`,
+
+        powerHtml(
+          "x",
+          c
+        )
+
+      ),
+
+      answer,
+
+      [
+        "Power of a Power",
+        "Quotient Rule"
+      ],
+
+      [
+        `${a} × ${b} − ${c} = <strong>${finalExponent}</strong>.`
+      ]
+
+    );
+
+  }
+
+
+  if (
+    variant ===
+    1
+  ) {
+
+    const base =
+      randomInteger(
+        2,
+        6
+      );
+
+
+    const exponent =
+      randomInteger(
+        2,
+        4
+      );
+
+
+    const value =
+      -(
+        base **
+        exponent
+      );
+
+
+    return createQuestion(
+
+      "CET SIGN TRAP",
+
+      "Evaluate carefully.",
+
+      `−${powerHtml(
+        base,
+        exponent
+      )}`,
+
+      numberAnswer(
+        value
+      ),
+
+      [
+        "Order of Operations"
+      ],
+
+      [
+        `Exponent first, then the outside negative: <strong>${value}</strong>.`
+      ]
+
+    );
+
+  }
+
+
+  const a =
+    randomInteger(
+      2,
+      5
+    );
+
+
+  const b =
+    randomInteger(
+      2,
+      5
+    );
+
+
+  const c =
+    randomInteger(
+      1,
+      4
+    );
+
+
+  const d =
+    randomInteger(
+      1,
+      4
+    );
+
+
+  const answer =
+    monomialAnswer(
+
+      2,
+
+      1,
+
+      {
+        x:
+          a +
+          b -
+          c,
+
+        y:
+          -d
+      }
+
+    );
+
+
+  return createQuestion(
+
+    "CET MIXED",
+
+    "Simplify. Positive exponents only.",
+
+    fractionHtml(
+
+      `2${
+        powerHtml(
+          "x",
+          a
+        )
+      } · ${
+        powerHtml(
+          "x",
+          b
+        )
+      }`,
+
+      `${
+        powerHtml(
+          "x",
+          c
+        )
+      }${
+        powerHtml(
+          "y",
+          d
+        )
+      }`
+
+    ),
+
+    answer,
+
+    [
+      "Product Rule",
+      "Quotient Rule",
+      "Negative Exponent Rule"
+    ],
+
+    [
+      `Combine x exponents: ${a} + ${b} − ${c} = ${a + b - c}.`,
+
+      `Move y${sup(-d)} to the denominator.`
+    ]
+
+  );
+
+}
+
+
+/* =========================================================
+   GENERATOR MAP
+========================================================= */
+
+const generators = {
+
+  basicPowers:
+    generateBasicPowers,
+
+  productQuotient:
+    generateProductQuotient,
+
+  powerRules:
+    generatePowerRules,
+
+  zeroNegative:
+    generateZeroNegative,
+
+  fractional:
+    generateFractional,
+
+  fullSimplification:
+    generateFullSimplification,
+
+  equations:
+    generateEquations,
+
+  cetMixed:
+    generateCETMixed
+
+};
+
+
+/* =========================================================
+   MULTIPLE CHOICE DISTRACTORS
+========================================================= */
+
+function generateDistractors(
+  correct
+) {
+
+  const results =
+    new Map();
+
+
+  results.set(
+    answerKey(
+      correct
+    ),
+    correct
+  );
+
+
+  if (
+    correct.kind ===
+    "number"
+  ) {
+
+    [
+      correct.value +
+      1,
+
+      correct.value -
+      1,
+
+      -correct.value,
+
+      correct.value *
+      2,
+
+      correct.value /
+      2
+    ]
+      .forEach(
+        (
+          value
+        ) => {
+
+          if (
+            Number.isFinite(
+              value
+            ) &&
+            Math.abs(
+              value -
+              correct.value
+            ) >
+            1e-9
+          ) {
+
+            const answer =
+              numberAnswer(
+                value
+              );
+
+
+            results.set(
+              answerKey(
+                answer
+              ),
+              answer
+            );
+
+          }
+
+        }
+      );
+
+  } else {
+
+    Object
+      .keys(
+        correct.powers
+      )
+      .forEach(
+        (
+          variable
+        ) => {
+
+          [
+            1,
+            -1
+          ]
+            .forEach(
+              (
+                difference
+              ) => {
+
+                const powers =
+                  {
+                    ...correct
+                      .powers,
+
+                    [
+                      variable
+                    ]:
+                      correct
+                        .powers[
+                          variable
+                        ] +
+                      difference
+                  };
+
+
+                const answer =
+                  monomialAnswer(
+                    correct.num,
+                    correct.den,
+                    powers
+                  );
+
+
+                results.set(
+                  answerKey(
+                    answer
+                  ),
+                  answer
+                );
+
+              }
+            );
+
+        }
+      );
+
+
+    [
+      monomialAnswer(
+        correct.num *
+        2,
+        correct.den,
+        {
+          ...correct.powers
+        }
+      ),
+
+      monomialAnswer(
+        -correct.num,
+        correct.den,
+        {
+          ...correct.powers
+        }
+      ),
+
+      monomialAnswer(
+        correct.num,
+        correct.den *
+        2,
+        {
+          ...correct.powers
+        }
+      )
+    ]
+      .forEach(
+        (
+          answer
+        ) => {
+
+          results.set(
+            answerKey(
+              answer
+            ),
+            answer
+          );
+
+        }
+      );
+
+  }
+
+
+  let fallback =
+    1;
+
+
+  while (
+    results.size <
+    4
+  ) {
+
+    const answer =
+      correct.kind ===
+      "number"
+
+        ? numberAnswer(
+            correct.value +
+            fallback +
+            2
+          )
+
+        : monomialAnswer(
+
+            correct.num,
+
+            correct.den,
+
+            {
+              ...correct.powers,
+
+              x:
+                (
+                  correct
+                    .powers
+                    .x ||
+                  0
+                ) +
+                fallback
+            }
+
+          );
+
+
+    results.set(
+      answerKey(
+        answer
+      ),
+      answer
+    );
+
+
+    fallback++;
+
+  }
+
+
+  const wrong =
+    [
+      ...results.values()
+    ]
+      .filter(
+        (
+          answer
+        ) =>
+          answerKey(
+            answer
+          ) !==
+          answerKey(
+            correct
+          )
+      );
+
+
+  return shuffle(
+    [
+      correct,
+
+      ...shuffle(
+        wrong
+      )
+        .slice(
+          0,
+          3
+        )
+    ]
+  );
+
+}
+
+
+/* =========================================================
+   SCREEN HELPER
+========================================================= */
+
+function showScreen(
+  screen
+) {
+
+  [
+    setupScreen,
+    gameScreen,
+    resultScreen
+  ]
+    .forEach(
+      (
+        item
+      ) => {
+
+        item
+          .classList
+          .add(
+            "hidden"
+          );
+
+      }
+    );
+
+
+  screen
+    .classList
+    .remove(
+      "hidden"
+    );
+
+
+  window.scrollTo({
+    top:
+      0,
+
+    behavior:
+      "smooth"
+  });
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+function resetGame() {
+
+  clearInterval(
+    state.timerId
+  );
+
+
+  state.question =
+    null;
+
+  state.questionNumber =
+    0;
+
+  state.correct =
+    0;
+
+  state.scored =
+    0;
+
+  state.streak =
+    0;
+
+  state.bestStreak =
+    0;
+
+  state.errors =
+    0;
+
+  state.waiting =
+    false;
+
+  state.revealed =
+    false;
+
+  state.selectedChoice =
+    null;
+
+  state.renderFormat =
+    "typed";
+
+  state.ended =
+    false;
+
+  state.startTime =
+    0;
+
+  state.timerId =
+    null;
+
+  state.lastAnswer =
+    "";
+
+
+  state.history =
+    [];
+
+
+  state.currentQuestionErrors =
+    0;
+
+
+  if (
+    historyList
+  ) {
+
+    historyList.innerHTML =
+      "";
+
+  }
+
+
+  if (
+    historyCount
+  ) {
+
+    historyCount.textContent =
+      "0 QUESTIONS";
+
+  }
+
+
+  state.totalSeconds =
+    state.timeMode ===
+    "timed"
+      ? getTimerSeconds()
+      : 0;
+
+
+  correctStat.textContent =
+    "0";
+
+  streakStat.textContent =
+    "0";
+
+  errorStat.textContent =
+    "0 / 2";
+
+}
+
+
+/* =========================================================
+   START GAME
+========================================================= */
+
+function startGame() {
+
+  if (
+    !state.modes.length
+  ) {
+
+    alert(
+      "Pumili ng kahit isang mode."
+    );
+
+    return;
+  }
+
+
+  if (
+    state.timeMode ===
+    "timed" &&
+    getTimerSeconds() <=
+    0
+  ) {
+
+    alert(
+      "Maglagay ng valid na oras."
+    );
+
+    return;
+  }
+
+
+  resetGame();
+
+
+  showScreen(
+    gameScreen
+  );
+
+
+  state.startTime =
+    performance.now();
+
+
+  if (
+    state.timeMode ===
+    "timed"
+  ) {
+
+    gameKicker.textContent =
+      "Timed Run";
+
+    gameTitle.textContent =
+      "Beat the Countdown";
+
+    timerIcon.textContent =
+      "⏱";
+
+    timerLabel.textContent =
+      "TIME REMAINING";
+
+    progress
+      .classList
+      .remove(
+        "hidden"
+      );
+
+    timerDisplay.textContent =
+      formatCountdown(
+        state.totalSeconds
+      );
+
+  } else {
+
+    gameKicker.textContent =
+      "Untimed Run";
+
+    gameTitle.textContent =
+      "Master the Laws";
+
+    timerIcon.textContent =
+      "∞";
+
+    timerLabel.textContent =
+      "ELAPSED TIME";
+
+    progress
+      .classList
+      .add(
+        "hidden"
+      );
+
+    timerDisplay.textContent =
+      "0:00.0";
+
+  }
+
+
+  state.timerId =
+    setInterval(
+      tick,
+      50
+    );
+
+
+  nextQuestion();
+
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+function tick() {
+
+  if (
+    state.ended
+  ) {
+    return;
+  }
+
+
+  const elapsed =
+    performance.now() -
+    state.startTime;
+
+
+  if (
+    state.timeMode ===
+    "untimed"
+  ) {
+
+    timerDisplay.textContent =
+      formatElapsed(
+        elapsed
+      );
+
+    return;
+  }
+
+
+  state.remaining =
+    Math.max(
+      0,
+      state.totalSeconds -
+      elapsed /
+      1000
+    );
+
+
+  timerDisplay.textContent =
+    formatCountdown(
+      state.remaining
+    );
+
+
+  progressBar
+    .style
+    .width =
+    `${
+      state.totalSeconds
+        ? state.remaining /
+          state.totalSeconds *
+          100
+        : 0
+    }%`;
+
+
+  if (
+    state.remaining <=
+    0
+  ) {
+
+    endGame(
+      "time"
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+function nextQuestion() {
+
+  if (
+    state.ended
+  ) {
+    return;
+  }
+
+
+  state.questionNumber++;
+
+  state.waiting =
+    false;
+
+  state.revealed =
+    false;
+
+  state.selectedChoice =
+    null;
+
+
+  state.currentQuestionErrors =
+    0;
+
+
+  const selectedMode =
+    randomFrom(
+      state.modes
+    );
+
+
+  state.question =
+    generators[
+      selectedMode
+    ]();
+
+
+  renderQuestion();
+
+}
+
+
+/* =========================================================
+   RENDER QUESTION
+========================================================= */
+
+function renderQuestion() {
+
+  const question =
+    state.question;
+
+
+  questionStat.textContent =
+    state.questionNumber;
+
+
+  attemptBadge.textContent =
+    "UNANG SUBOK";
+
+
+  typeBadge.textContent =
+    question.type;
+
+
+  command.textContent =
+    question.command;
+
+
+  questionText.innerHTML =
+    question.html;
+
+
+  note.textContent =
+    question.note ||
+    (
+      question.answer.kind ===
+      "mono"
+        ? "Typed notation: x^5y^2, x^3/(2y), 3x^2/y^4."
+        : "Fractions such as 1/8 are accepted."
+    );
+
+
+  feedback.className =
+    "feedback";
+
+
+  feedback.textContent =
+    "Solve carefully, then check your answer.";
+
+
+  solution.innerHTML =
+    question.solution;
+
+
+  solution
+    .classList
+    .add(
+      "hidden"
+    );
+
+
+  actions
+    .classList
+    .remove(
+      "revealed"
+    );
+
+
+  checkBtn.textContent =
+    "✓ Check Answer";
+
+
+  checkBtn.disabled =
+    false;
+
+
+  answerInput.disabled =
+    false;
+
+
+  answerInput.value =
+    "";
+
+
+  solutionBtn.disabled =
+    false;
+
+
+  state.renderFormat =
+    state.answerFormat ===
+    "random"
+      ? (
+          Math.random() <
+          0.5
+            ? "typed"
+            : "choices"
+        )
+      : state.answerFormat;
+
+
+  if (
+    state.renderFormat ===
+    "typed"
+  ) {
+
+    typedArea
+      .classList
+      .remove(
+        "hidden"
+      );
+
+
+    choices
+      .classList
+      .add(
+        "hidden"
+      );
+
+
+    setTimeout(
+      () => {
+
+        answerInput.focus();
+
+      },
+      50
+    );
+
+  } else {
+
+    typedArea
+      .classList
+      .add(
+        "hidden"
+      );
+
+
+    choices
+      .classList
+      .remove(
+        "hidden"
+      );
+
+
+    renderChoices();
+
+  }
+
+}
+
+
+/* =========================================================
+   MULTIPLE CHOICE
+========================================================= */
+
+function renderChoices() {
+
+  choices.innerHTML =
+    "";
+
+
+  generateDistractors(
+    state.question.answer
+  )
+    .forEach(
+      (
+        answer
+      ) => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.type =
+          "button";
+
+
+        button.className =
+          "choice";
+
+
+        button.innerHTML =
+          answerHtml(
+            answer
+          );
+
+
+        button.dataset.key =
+          answerKey(
+            answer
+          );
+
+
+        button
+          .addEventListener(
+            "click",
+            () => {
+
+              if (
+                state.waiting ||
+                state.revealed
+              ) {
+                return;
+              }
+
+
+              choices
+                .querySelectorAll(
+                  ".choice"
+                )
+                .forEach(
+                  (
+                    item
+                  ) => {
+
+                    item
+                      .classList
+                      .remove(
+                        "selected"
+                      );
+
+                  }
+                );
+
+
+              button
+                .classList
+                .add(
+                  "selected"
+                );
+
+
+              state.selectedChoice =
+                button
+                  .dataset
+                  .key;
+
+            }
+          );
+
+
+        choices.appendChild(
+          button
+        );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   LOCK QUESTION
+========================================================= */
+
+function lockQuestion() {
+
+  answerInput.disabled =
+    true;
+
+
+  choices
+    .querySelectorAll(
+      "button"
+    )
+    .forEach(
+      (
+        button
+      ) => {
+
+        button.disabled =
+          true;
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   QUESTION HISTORY
+========================================================= */
+
+function saveQuestionHistory(
+  status,
+  extra = ""
+) {
+
+  state.history.push({
+
+    number:
+      state.questionNumber,
+
+    type:
+      state.question.type,
+
+    command:
+      state.question.command,
+
+    questionHtml:
+      state.question.html,
+
+    answerHtml:
+      answerHtml(
+        state.question.answer
+      ),
+
+    format:
+      state.renderFormat ===
+      "typed"
+        ? "Type Answer"
+        : "Multiple Choice",
+
+    status,
+
+    errorsUsed:
+      state.currentQuestionErrors,
+
+    extra
+
+  });
+
+}
+
+
+function renderRunHistory() {
+
+  if (
+    !historyList ||
+    !historyCount
+  ) {
+
+    return;
+
+  }
+
+
+  historyList.innerHTML =
+    "";
+
+
+  historyCount.textContent =
+    `${state.history.length} QUESTION${
+      state.history.length ===
+      1
+        ? ""
+        : "S"
+    }`;
+
+
+  state.history
+    .forEach(
+      (
+        item
+      ) => {
+
+        const card =
+          document.createElement(
+            "div"
+          );
+
+
+        const isCorrect =
+          item.status ===
+          "correct";
+
+
+        card.className =
+          `history-item ${
+            isCorrect
+              ? "history-correct"
+              : "history-wrong"
+          }`;
+
+
+        const statusSymbol =
+          isCorrect
+            ? "✓"
+            : "✕";
+
+
+        let extraText =
+          "";
+
+
+        if (
+          item.status ===
+          "revealed"
+        ) {
+
+          extraText =
+            " · solution revealed";
+
+        } else if (
+          item.errorsUsed >
+          0 &&
+          item.status ===
+          "correct"
+        ) {
+
+          extraText =
+            ` · ${item.errorsUsed} error${
+              item.errorsUsed ===
+              1
+                ? ""
+                : "s"
+            } used`;
+
+        } else if (
+          item.extra
+        ) {
+
+          extraText =
+            ` · ${item.extra}`;
+
+        }
+
+
+        card.innerHTML =
+          `
+            <div class="history-main">
+
+              <div class="history-question">
+
+                <strong>
+                  ${statusSymbol} ${item.type}:
+                </strong>
+
+                <span>
+                  ${item.questionHtml}
+                </span>
+
+              </div>
+
+              <div class="history-meta">
+                Format: ${item.format}
+                · Answer: ${item.answerHtml}
+                ${extraText}
+              </div>
+
+            </div>
+          `;
+
+
+        historyList.appendChild(
+          card
+        );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   CORRECT
+========================================================= */
+
+function markCorrect() {
+
+  state.correct++;
+
+  state.scored++;
+
+  state.streak++;
+
+
+  state.bestStreak =
+    Math.max(
+      state.bestStreak,
+      state.streak
+    );
+
+
+  /*
+    IMPORTANT:
+    DO NOT RESET state.errors HERE.
+
+    Errors are cumulative for the whole run.
+  */
+
+
+  correctStat.textContent =
+    state.correct;
+
+
+  streakStat.textContent =
+    state.streak;
+
+
+  errorStat.textContent =
+    `${state.errors} / 2`;
+
+
+  feedback.className =
+    "feedback good";
+
+
+  feedback.textContent =
+    randomFrom(
+      [
+        "Tama! Tuloy!",
+        "Solid. Correct!",
+        "Linis ng exponent laws.",
+        "Tumpak! Next!"
+      ]
+    );
+
+
+  state.lastAnswer =
+    answerPlain(
+      state.question.answer
+    );
+
+
+  saveQuestionHistory(
+    "correct",
+    state.currentQuestionErrors >
+    0
+      ? `${state.currentQuestionErrors} error${
+          state.currentQuestionErrors ===
+          1
+            ? ""
+            : "s"
+        } used before correct answer`
+      : ""
+  );
+
+
+  lockQuestion();
+
+
+  solution
+    .classList
+    .remove(
+      "hidden"
+    );
+
+
+  state.waiting =
+    true;
+
+
+  checkBtn.textContent =
+    "→ Next Question";
+
+
+  solutionBtn.disabled =
+    true;
+
+}
+
+
+/* =========================================================
+   WRONG
+========================================================= */
+
+function markWrong() {
+
+  state.scored++;
+
+  state.errors++;
+
+  state.currentQuestionErrors++;
+
+  state.streak =
+    0;
+
+
+  streakStat.textContent =
+    "0";
+
+
+  errorStat.textContent =
+    `${state.errors} / 2`;
+
+
+  if (
+    state.errors <
+    2
+  ) {
+
+    attemptBadge.textContent =
+      "1 ERROR REMAINING";
+
+
+    feedback.className =
+      "feedback bad";
+
+
+    feedback.textContent =
+      randomFrom(
+        [
+          "Mali muna. One total error remains.",
+          "Check the exponent law. One total error remains.",
+          "Recheck signs and exponents. One error left in this run."
+        ]
+      );
+
+
+    answerInput.value =
+      "";
+
+
+    state.selectedChoice =
+      null;
+
+
+    choices
+      .querySelectorAll(
+        ".choice"
+      )
+      .forEach(
+        (
+          item
+        ) => {
+
+          item
+            .classList
+            .remove(
+              "selected"
+            );
+
+        }
+      );
+
+
+    if (
+      state.renderFormat ===
+      "typed"
+    ) {
+
+      answerInput.focus();
+
+    }
+
+
+    return;
+  }
+
+
+  state.lastAnswer =
+    answerPlain(
+      state.question.answer
+    );
+
+
+  feedback.className =
+    "feedback bad";
+
+
+  feedback.textContent =
+    `Second submitted error. Correct answer: ${state.lastAnswer}`;
+
+
+  solution
+    .classList
+    .remove(
+      "hidden"
+    );
+
+
+  lockQuestion();
+
+
+  saveQuestionHistory(
+    "wrong",
+    "second total error"
+  );
+
+
+  setTimeout(
+    () => {
+
+      endGame(
+        "errors"
+      );
+
+    },
+    900
+  );
+
+}
+
+
+/* =========================================================
+   CHECK ANSWER
+========================================================= */
+
+function checkAnswer() {
+
+  if (
+    state.ended
+  ) {
+    return;
+  }
+
+
+  if (
+    state.waiting ||
+    state.revealed
+  ) {
+
+    nextQuestion();
+
+    return;
+  }
+
+
+  let correct =
+    false;
+
+
+  if (
+    state.renderFormat ===
+    "typed"
+  ) {
+
+    if (
+      !answerInput
+        .value
+        .trim()
+    ) {
+
+      feedback.className =
+        "feedback bad";
+
+
+      feedback.textContent =
+        "Maglagay muna ng sagot.";
+
+
+      return;
+    }
+
+
+    correct =
+      isCorrect(
+        answerInput.value,
+        state.question.answer
+      );
+
+  } else {
+
+    if (
+      !state.selectedChoice
+    ) {
+
+      feedback.className =
+        "feedback bad";
+
+
+      feedback.textContent =
+        "Pumili muna ng sagot.";
+
+
+      return;
+    }
+
+
+    correct =
+      state.selectedChoice ===
+      answerKey(
+        state.question.answer
+      );
+
+  }
+
+
+  if (
+    correct
+  ) {
+
+    markCorrect();
+
+  } else {
+
+    markWrong();
+
+  }
+
+}
+
+
+/* =========================================================
+   REVEAL SOLUTION
+========================================================= */
+
+function revealSolution() {
+
+  if (
+    state.ended ||
+    state.waiting ||
+    state.revealed
+  ) {
+    return;
+  }
+
+
+  state.revealed =
+    true;
+
+
+  /*
+    SOLUTION REVEAL COUNTS AS ONE OF
+    THE TWO TOTAL ERRORS FOR THE RUN.
+  */
+
+  state.scored++;
+
+  state.errors++;
+
+  state.currentQuestionErrors++;
+
+  state.streak =
+    0;
+
+
+  streakStat.textContent =
+    "0";
+
+
+  errorStat.textContent =
+    `${state.errors} / 2`;
+
+
+  state.lastAnswer =
+    answerPlain(
+      state.question.answer
+    );
+
+
+  saveQuestionHistory(
+    "revealed",
+    "solution revealed"
+  );
+
+
+  solution
+    .classList
+    .remove(
+      "hidden"
+    );
+
+
+  lockQuestion();
+
+
+  actions
+    .classList
+    .add(
+      "revealed"
+    );
+
+
+  solutionBtn.disabled =
+    true;
+
+
+  if (
+    state.errors >=
+    2
+  ) {
+
+    feedback.className =
+      "feedback bad";
+
+
+    feedback.textContent =
+      `Solution revealed. Second total error reached. Correct answer: ${state.lastAnswer}`;
+
+
+    checkBtn.disabled =
+      true;
+
+
+    setTimeout(
+      () => {
+
+        endGame(
+          "errors"
+        );
+
+      },
+      900
+    );
+
+
+    return;
+  }
+
+
+  feedback.className =
+    "feedback bad";
+
+
+  feedback.textContent =
+    "Solution revealed — counted as 1 error. One error remains.";
+
+
+  checkBtn.textContent =
+    "→ Next Question";
+
+}
+
+
+/* =========================================================
+   END GAME
+========================================================= */
+
+function endGame(
+  reason
+) {
+
+  if (
+    state.ended
+  ) {
+    return;
+  }
+
+
+  state.ended =
+    true;
+
+
+  clearInterval(
+    state.timerId
+  );
+
+
+  const accuracy =
+    state.scored
+      ? Math.round(
+          state.correct /
+          state.scored *
+          100
+        )
+      : 0;
+
+
+  $("finalCorrect").textContent =
+    state.correct;
+
+
+  $("finalAccuracy").textContent =
+    `${accuracy}%`;
+
+
+  $("finalStreak").textContent =
+    state.bestStreak;
+
+
+  $("finalQuestions").textContent =
+    state.questionNumber;
+
+
+  $("correctAnswer")
+    .classList
+    .add(
+      "hidden"
+    );
+
+
+  if (
+    reason ===
+    "errors"
+  ) {
+
+    $("resultIcon").textContent =
+      "×";
+
+
+    $("resultTitle").textContent =
+      "Game Over";
+
+
+    $("correctAnswer").textContent =
+      `Correct Answer: ${state.lastAnswer}`;
+
+
+    $("correctAnswer")
+      .classList
+      .remove(
+        "hidden"
+      );
+
+  }
+
+  else if (
+    reason ===
+    "time"
+  ) {
+
+    $("resultIcon").textContent =
+      "⏱";
+
+
+    $("resultTitle").textContent =
+      "Time's Up!";
+
+  }
+
+  else {
+
+    $("resultIcon").textContent =
+      "■";
+
+
+    $("resultTitle").textContent =
+      "Run Ended";
+
+  }
+
+
+  $("resultSetup").textContent =
+    setupSummaryText.textContent;
+
+
+  renderRunHistory();
+
+
+  showScreen(
+    resultScreen
+  );
+
+}
+
+
+/* =========================================================
+   MAIN EVENTS
+========================================================= */
+
+$("startBtn")
+  .addEventListener(
+    "click",
+    startGame
+  );
+
+
+$("againBtn")
+  .addEventListener(
+    "click",
+    startGame
+  );
+
+
+$("setupBtn")
+  .addEventListener(
+    "click",
+    () => {
+
+      showScreen(
+        setupScreen
+      );
+
+    }
+  );
+
+
+checkBtn
+  .addEventListener(
+    "click",
+    checkAnswer
+  );
+
+
+solutionBtn
+  .addEventListener(
+    "click",
+    revealSolution
+  );
+
+
+quitBtn
+  .addEventListener(
+    "click",
+    () => {
+
+      endGame(
+        "quit"
+      );
+
+    }
+  );
+
+
+answerInput
+  .addEventListener(
+    "keydown",
+    (
+      event
+    ) => {
+
+      if (
+        event.key ===
+        "Enter"
+      ) {
+
+        checkAnswer();
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   SYMBOL BUTTONS
+========================================================= */
+
+$("symbols")
+  .addEventListener(
+    "click",
+    (
+      event
+    ) => {
+
+      const button =
+        event.target.closest(
+          "button[data-add]"
+        );
+
+
+      if (
+        !button ||
+        answerInput.disabled
+      ) {
+        return;
+      }
+
+
+      const insertion =
+        button
+          .dataset
+          .add;
+
+
+      const start =
+        answerInput
+          .selectionStart ??
+        answerInput
+          .value
+          .length;
+
+
+      const end =
+        answerInput
+          .selectionEnd ??
+        start;
+
+
+      answerInput.value =
+        answerInput
+          .value
+          .slice(
+            0,
+            start
+          ) +
+        insertion +
+        answerInput
+          .value
+          .slice(
+            end
+          );
+
+
+      answerInput.focus();
+
+
+      answerInput
+        .setSelectionRange(
+
+          start +
+          insertion.length,
+
+          start +
+          insertion.length
+
+        );
+
+    }
+  );
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updateModeDone();
+
+updateModeDisplay();
+
+updateDifficultyDisplay();
+
+updateAnswerDisplay();
+
+updateSummary();
+
+  </script>
+
+</body>
+
+</html>
