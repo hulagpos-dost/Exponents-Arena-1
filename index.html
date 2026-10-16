@@ -3,7 +3,6 @@
 
 <head>
 
-
   <style>
 
 @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap");
@@ -306,7 +305,13 @@ input:focus-visible {
 
 .hero .eyebrow {
   margin-bottom:
-    16px;
+    14px;
+
+  font-size:
+    1.08rem;
+
+  letter-spacing:
+    0.06em;
 }
 
 
@@ -345,52 +350,41 @@ input:focus-visible {
 }
 
 
+
 /* =========================================================
    HERO VISUAL
 ========================================================= */
 
 .hero-visual {
   position: relative;
-
   display: grid;
-
   place-items: center;
 
-  width: 100%;
+  width: min(360px, 100%);
+  min-height: 300px;
 
-  min-height:
-    250px;
+  margin: 0 auto;
 }
 
 
+/* =========================================================
+   HERO CORE
+========================================================= */
+
 .math-core {
   position: relative;
-
   z-index: 4;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: center;
 
-  width: 172px;
+  width: 160px;
+  height: 160px;
 
-  height: 172px;
-
-  border:
-    1px solid
-    rgba(
-      255,
-      222,
-      141,
-      0.36
-    );
-
-  border-radius:
-    50%;
+  border: 1px solid rgba(255, 222, 141, 0.36);
+  border-radius: 50%;
 
   background:
     linear-gradient(
@@ -400,251 +394,181 @@ input:focus-visible {
     );
 
   box-shadow:
-    0
-    0
-    58px
-    rgba(
-      239,
-      68,
-      68,
-      0.22
-    );
+    0 0 58px rgba(239, 68, 68, 0.22);
 
   animation:
-    corePulse
-    3.5s
-    ease-in-out
-    infinite;
+    corePulse 3.5s ease-in-out infinite;
 }
 
 
 .math-core strong {
-  color:
-    white;
+  color: white;
 
   font-family:
     "Archivo Black",
     sans-serif;
 
-  font-size:
-    3.2rem;
-
-  line-height:
-    1;
+  font-size: 3.2rem;
+  line-height: 1;
 }
 
 
 .math-core small {
-  color:
-    var(--gold2);
+  color: var(--gold2);
 
-  font-size:
-    0.62rem;
-
-  font-weight:
-    900;
-
-  letter-spacing:
-    0.2em;
-}
-
-
-.orbit {
-  position: absolute;
-
-  border:
-    1px solid
-    rgba(
-      243,
-      196,
-      78,
-      0.18
-    );
-
-  border-radius:
-    50%;
-
-  pointer-events:
-    none;
-}
-
-
-.orbit-one {
-  width:
-    238px;
-
-  height:
-    238px;
-
-  animation:
-    spin
-    16s
-    linear
-    infinite;
-}
-
-
-.orbit-two {
-  width:
-    305px;
-
-  height:
-    175px;
-
-  transform:
-    rotate(
-      -20deg
-    );
-
-  animation:
-    spinReverse
-    20s
-    linear
-    infinite;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
 }
 
 
 /* =========================================================
-   FLOATING SYMBOLS
+   ORBIT LINES
+   Only the rings rotate.
 ========================================================= */
 
-.floating-chip {
+.orbit {
   position: absolute;
 
+  border: 1px solid rgba(243, 196, 78, 0.18);
+  border-radius: 50%;
+
+  pointer-events: none;
+  transform-origin: center;
+}
+
+
+.orbit-one {
+  width: 220px;
+  height: 220px;
+
+  animation:
+    orbitLineOne 16s linear infinite;
+}
+
+
+.orbit-two {
+  width: 270px;
+  height: 165px;
+
+  animation:
+    orbitLineTwo 21s linear infinite;
+}
+
+
+/* =========================================================
+   FLOATING ICONS
+   Fixed around the orbit; only subtle bobbing.
+========================================================= */
+
+.chip-orbit {
+  position: absolute;
   z-index: 5;
+}
 
-  display: grid;
 
-  place-items: center;
+.chip-orbit .floating-chip {
+  position: static;
 
-  min-width:
-    50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  height:
-    48px;
+  min-width: 46px;
+  height: 44px;
 
-  padding:
-    0
-    10px;
+  padding: 0 10px;
 
-  border:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.18
-    );
-
-  border-radius:
-    14px;
-
-  color:
-    #2d0805;
-
-  background:
-    var(--gold);
-
-  box-shadow:
-    0
-    10px
-    28px
-    rgba(
-      0,
-      0,
-      0,
-      0.4
-    );
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 13px;
 
   font-family:
     "Archivo Black",
     sans-serif;
 
-  font-size:
-    1rem;
+  font-size: 0.92rem;
+  font-weight: 900;
+
+  line-height: 1;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.35);
 
   animation:
-    floatChip
-    3s
-    ease-in-out
-    infinite;
+    iconFloat 3.2s ease-in-out infinite;
 }
 
 
-.chip-a {
-  top:
-    2px;
-
-  left:
-    18%;
-
-  transform:
-    rotate(
-      -10deg
-    );
+.chip-gold {
+  color: #2d0805;
+  background: var(--gold);
 }
 
 
-.chip-b {
-  right:
-    7%;
-
-  bottom:
-    8px;
-
-  transform:
-    rotate(
-      8deg
-    );
-
-  animation-delay:
-    -0.7s;
+.chip-red {
+  color: white;
+  background: #b91c1c;
 }
 
 
-.chip-c {
-  top:
-    37%;
-
-  right:
-    0;
-
-  color:
-    white;
-
-  background:
-    #b91c1c;
-
-  transform:
-    rotate(
-      12deg
-    );
-
-  animation-delay:
-    -1.4s;
+.chip-dark {
+  color: white;
+  background: #7f1d1d;
 }
 
 
-.chip-d {
-  bottom:
-    18%;
+/* Fixed positions close to the orbit */
 
-  left:
-    3%;
+.orbit-chip-a {
+  top: 55px;
+  left: 72px;
 
-  color:
-    white;
+  transform: rotate(-10deg);
+}
 
-  background:
-    #7f1d1d;
+.orbit-chip-b {
+  right: 68px;
+  bottom: 54px;
 
-  transform:
-    rotate(
-      -9deg
-    );
+  transform: rotate(8deg);
+}
 
-  animation-delay:
-    -2.1s;
+.orbit-chip-c {
+  top: 92px;
+  right: 55px;
+
+  transform: rotate(10deg);
+}
+
+.orbit-chip-d {
+  bottom: 72px;
+  left: 58px;
+
+  transform: rotate(-8deg);
+}
+
+/* Stagger the gentle floating */
+
+.orbit-chip-a .floating-chip {
+  animation-delay: 0s;
+}
+
+
+.orbit-chip-b .floating-chip {
+  animation-delay: -0.8s;
+}
+
+
+.orbit-chip-c .floating-chip {
+  animation-delay: -1.6s;
+}
+
+
+.orbit-chip-d .floating-chip {
+  animation-delay: -2.4s;
 }
 
 
@@ -652,88 +576,60 @@ input:focus-visible {
    HERO ANIMATIONS
 ========================================================= */
 
-@keyframes spin {
-
-  to {
-    transform:
-      rotate(
-        360deg
-      );
-  }
-
-}
-
-
-@keyframes spinReverse {
-
+@keyframes orbitLineOne {
   from {
-    transform:
-      rotate(
-        -20deg
-      );
+    transform: rotate(0deg);
   }
 
   to {
-    transform:
-      rotate(
-        -380deg
-      );
+    transform: rotate(360deg);
   }
-
 }
 
 
-@keyframes floatChip {
+@keyframes orbitLineTwo {
+  from {
+    transform: rotate(-20deg);
+  }
 
+  to {
+    transform: rotate(-380deg);
+  }
+}
+
+
+@keyframes iconFloat {
   0%,
   100% {
-    translate:
-      0 0;
+    translate: 0 0;
+    rotate: 0deg;
   }
 
   50% {
-    translate:
-      0 -8px;
+    translate: 0 -7px;
+    rotate: 3deg;
   }
-
 }
 
 
 @keyframes corePulse {
-
   0%,
   100% {
     box-shadow:
-      0
-      0
-      58px
-      rgba(
-        239,
-        68,
-        68,
-        0.22
-      );
+      0 0 58px rgba(239, 68, 68, 0.22);
   }
 
   50% {
     box-shadow:
-      0
-      0
-      82px
-      rgba(
-        243,
-        196,
-        78,
-        0.28
-      );
+      0 0 78px rgba(243, 196, 78, 0.24);
   }
-
 }
 
 
 /* =========================================================
    GENERAL SCREEN
 ========================================================= */
+
 
 main {
   margin-top:
@@ -3140,16 +3036,15 @@ main {
 }
 
 
+
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
-@media
-(max-width: 900px) {
+@media (max-width: 900px) {
 
   .hero {
-    min-height:
-      0;
+    min-height: 0;
 
     padding:
       38px
@@ -3159,17 +3054,10 @@ main {
 
   .hero-content {
     grid-template-columns:
-      minmax(
-        0,
-        1fr
-      )
-      minmax(
-        235px,
-        0.72fr
-      );
+      minmax(0, 1fr)
+      minmax(235px, 0.72fr);
 
-    gap:
-      25px;
+    gap: 25px;
   }
 
 
@@ -3184,19 +3072,52 @@ main {
 
 
   .hero-visual {
-    display:
-      grid;
+    width: min(330px, 100%);
+    min-height: 280px;
 
-    min-height:
-      225px;
+    margin: 0 auto;
+  }
 
-    transform:
-      scale(
-        0.88
-      );
 
-    transform-origin:
-      center;
+  .math-core {
+    width: 150px;
+    height: 150px;
+  }
+
+
+  .orbit-one {
+    width: 205px;
+    height: 205px;
+  }
+
+
+  .orbit-two {
+    width: 248px;
+    height: 155px;
+  }
+
+
+  .orbit-chip-a {
+    top: 31px;
+    left: 42px;
+  }
+
+
+  .orbit-chip-b {
+    right: 34px;
+    bottom: 30px;
+  }
+
+
+  .orbit-chip-c {
+    top: 74px;
+    right: 15px;
+  }
+
+
+  .orbit-chip-d {
+    bottom: 43px;
+    left: 23px;
   }
 
 
@@ -3221,8 +3142,7 @@ main {
 }
 
 
-@media
-(max-width: 650px) {
+@media (max-width: 650px) {
 
   .app {
     width:
@@ -3260,20 +3180,15 @@ main {
 
 
   .hero-copy {
-    display:
-      flex;
-
-    flex-direction:
-      column;
-
-    align-items:
-      center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
 
   .hero .eyebrow {
     margin-bottom:
-      10px;
+      12px;
   }
 
 
@@ -3291,31 +3206,74 @@ main {
 
 
   .hero-visual {
-    display:
-      grid;
-
-    width:
-      min(
-        300px,
-        100%
-      );
-
-    min-height:
-      230px;
+    width: min(290px, 100%);
+    min-height: 255px;
 
     margin:
-      8px
+      10px
       auto
       0;
-
-    transform:
-      scale(
-        0.82
-      );
-
-    transform-origin:
-      center;
   }
+
+
+  .math-core {
+    width: 138px;
+    height: 138px;
+  }
+
+
+  .math-core strong {
+    font-size: 2.7rem;
+  }
+
+
+  .orbit-one {
+    width: 188px;
+    height: 188px;
+  }
+
+
+  .orbit-two {
+    width: 225px;
+    height: 143px;
+  }
+
+
+  .chip-orbit .floating-chip {
+    min-width: 40px;
+    height: 38px;
+
+    padding:
+      0
+      8px;
+
+    border-radius:
+      12px;
+
+    font-size:
+      0.8rem;
+  }
+
+
+  .orbit-chip-a {
+  top: 27px;
+  left: 34px;
+}
+
+.orbit-chip-b {
+  right: 27px;
+  bottom: 27px;
+}
+
+.orbit-chip-c {
+  top: 67px;
+  right: 11px;
+}
+
+.orbit-chip-d {
+  bottom: 37px;
+  left: 15px;
+}
 
 
   .screen-card {
@@ -3330,6 +3288,85 @@ main {
   .screen-heading {
     flex-direction:
       column;
+  }
+
+
+  .panel {
+    padding:
+      16px;
+  }
+
+
+  .selector {
+    min-height:
+      74px;
+
+    padding:
+      12px;
+
+    gap:
+      11px;
+  }
+
+
+  .selector-icon {
+    width:
+      46px;
+
+    height:
+      46px;
+  }
+
+
+  .time-grid {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+
+  .time-card {
+    min-height:
+      78px;
+  }
+
+
+  .custom-time {
+    padding:
+      14px
+      10px;
+
+    gap:
+      8px;
+  }
+
+
+  .custom-time label {
+    width:
+      44%;
+  }
+
+
+  .question-box {
+    min-height:
+      0;
+
+    padding:
+      28px
+      14px;
+  }
+
+
+  .question {
+    font-size:
+      clamp(
+        1.55rem,
+        8vw,
+        2.4rem
+      );
+
+    overflow-wrap:
+      anywhere;
   }
 
 
@@ -3350,6 +3387,14 @@ main {
   }
 
 
+  .launch,
+  .secondary,
+  .actions button {
+    min-height:
+      56px;
+  }
+
+
   .run-history-head {
     align-items:
       flex-start;
@@ -3358,61 +3403,13 @@ main {
       column;
   }
 
-}
-
-@media (max-width: 650px) {
-
-  .panel {
-    padding: 16px;
-  }
-
-  .selector {
-    min-height: 74px;
-    padding: 12px;
-    gap: 11px;
-  }
-
-  .selector-icon {
-    width: 46px;
-    height: 46px;
-  }
-
-  .time-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .time-card {
-    min-height: 78px;
-  }
-
-  .custom-time {
-    padding: 14px 10px;
-    gap: 8px;
-  }
-
-  .custom-time label {
-    width: 44%;
-  }
-
-  .question-box {
-    min-height: 0;
-    padding: 28px 14px;
-  }
-
-  .question {
-    font-size: clamp(1.55rem, 8vw, 2.4rem);
-    overflow-wrap: anywhere;
-  }
-
-  .launch,
-  .secondary,
-  .actions button {
-    min-height: 56px;
-  }
 
   .history-item {
-    padding: 13px 14px;
+    padding:
+      13px
+      14px;
   }
+
 }
 
   </style>
@@ -3420,7 +3417,6 @@ main {
 </head>
 
 <body>
-
 
   <div
     class="power-bg"
@@ -3465,42 +3461,37 @@ main {
         >
 
           <div class="orbit orbit-one"></div>
-
           <div class="orbit orbit-two"></div>
 
-
           <div class="math-core">
-
-            <small>
-              EXPONENT
-            </small>
-
-            <strong>
-              xⁿ
-            </strong>
-
-            <small>
-              ARENA
-            </small>
-
+            <small>EXPONENT</small>
+            <strong>xⁿ</strong>
+            <small>ARENA</small>
           </div>
 
+          <div class="chip-orbit orbit-chip-a">
+            <div class="floating-chip chip-gold">
+              x²
+            </div>
+          </div>
 
-          <span class="floating-chip chip-a">
-            x²
-          </span>
+          <div class="chip-orbit orbit-chip-b">
+            <div class="floating-chip chip-gold">
+              x⁻³
+            </div>
+          </div>
 
-          <span class="floating-chip chip-b">
-            x⁻³
-          </span>
+          <div class="chip-orbit orbit-chip-c">
+            <div class="floating-chip chip-red">
+              ½
+            </div>
+          </div>
 
-          <span class="floating-chip chip-c">
-            ½
-          </span>
-
-          <span class="floating-chip chip-d">
-            aᵐ
-          </span>
+          <div class="chip-orbit orbit-chip-d">
+            <div class="floating-chip chip-dark">
+              aᵐ
+            </div>
+          </div>
 
         </div>
 
@@ -3529,7 +3520,7 @@ main {
             </div>
 
             <h2>
-              Build Your Exponent Drill
+              Build Your Exponent Bakbakan
             </h2>
 
             <p>
@@ -4202,42 +4193,42 @@ main {
         </div>
 
 
-      <div class="end-actions">
+        <div class="end-actions">
 
-  <button
-    class="secondary"
-    id="setupBtn"
-    type="button"
-  >
-    Change Setup
-  </button>
+          <button
+            class="secondary"
+            id="setupBtn"
+            type="button"
+          >
+            Change Setup
+          </button>
 
 
-  <button
-    class="launch"
-    id="againBtn"
-    type="button"
-  >
+          <button
+            class="launch"
+            id="againBtn"
+            type="button"
+          >
 
-    <span>
-      ↻
-    </span>
+            <span>
+              ↻
+            </span>
 
-    <span>
+            <span>
 
-      <strong>
-        Play Again
-      </strong>
+              <strong>
+                Play Again
+              </strong>
 
-      <small>
-        Same setup
-      </small>
+              <small>
+                Same setup
+              </small>
 
-    </span>
+            </span>
 
-  </button>
+          </button>
 
-</div>
+        </div>
 
 
         <!-- =====================================================
@@ -4740,11 +4731,8 @@ main {
 
   </div>
 
-</body>
-</html>
 
   <script>
-
 "use strict";
 
 /* =========================================================
