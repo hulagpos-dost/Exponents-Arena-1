@@ -3,6 +3,7 @@
 
 <head>
 
+  ...
 
   <style>
 
@@ -306,7 +307,13 @@ input:focus-visible {
 
 .hero .eyebrow {
   margin-bottom:
-    16px;
+    14px;
+
+  font-size:
+    1.08rem;
+
+  letter-spacing:
+    0.06em;
 }
 
 
@@ -345,6 +352,7 @@ input:focus-visible {
 }
 
 
+
 /* =========================================================
    HERO VISUAL
 ========================================================= */
@@ -353,32 +361,52 @@ input:focus-visible {
   position: relative;
 
   display: grid;
-
   place-items: center;
 
-  width: 100%;
+  width:
+    min(
+      360px,
+      100%
+    );
 
   min-height:
-    250px;
+    300px;
+
+  margin:
+    0 auto;
+
+  isolation:
+    isolate;
 }
 
+
+/* =========================================================
+   HERO CORE
+========================================================= */
 
 .math-core {
   position: relative;
 
-  z-index: 4;
+  z-index:
+    4;
 
-  display: flex;
+  display:
+    flex;
 
-  flex-direction: column;
+  flex-direction:
+    column;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
-  width: 172px;
+  width:
+    160px;
 
-  height: 172px;
+  height:
+    160px;
 
   border:
     1px solid
@@ -449,8 +477,22 @@ input:focus-visible {
 }
 
 
+/* =========================================================
+   ROTATING ORBIT LINES
+========================================================= */
+
 .orbit {
-  position: absolute;
+  position:
+    absolute;
+
+  top:
+    50%;
+
+  left:
+    50%;
+
+  z-index:
+    1;
 
   border:
     1px solid
@@ -466,18 +508,24 @@ input:focus-visible {
 
   pointer-events:
     none;
+
+  transform-origin:
+    center center;
+
+  will-change:
+    transform;
 }
 
 
 .orbit-one {
   width:
-    238px;
+    220px;
 
   height:
-    238px;
+    184px;
 
   animation:
-    spin
+    orbitLineOne
     16s
     linear
     infinite;
@@ -486,45 +534,67 @@ input:focus-visible {
 
 .orbit-two {
   width:
-    305px;
+    270px;
 
   height:
-    175px;
+    165px;
 
-  transform:
-    rotate(
-      -20deg
+  border-color:
+    rgba(
+      243,
+      196,
+      78,
+      0.14
     );
 
   animation:
-    spinReverse
-    20s
+    orbitLineTwo
+    21s
     linear
     infinite;
 }
 
 
 /* =========================================================
-   FLOATING SYMBOLS
+   MOVING EXPONENT CHIPS
+
+   The chip travels around the circle, but offset-rotate: 0deg
+   keeps x², ½, x⁻³, and aᵐ upright and readable.
 ========================================================= */
 
-.floating-chip {
-  position: absolute;
+.hero-visual .floating-chip {
+  position:
+    absolute;
 
-  z-index: 5;
+  top:
+    50%;
 
-  display: grid;
+  left:
+    50%;
 
-  place-items: center;
+  right:
+    auto;
+
+  bottom:
+    auto;
+
+  z-index:
+    6;
+
+  display:
+    grid;
+
+  place-items:
+    center;
 
   min-width:
-    50px;
+    46px;
 
-  height:
-    48px;
+  min-height:
+    44px;
 
   padding:
-    0
+    9px
     10px;
 
   border:
@@ -537,13 +607,32 @@ input:focus-visible {
     );
 
   border-radius:
-    14px;
+    13px;
 
-  color:
-    #2d0805;
+  font-family:
+    "Archivo Black",
+    sans-serif;
 
-  background:
-    var(--gold);
+  font-size:
+    0.92rem;
+
+  font-weight:
+    900;
+
+  line-height:
+    1;
+
+  text-align:
+    center;
+
+  white-space:
+    nowrap;
+
+  word-break:
+    keep-all;
+
+  overflow-wrap:
+    normal;
 
   box-shadow:
     0
@@ -553,98 +642,83 @@ input:focus-visible {
       0,
       0,
       0,
-      0.4
+      0.35
     );
 
-  font-family:
-    "Archivo Black",
-    sans-serif;
+  offset-path:
+    ellipse(
+      118px 92px at 50% 50%
+    );
 
-  font-size:
-    1rem;
+  offset-rotate:
+    0deg;
 
   animation:
-    floatChip
-    3s
-    ease-in-out
+    exponentChipTravel
+    16s
+    linear
     infinite;
+
+  animation-play-state:
+    running;
+
+  will-change:
+    offset-distance;
 }
 
 
-.chip-a {
-  top:
-    2px;
+.chip-gold {
+  color:
+    #2d0805;
 
-  left:
-    18%;
-
-  transform:
-    rotate(
-      -10deg
-    );
+  background:
+    var(--gold);
 }
 
 
-.chip-b {
-  right:
-    7%;
-
-  bottom:
-    8px;
-
-  transform:
-    rotate(
-      8deg
-    );
-
-  animation-delay:
-    -0.7s;
-}
-
-
-.chip-c {
-  top:
-    37%;
-
-  right:
-    0;
-
+.chip-red {
   color:
     white;
 
   background:
-    #b91c1c;
-
-  transform:
-    rotate(
-      12deg
-    );
-
-  animation-delay:
-    -1.4s;
+    #c91d1d;
 }
 
 
-.chip-d {
-  bottom:
-    18%;
-
-  left:
-    3%;
-
+.chip-dark {
   color:
     white;
 
   background:
     #7f1d1d;
+}
 
-  transform:
-    rotate(
-      -9deg
-    );
 
+/* =========================================================
+   FOUR EQUALLY SPACED CHIPS
+========================================================= */
+
+.chip-one {
   animation-delay:
-    -2.1s;
+    0s !important;
+}
+
+
+.chip-two {
+  animation-delay:
+    -4s !important;
+}
+
+
+.chip-three {
+  animation-delay:
+    -8s !important;
+}
+
+
+.chip-four {
+  animation-delay:
+    -12s !important;
 }
 
 
@@ -652,10 +726,25 @@ input:focus-visible {
    HERO ANIMATIONS
 ========================================================= */
 
-@keyframes spin {
+@keyframes orbitLineOne {
+
+  from {
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      rotate(
+        0deg
+      );
+  }
 
   to {
     transform:
+      translate(
+        -50%,
+        -50%
+      )
       rotate(
         360deg
       );
@@ -664,10 +753,14 @@ input:focus-visible {
 }
 
 
-@keyframes spinReverse {
+@keyframes orbitLineTwo {
 
   from {
     transform:
+      translate(
+        -50%,
+        -50%
+      )
       rotate(
         -20deg
       );
@@ -675,6 +768,10 @@ input:focus-visible {
 
   to {
     transform:
+      translate(
+        -50%,
+        -50%
+      )
       rotate(
         -380deg
       );
@@ -683,17 +780,16 @@ input:focus-visible {
 }
 
 
-@keyframes floatChip {
+@keyframes exponentChipTravel {
 
-  0%,
-  100% {
-    translate:
-      0 0;
+  from {
+    offset-distance:
+      0%;
   }
 
-  50% {
-    translate:
-      0 -8px;
+  to {
+    offset-distance:
+      100%;
   }
 
 }
@@ -719,12 +815,12 @@ input:focus-visible {
     box-shadow:
       0
       0
-      82px
+      78px
       rgba(
         243,
         196,
         78,
-        0.28
+        0.24
       );
   }
 
@@ -734,6 +830,7 @@ input:focus-visible {
 /* =========================================================
    GENERAL SCREEN
 ========================================================= */
+
 
 main {
   margin-top:
@@ -3140,16 +3237,15 @@ main {
 }
 
 
+
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
-@media
-(max-width: 900px) {
+@media (max-width: 900px) {
 
   .hero {
-    min-height:
-      0;
+    min-height: 0;
 
     padding:
       38px
@@ -3159,17 +3255,10 @@ main {
 
   .hero-content {
     grid-template-columns:
-      minmax(
-        0,
-        1fr
-      )
-      minmax(
-        235px,
-        0.72fr
-      );
+      minmax(0, 1fr)
+      minmax(235px, 0.72fr);
 
-    gap:
-      25px;
+    gap: 25px;
   }
 
 
@@ -3184,19 +3273,52 @@ main {
 
 
   .hero-visual {
-    display:
-      grid;
-
-    min-height:
-      225px;
-
-    transform:
-      scale(
-        0.88
+    width:
+      min(
+        330px,
+        100%
       );
 
-    transform-origin:
-      center;
+    min-height:
+      280px;
+
+    margin:
+      0 auto;
+  }
+
+
+  .math-core {
+    width:
+      150px;
+
+    height:
+      150px;
+  }
+
+
+  .orbit-one {
+    width:
+      205px;
+
+    height:
+      171px;
+  }
+
+
+  .orbit-two {
+    width:
+      248px;
+
+    height:
+      155px;
+  }
+
+
+  .hero-visual .floating-chip {
+    offset-path:
+      ellipse(
+        110px 86px at 50% 50%
+      );
   }
 
 
@@ -3221,8 +3343,7 @@ main {
 }
 
 
-@media
-(max-width: 650px) {
+@media (max-width: 650px) {
 
   .app {
     width:
@@ -3260,20 +3381,15 @@ main {
 
 
   .hero-copy {
-    display:
-      flex;
-
-    flex-direction:
-      column;
-
-    align-items:
-      center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
 
   .hero .eyebrow {
     margin-bottom:
-      10px;
+      12px;
   }
 
 
@@ -3291,9 +3407,6 @@ main {
 
 
   .hero-visual {
-    display:
-      grid;
-
     width:
       min(
         300px,
@@ -3301,20 +3414,75 @@ main {
       );
 
     min-height:
-      230px;
+      275px;
 
     margin:
-      8px
+      12px
       auto
       0;
+  }
 
-    transform:
-      scale(
-        0.82
+
+  .math-core {
+    width:
+      136px;
+
+    height:
+      136px;
+  }
+
+
+  .math-core strong {
+    font-size:
+      2.7rem;
+  }
+
+
+  .math-core small {
+    font-size:
+      0.54rem;
+  }
+
+
+  .orbit-one {
+    width:
+      188px;
+
+    height:
+      158px;
+  }
+
+
+  .orbit-two {
+    width:
+      228px;
+
+    height:
+      145px;
+  }
+
+
+  .hero-visual .floating-chip {
+    min-width:
+      40px;
+
+    min-height:
+      38px;
+
+    padding:
+      8px
+      9px;
+
+    border-radius:
+      11px;
+
+    font-size:
+      0.8rem;
+
+    offset-path:
+      ellipse(
+        102px 80px at 50% 50%
       );
-
-    transform-origin:
-      center;
   }
 
 
@@ -3330,6 +3498,85 @@ main {
   .screen-heading {
     flex-direction:
       column;
+  }
+
+
+  .panel {
+    padding:
+      16px;
+  }
+
+
+  .selector {
+    min-height:
+      74px;
+
+    padding:
+      12px;
+
+    gap:
+      11px;
+  }
+
+
+  .selector-icon {
+    width:
+      46px;
+
+    height:
+      46px;
+  }
+
+
+  .time-grid {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+
+  .time-card {
+    min-height:
+      78px;
+  }
+
+
+  .custom-time {
+    padding:
+      14px
+      10px;
+
+    gap:
+      8px;
+  }
+
+
+  .custom-time label {
+    width:
+      44%;
+  }
+
+
+  .question-box {
+    min-height:
+      0;
+
+    padding:
+      28px
+      14px;
+  }
+
+
+  .question {
+    font-size:
+      clamp(
+        1.55rem,
+        8vw,
+        2.4rem
+      );
+
+    overflow-wrap:
+      anywhere;
   }
 
 
@@ -3350,6 +3597,14 @@ main {
   }
 
 
+  .launch,
+  .secondary,
+  .actions button {
+    min-height:
+      56px;
+  }
+
+
   .run-history-head {
     align-items:
       flex-start;
@@ -3358,62 +3613,15 @@ main {
       column;
   }
 
-}
-
-@media (max-width: 650px) {
-
-  .panel {
-    padding: 16px;
-  }
-
-  .selector {
-    min-height: 74px;
-    padding: 12px;
-    gap: 11px;
-  }
-
-  .selector-icon {
-    width: 46px;
-    height: 46px;
-  }
-
-  .time-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .time-card {
-    min-height: 78px;
-  }
-
-  .custom-time {
-    padding: 14px 10px;
-    gap: 8px;
-  }
-
-  .custom-time label {
-    width: 44%;
-  }
-
-  .question-box {
-    min-height: 0;
-    padding: 28px 14px;
-  }
-
-  .question {
-    font-size: clamp(1.55rem, 8vw, 2.4rem);
-    overflow-wrap: anywhere;
-  }
-
-  .launch,
-  .secondary,
-  .actions button {
-    min-height: 56px;
-  }
 
   .history-item {
-    padding: 13px 14px;
+    padding:
+      13px
+      14px;
   }
+
 }
+
 
   </style>
 
@@ -3465,7 +3673,6 @@ main {
         >
 
           <div class="orbit orbit-one"></div>
-
           <div class="orbit orbit-two"></div>
 
 
@@ -3486,21 +3693,28 @@ main {
           </div>
 
 
-          <span class="floating-chip chip-a">
+          <!--
+            These four chips travel around one motion path.
+
+            offset-rotate: 0deg in CSS keeps the text upright
+            while each chip moves around the circle.
+          -->
+
+          <div class="floating-chip chip-one chip-gold">
             x²
-          </span>
+          </div>
 
-          <span class="floating-chip chip-b">
-            x⁻³
-          </span>
-
-          <span class="floating-chip chip-c">
+          <div class="floating-chip chip-two chip-red">
             ½
-          </span>
+          </div>
 
-          <span class="floating-chip chip-d">
+          <div class="floating-chip chip-three chip-gold">
+            x⁻³
+          </div>
+
+          <div class="floating-chip chip-four chip-dark">
             aᵐ
-          </span>
+          </div>
 
         </div>
 
@@ -3854,7 +4068,9 @@ main {
         </div>
 
 
-        <!-- START -->
+        <!-- =====================================================
+             START
+        ====================================================== -->
 
         <button
           class="launch"
@@ -3921,6 +4137,8 @@ main {
         </div>
 
 
+        <!-- TIMER -->
+
         <div class="timer">
 
           <span id="timerIcon">
@@ -3952,6 +4170,8 @@ main {
         </div>
 
 
+        <!-- STATS -->
+
         <div class="stats">
 
           <div>
@@ -3976,6 +4196,8 @@ main {
 
         </div>
 
+
+        <!-- QUESTION -->
 
         <div class="question-box">
 
@@ -4013,6 +4235,8 @@ main {
             id="note"
           ></div>
 
+
+          <!-- TYPED ANSWER -->
 
           <div id="typedArea">
 
@@ -4087,11 +4311,15 @@ main {
           </div>
 
 
+          <!-- MULTIPLE CHOICE -->
+
           <div
             class="choices hidden"
             id="choices"
           ></div>
 
+
+          <!-- FEEDBACK -->
 
           <div
             class="feedback"
@@ -4101,6 +4329,8 @@ main {
           </div>
 
 
+          <!-- SOLUTION -->
+
           <div
             class="solution hidden"
             id="solution"
@@ -4108,6 +4338,8 @@ main {
 
         </div>
 
+
+        <!-- GAME ACTIONS -->
 
         <div
           class="actions"
@@ -4161,18 +4393,22 @@ main {
           xⁿ
         </div>
 
+
         <div class="kicker">
           BAKBAKAN SUMMARY
         </div>
+
 
         <h2 id="resultTitle">
           Run Ended
         </h2>
 
+
         <div
           id="correctAnswer"
           class="correct-answer hidden"
         ></div>
+
 
         <p id="resultSetup"></p>
 
@@ -4202,47 +4438,45 @@ main {
         </div>
 
 
-      <div class="end-actions">
+        <div class="end-actions">
 
-  <button
-    class="secondary"
-    id="setupBtn"
-    type="button"
-  >
-    Change Setup
-  </button>
-
-
-  <button
-    class="launch"
-    id="againBtn"
-    type="button"
-  >
-
-    <span>
-      ↻
-    </span>
-
-    <span>
-
-      <strong>
-        Play Again
-      </strong>
-
-      <small>
-        Same setup
-      </small>
-
-    </span>
-
-  </button>
-
-</div>
+          <button
+            class="secondary"
+            id="setupBtn"
+            type="button"
+          >
+            Change Setup
+          </button>
 
 
-        <!-- =====================================================
-             RUN QUESTION HISTORY
-        ====================================================== -->
+          <button
+            class="launch"
+            id="againBtn"
+            type="button"
+          >
+
+            <span>
+              ↻
+            </span>
+
+            <span>
+
+              <strong>
+                Play Again
+              </strong>
+
+              <small>
+                Same setup
+              </small>
+
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <!-- QUESTION REVIEW -->
 
         <div
           class="run-history"
@@ -4262,6 +4496,7 @@ main {
               </h3>
 
             </div>
+
 
             <span id="historyCount">
               0 QUESTIONS
@@ -4356,9 +4591,7 @@ main {
           type="button"
         >
 
-          <span>
-            2⁵
-          </span>
+          <span>2⁵</span>
 
           <div>
             <strong>Basic Powers</strong>
@@ -4376,9 +4609,7 @@ main {
           type="button"
         >
 
-          <span>
-            ×÷
-          </span>
+          <span>×÷</span>
 
           <div>
             <strong>Product & Quotient Laws</strong>
@@ -4396,9 +4627,7 @@ main {
           type="button"
         >
 
-          <span>
-            (xᵃ)ᵇ
-          </span>
+          <span>(xᵃ)ᵇ</span>
 
           <div>
             <strong>Power Rules</strong>
@@ -4416,9 +4645,7 @@ main {
           type="button"
         >
 
-          <span>
-            x⁻ⁿ
-          </span>
+          <span>x⁻ⁿ</span>
 
           <div>
             <strong>Zero & Negative Exponents</strong>
@@ -4436,9 +4663,7 @@ main {
           type="button"
         >
 
-          <span>
-            x½
-          </span>
+          <span>x½</span>
 
           <div>
             <strong>Fractional Exponents</strong>
@@ -4456,9 +4681,7 @@ main {
           type="button"
         >
 
-          <span>
-            Σ
-          </span>
+          <span>Σ</span>
 
           <div>
             <strong>Full Simplification</strong>
@@ -4476,9 +4699,7 @@ main {
           type="button"
         >
 
-          <span>
-            =
-          </span>
+          <span>=</span>
 
           <div>
             <strong>Exponential Equations</strong>
@@ -4496,9 +4717,7 @@ main {
           type="button"
         >
 
-          <span>
-            ⚠
-          </span>
+          <span>⚠</span>
 
           <div>
             <strong>CET Mixed Challenge</strong>
@@ -4573,9 +4792,7 @@ main {
           type="button"
         >
 
-          <span>
-            1
-          </span>
+          <span>1</span>
 
           <div>
             <strong>Foundation</strong>
@@ -4593,9 +4810,7 @@ main {
           type="button"
         >
 
-          <span>
-            2
-          </span>
+          <span>2</span>
 
           <div>
             <strong>Intermediate</strong>
@@ -4613,9 +4828,7 @@ main {
           type="button"
         >
 
-          <span>
-            ⚡
-          </span>
+          <span>⚡</span>
 
           <div>
             <strong>CET Challenge</strong>
@@ -4681,9 +4894,7 @@ main {
           type="button"
         >
 
-          <span>
-            ⌨
-          </span>
+          <span>⌨</span>
 
           <div>
             <strong>Type Answer</strong>
@@ -4701,9 +4912,7 @@ main {
           type="button"
         >
 
-          <span>
-            AB
-          </span>
+          <span>AB</span>
 
           <div>
             <strong>Multiple Choice</strong>
@@ -4721,9 +4930,7 @@ main {
           type="button"
         >
 
-          <span>
-            ↯
-          </span>
+          <span>↯</span>
 
           <div>
             <strong>Random</strong>
@@ -4739,9 +4946,6 @@ main {
     </div>
 
   </div>
-
-</body>
-</html>
 
   <script>
 
