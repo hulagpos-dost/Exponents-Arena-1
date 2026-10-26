@@ -3,6 +3,7 @@
 
 <head>
 
+  ...
 
   <style>
 
@@ -306,7 +307,13 @@ input:focus-visible {
 
 .hero .eyebrow {
   margin-bottom:
-    16px;
+    14px;
+
+  font-size:
+    1.08rem;
+
+  letter-spacing:
+    0.06em;
 }
 
 
@@ -345,6 +352,7 @@ input:focus-visible {
 }
 
 
+
 /* =========================================================
    HERO VISUAL
 ========================================================= */
@@ -353,32 +361,52 @@ input:focus-visible {
   position: relative;
 
   display: grid;
-
   place-items: center;
 
-  width: 100%;
+  width:
+    min(
+      360px,
+      100%
+    );
 
   min-height:
-    250px;
+    300px;
+
+  margin:
+    0 auto;
+
+  isolation:
+    isolate;
 }
 
+
+/* =========================================================
+   HERO CORE
+========================================================= */
 
 .math-core {
   position: relative;
 
-  z-index: 4;
+  z-index:
+    4;
 
-  display: flex;
+  display:
+    flex;
 
-  flex-direction: column;
+  flex-direction:
+    column;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
-  width: 172px;
+  width:
+    160px;
 
-  height: 172px;
+  height:
+    160px;
 
   border:
     1px solid
@@ -449,8 +477,22 @@ input:focus-visible {
 }
 
 
+/* =========================================================
+   ROTATING ORBIT LINES
+========================================================= */
+
 .orbit {
-  position: absolute;
+  position:
+    absolute;
+
+  top:
+    50%;
+
+  left:
+    50%;
+
+  z-index:
+    1;
 
   border:
     1px solid
@@ -466,18 +508,24 @@ input:focus-visible {
 
   pointer-events:
     none;
+
+  transform-origin:
+    center center;
+
+  will-change:
+    transform;
 }
 
 
 .orbit-one {
   width:
-    238px;
+    220px;
 
   height:
-    238px;
+    184px;
 
   animation:
-    spin
+    orbitLineOne
     16s
     linear
     infinite;
@@ -486,45 +534,67 @@ input:focus-visible {
 
 .orbit-two {
   width:
-    305px;
+    270px;
 
   height:
-    175px;
+    165px;
 
-  transform:
-    rotate(
-      -20deg
+  border-color:
+    rgba(
+      243,
+      196,
+      78,
+      0.14
     );
 
   animation:
-    spinReverse
-    20s
+    orbitLineTwo
+    21s
     linear
     infinite;
 }
 
 
 /* =========================================================
-   FLOATING SYMBOLS
+   MOVING EXPONENT CHIPS
+
+   The chip travels around the circle, but offset-rotate: 0deg
+   keeps x², ½, x⁻³, and aᵐ upright and readable.
 ========================================================= */
 
-.floating-chip {
-  position: absolute;
+.hero-visual .floating-chip {
+  position:
+    absolute;
 
-  z-index: 5;
+  top:
+    50%;
 
-  display: grid;
+  left:
+    50%;
 
-  place-items: center;
+  right:
+    auto;
+
+  bottom:
+    auto;
+
+  z-index:
+    6;
+
+  display:
+    grid;
+
+  place-items:
+    center;
 
   min-width:
-    50px;
+    46px;
 
-  height:
-    48px;
+  min-height:
+    44px;
 
   padding:
-    0
+    9px
     10px;
 
   border:
@@ -537,13 +607,32 @@ input:focus-visible {
     );
 
   border-radius:
-    14px;
+    13px;
 
-  color:
-    #2d0805;
+  font-family:
+    "Archivo Black",
+    sans-serif;
 
-  background:
-    var(--gold);
+  font-size:
+    0.92rem;
+
+  font-weight:
+    900;
+
+  line-height:
+    1;
+
+  text-align:
+    center;
+
+  white-space:
+    nowrap;
+
+  word-break:
+    keep-all;
+
+  overflow-wrap:
+    normal;
 
   box-shadow:
     0
@@ -553,98 +642,83 @@ input:focus-visible {
       0,
       0,
       0,
-      0.4
+      0.35
     );
 
-  font-family:
-    "Archivo Black",
-    sans-serif;
+  offset-path:
+    ellipse(
+      118px 92px at 50% 50%
+    );
 
-  font-size:
-    1rem;
+  offset-rotate:
+    0deg;
 
   animation:
-    floatChip
-    3s
-    ease-in-out
+    exponentChipTravel
+    16s
+    linear
     infinite;
+
+  animation-play-state:
+    running;
+
+  will-change:
+    offset-distance;
 }
 
 
-.chip-a {
-  top:
-    2px;
+.chip-gold {
+  color:
+    #2d0805;
 
-  left:
-    18%;
-
-  transform:
-    rotate(
-      -10deg
-    );
+  background:
+    var(--gold);
 }
 
 
-.chip-b {
-  right:
-    7%;
-
-  bottom:
-    8px;
-
-  transform:
-    rotate(
-      8deg
-    );
-
-  animation-delay:
-    -0.7s;
-}
-
-
-.chip-c {
-  top:
-    37%;
-
-  right:
-    0;
-
+.chip-red {
   color:
     white;
 
   background:
-    #b91c1c;
-
-  transform:
-    rotate(
-      12deg
-    );
-
-  animation-delay:
-    -1.4s;
+    #c91d1d;
 }
 
 
-.chip-d {
-  bottom:
-    18%;
-
-  left:
-    3%;
-
+.chip-dark {
   color:
     white;
 
   background:
     #7f1d1d;
+}
 
-  transform:
-    rotate(
-      -9deg
-    );
 
+/* =========================================================
+   FOUR EQUALLY SPACED CHIPS
+========================================================= */
+
+.chip-one {
   animation-delay:
-    -2.1s;
+    0s !important;
+}
+
+
+.chip-two {
+  animation-delay:
+    -4s !important;
+}
+
+
+.chip-three {
+  animation-delay:
+    -8s !important;
+}
+
+
+.chip-four {
+  animation-delay:
+    -12s !important;
 }
 
 
@@ -652,10 +726,25 @@ input:focus-visible {
    HERO ANIMATIONS
 ========================================================= */
 
-@keyframes spin {
+@keyframes orbitLineOne {
+
+  from {
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      rotate(
+        0deg
+      );
+  }
 
   to {
     transform:
+      translate(
+        -50%,
+        -50%
+      )
       rotate(
         360deg
       );
@@ -664,10 +753,14 @@ input:focus-visible {
 }
 
 
-@keyframes spinReverse {
+@keyframes orbitLineTwo {
 
   from {
     transform:
+      translate(
+        -50%,
+        -50%
+      )
       rotate(
         -20deg
       );
@@ -675,6 +768,10 @@ input:focus-visible {
 
   to {
     transform:
+      translate(
+        -50%,
+        -50%
+      )
       rotate(
         -380deg
       );
@@ -683,17 +780,16 @@ input:focus-visible {
 }
 
 
-@keyframes floatChip {
+@keyframes exponentChipTravel {
 
-  0%,
-  100% {
-    translate:
-      0 0;
+  from {
+    offset-distance:
+      0%;
   }
 
-  50% {
-    translate:
-      0 -8px;
+  to {
+    offset-distance:
+      100%;
   }
 
 }
@@ -719,12 +815,12 @@ input:focus-visible {
     box-shadow:
       0
       0
-      82px
+      78px
       rgba(
         243,
         196,
         78,
-        0.28
+        0.24
       );
   }
 
@@ -734,6 +830,7 @@ input:focus-visible {
 /* =========================================================
    GENERAL SCREEN
 ========================================================= */
+
 
 main {
   margin-top:
@@ -3140,16 +3237,15 @@ main {
 }
 
 
+
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
-@media
-(max-width: 900px) {
+@media (max-width: 900px) {
 
   .hero {
-    min-height:
-      0;
+    min-height: 0;
 
     padding:
       38px
@@ -3159,17 +3255,10 @@ main {
 
   .hero-content {
     grid-template-columns:
-      minmax(
-        0,
-        1fr
-      )
-      minmax(
-        235px,
-        0.72fr
-      );
+      minmax(0, 1fr)
+      minmax(235px, 0.72fr);
 
-    gap:
-      25px;
+    gap: 25px;
   }
 
 
@@ -3184,19 +3273,52 @@ main {
 
 
   .hero-visual {
-    display:
-      grid;
-
-    min-height:
-      225px;
-
-    transform:
-      scale(
-        0.88
+    width:
+      min(
+        330px,
+        100%
       );
 
-    transform-origin:
-      center;
+    min-height:
+      280px;
+
+    margin:
+      0 auto;
+  }
+
+
+  .math-core {
+    width:
+      150px;
+
+    height:
+      150px;
+  }
+
+
+  .orbit-one {
+    width:
+      205px;
+
+    height:
+      171px;
+  }
+
+
+  .orbit-two {
+    width:
+      248px;
+
+    height:
+      155px;
+  }
+
+
+  .hero-visual .floating-chip {
+    offset-path:
+      ellipse(
+        110px 86px at 50% 50%
+      );
   }
 
 
@@ -3221,8 +3343,7 @@ main {
 }
 
 
-@media
-(max-width: 650px) {
+@media (max-width: 650px) {
 
   .app {
     width:
@@ -3260,20 +3381,15 @@ main {
 
 
   .hero-copy {
-    display:
-      flex;
-
-    flex-direction:
-      column;
-
-    align-items:
-      center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
 
   .hero .eyebrow {
     margin-bottom:
-      10px;
+      12px;
   }
 
 
@@ -3291,9 +3407,6 @@ main {
 
 
   .hero-visual {
-    display:
-      grid;
-
     width:
       min(
         300px,
@@ -3301,20 +3414,75 @@ main {
       );
 
     min-height:
-      230px;
+      275px;
 
     margin:
-      8px
+      12px
       auto
       0;
+  }
 
-    transform:
-      scale(
-        0.82
+
+  .math-core {
+    width:
+      136px;
+
+    height:
+      136px;
+  }
+
+
+  .math-core strong {
+    font-size:
+      2.7rem;
+  }
+
+
+  .math-core small {
+    font-size:
+      0.54rem;
+  }
+
+
+  .orbit-one {
+    width:
+      188px;
+
+    height:
+      158px;
+  }
+
+
+  .orbit-two {
+    width:
+      228px;
+
+    height:
+      145px;
+  }
+
+
+  .hero-visual .floating-chip {
+    min-width:
+      40px;
+
+    min-height:
+      38px;
+
+    padding:
+      8px
+      9px;
+
+    border-radius:
+      11px;
+
+    font-size:
+      0.8rem;
+
+    offset-path:
+      ellipse(
+        102px 80px at 50% 50%
       );
-
-    transform-origin:
-      center;
   }
 
 
@@ -3330,6 +3498,85 @@ main {
   .screen-heading {
     flex-direction:
       column;
+  }
+
+
+  .panel {
+    padding:
+      16px;
+  }
+
+
+  .selector {
+    min-height:
+      74px;
+
+    padding:
+      12px;
+
+    gap:
+      11px;
+  }
+
+
+  .selector-icon {
+    width:
+      46px;
+
+    height:
+      46px;
+  }
+
+
+  .time-grid {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+
+  .time-card {
+    min-height:
+      78px;
+  }
+
+
+  .custom-time {
+    padding:
+      14px
+      10px;
+
+    gap:
+      8px;
+  }
+
+
+  .custom-time label {
+    width:
+      44%;
+  }
+
+
+  .question-box {
+    min-height:
+      0;
+
+    padding:
+      28px
+      14px;
+  }
+
+
+  .question {
+    font-size:
+      clamp(
+        1.55rem,
+        8vw,
+        2.4rem
+      );
+
+    overflow-wrap:
+      anywhere;
   }
 
 
@@ -3350,6 +3597,14 @@ main {
   }
 
 
+  .launch,
+  .secondary,
+  .actions button {
+    min-height:
+      56px;
+  }
+
+
   .run-history-head {
     align-items:
       flex-start;
@@ -3358,69 +3613,522 @@ main {
       column;
   }
 
-}
-
-@media (max-width: 650px) {
-
-  .panel {
-    padding: 16px;
-  }
-
-  .selector {
-    min-height: 74px;
-    padding: 12px;
-    gap: 11px;
-  }
-
-  .selector-icon {
-    width: 46px;
-    height: 46px;
-  }
-
-  .time-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .time-card {
-    min-height: 78px;
-  }
-
-  .custom-time {
-    padding: 14px 10px;
-    gap: 8px;
-  }
-
-  .custom-time label {
-    width: 44%;
-  }
-
-  .question-box {
-    min-height: 0;
-    padding: 28px 14px;
-  }
-
-  .question {
-    font-size: clamp(1.55rem, 8vw, 2.4rem);
-    overflow-wrap: anywhere;
-  }
-
-  .launch,
-  .secondary,
-  .actions button {
-    min-height: 56px;
-  }
 
   .history-item {
-    padding: 13px 14px;
+    padding:
+      13px
+      14px;
+  }
+
+}
+
+
+/* =========================================================
+   HULAGPOS / INDUSTRIAL DESIGN SYSTEM — V2
+   Structural, restrained, legible. Existing JS hooks retained.
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+:root{--bg:#080a0b;--red:#581b1b;--red2:#b63d3b;--gold:#d9ae55;--gold2:#f0d18d;--cream:#f2f0e9;--muted:#a4a8a8;--line:rgba(216,175,89,.22);--green:#79bc8d;--danger:#e37772;--shadow:0 18px 55px rgba(0,0,0,.35)}
+html{scroll-behavior:smooth;background:#080a0b}
+body{font-family:'DM Sans',sans-serif;color:var(--cream);background:linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px) 0 0/72px 72px,linear-gradient(180deg,#0d1011,#080a0b 40%,#111315);letter-spacing:.005em}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(255,255,255,.007) 6px 7px);opacity:.38}
+.app{position:relative;z-index:1}
+.power-bg{opacity:.045;filter:grayscale(1);pointer-events:none}
+.hero{background:linear-gradient(120deg,#101415 5%,#171b1b 65%,#131514);border:1px solid rgba(218,174,85,.22);border-top:4px solid var(--gold);border-radius:3px;box-shadow:0 18px 65px #0008;overflow:hidden;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 22px,rgba(218,174,85,.025) 23px 24px);pointer-events:none}
+
+.hero-content{position:relative;z-index:1}
+.brand-lockup{display:flex;align-items:center;gap:11px;font:900 21px 'Barlow Condensed',sans-serif;letter-spacing:.13em;color:var(--gold2);margin-bottom:20px}
+.brand-lockup small{display:block;font:700 9px 'DM Sans',sans-serif;letter-spacing:.23em;color:#999d9c;margin-top:3px}
+.brand-mark{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--gold);transform:rotate(-12deg);font-size:21px;color:var(--gold)}
+.hero .eyebrow{font:800 11px 'DM Sans',sans-serif;letter-spacing:.22em;color:#c1b28e;text-transform:uppercase}
+.hero h1{font-family:'Barlow Condensed',Impact,sans-serif;font-weight:900;line-height:.88;letter-spacing:-.025em;text-transform:uppercase;font-size:clamp(66px,9vw,132px);text-shadow:none}
+.hero h1 span{color:var(--gold);-webkit-text-stroke:0;text-shadow:none}
+.hero-tagline{font-size:11px;font-weight:800;letter-spacing:.16em;color:#b3b7b4;margin:23px 0 42px}
+.hero-visual{filter:saturate(.55)}
+.math-core{background:linear-gradient(145deg,#1c2223,#080b0c)!important;border:2px solid #92763f!important;box-shadow:inset 0 0 0 8px #0d1011,0 0 0 1px #282c2b,0 18px 50px #0009!important}
+.math-core strong{color:var(--gold2)!important;text-shadow:none!important}
+.orbit{border-color:rgba(213,172,82,.22)!important;opacity:.7;animation-duration:38s!important}
+.floating-chip{background:#15191a!important;color:var(--gold2)!important;border:1px solid #79633d!important;box-shadow:0 8px 24px #0009!important}
+.screen-card,.panel,.question-box,.result,.dialog{border-radius:3px!important;box-shadow:0 14px 45px #0004!important}
+.screen-card{background:#111516!important;border:1px solid #323633!important;border-top:2px solid #8e7748!important}
+.screen-heading{border-bottom:1px solid #303632;padding-bottom:20px}
+.kicker{font-family:'DM Sans',sans-serif!important;font-size:11px!important;font-weight:800!important;letter-spacing:.19em!important;color:var(--gold)!important;text-transform:uppercase}
+h2,h3,.dialog-head h2{font-family:'Barlow Condensed',sans-serif!important;text-transform:uppercase;letter-spacing:.025em;font-weight:800!important}
+h2{font-size:clamp(28px,4vw,43px)!important}
+h3{font-size:25px!important}
+.ready{border-radius:2px!important;background:#17221b!important;border:1px solid #47604a!important;color:#9ac4a0!important;letter-spacing:.12em;font-weight:800}
+.panel{background:#171b1c!important;border:1px solid #343a39!important}
+.panel-head>span{color:var(--gold)!important;font-family:'Barlow Condensed',sans-serif!important;font-weight:900!important;font-size:34px!important}
+.panel-head p,.screen-heading p,.selector em,.option small{color:#a9aeab!important}
+.selector,.time-card,.option,.choice{border-radius:2px!important;background:#101415!important;border:1px solid #383f3c!important;box-shadow:none!important;transition:border-color .16s,background .16s,transform .16s!important}
+.selector:hover,.time-card:hover,.option:hover,.choice:hover{border-color:#b89756!important;background:#1d2423!important;transform:translateY(-1px)}
+.selector:focus-visible,.option:focus-visible,.choice:focus-visible,.time-card:focus-visible{outline:2px solid var(--gold)!important;outline-offset:3px}
+.selector-icon{background:#262821!important;border:1px solid #665634!important;color:var(--gold)!important;border-radius:2px!important}
+.selector strong,.option strong{color:#f1efe7!important}
+.selector b{color:var(--gold)!important}
+.time-card.active,.option.active,.choice.selected{background:#28261c!important;border:1px solid var(--gold)!important;box-shadow:inset 3px 0 0 var(--gold)!important}
+.time-card.active strong,.option.active strong{color:var(--gold2)!important}
+.custom-time{background:#101415!important;border:1px solid #333a37!important;border-radius:2px!important}
+input{background:#0b0e0f!important;color:#f3efe4!important;border:1px solid #454b47!important;border-radius:2px!important}
+input:focus{border-color:var(--gold)!important;box-shadow:0 0 0 2px #d9ae5526!important}
+.launch,.check,.done{background:var(--gold)!important;color:#11130f!important;border:1px solid #e3c47d!important;border-radius:2px!important;box-shadow:0 5px 0 #806b3b!important;font-weight:900!important;letter-spacing:.08em!important;text-transform:uppercase!important}
+.launch:hover,.check:hover,.done:hover{background:#f1cc78!important;filter:none!important;transform:translateY(-1px)}
+.launch:active,.check:active,.done:active{transform:translateY(3px)!important;box-shadow:0 2px 0 #806b3b!important}
+.launch small{color:#333126!important}
+.timer,.stats>div,.result-grid>div{background:#0d1112!important;border:1px solid #343b38!important;border-radius:2px!important}
+.timer strong,.stats strong,.result-grid strong{color:var(--gold2)!important;font-family:'Barlow Condensed',sans-serif!important}
+.progress{background:#303634!important;border-radius:0!important;overflow:hidden}
+.progress i{background:var(--gold)!important;border-radius:0!important}
+.question-box{background:#0e1213!important;border:1px solid #424640!important;border-left:4px solid var(--gold)!important}
+.question{font-family:'DM Sans',sans-serif!important;color:#f7f3e9!important;text-shadow:none!important;line-height:1.65!important}
+.badges span{border-radius:2px!important;letter-spacing:.08em!important}
+.badges span:first-child{background:#2b291f!important;color:#e5c47b!important;border:1px solid #6c5c37!important}
+.badges span:last-child{background:#222827!important;color:#c4c9c5!important;border:1px solid #48514b!important}
+.command{color:#c7c9c1!important;font-weight:700!important}
+#answerInput{font-size:clamp(20px,3vw,30px)!important;min-height:64px}
+.symbols button,.secondary,.solution-btn,.quit,.modal-tools button,.close{background:#1a2020!important;color:#e3e2da!important;border:1px solid #454c47!important;border-radius:2px!important}
+.symbols button:hover,.secondary:hover,.solution-btn:hover,.quit:hover,.modal-tools button:hover,.close:hover{border-color:var(--gold)!important;color:var(--gold2)!important}
+.choice{color:#f1f0e9!important;min-height:62px}
+.choice.selected{color:#f4dfad!important}
+.feedback{border-radius:2px!important}
+.feedback.good{background:#14271d!important;color:#a4ddb2!important;border:1px solid #487658!important}
+.feedback.bad{background:#30191a!important;color:#f0a6a2!important;border:1px solid #985452!important}
+.solution{background:#171c1c!important;border:1px solid #4a4d42!important;border-radius:2px!important;color:#e4e4dc!important}
+.law{background:#27281f!important;color:#e7c67d!important;border:1px solid #665e42!important;border-radius:2px!important}
+.final{border-top:1px solid #5d563f!important;color:var(--gold2)!important}
+.result{background:#131718!important}
+.result-icon{color:var(--gold)!important;filter:none!important}
+.modal{background:rgba(0,0,0,.85)!important;backdrop-filter:blur(6px)}
+.dialog{background:#151a1b!important;border:1px solid #6c654c!important;border-top:4px solid var(--gold)!important}
+.dialog-head{border-bottom:1px solid #343b37!important}
+.option>b{color:var(--gold)!important}
+/* Structural chain rails: no image assets, no layout shift. */
+.hero-copy::before,.screen-card::before{content:'⛓  ⛓  ⛓  ⛓  ⛓';display:block;color:#b79958;opacity:.65;font-size:14px;letter-spacing:8px;white-space:nowrap;overflow:hidden;margin-bottom:12px}
+.screen-card::before{opacity:.38;font-size:11px;margin-bottom:18px;letter-spacing:6px}
+@media(max-width:700px){.hero::after{font-size:8px;left:16px}.hero-tagline{font-size:10px;line-height:1.6}.hero h1{font-size:clamp(56px,14vw,90px)}.brand-lockup{font-size:17px}.hero-visual{opacity:.35;pointer-events:none}.screen-card::before{letter-spacing:3px}.screen-heading{gap:12px}.ready{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* ================================================================
+   HULAGPOS / REDLINE EDITION — RED · GOLD · BLACK
+   Paste BELOW the existing CSS. No JavaScript changes needed.
+   ================================================================ */
+:root {
+  --bg:#070506;
+  --red:#890c17;
+  --red2:#e02b39;
+  --gold:#e1af4d;
+  --gold2:#f8d791;
+  --cream:#f4eee7;
+  --muted:#b3a4a3;
+  --line:rgba(225,175,77,.24);
+  --danger:#ff6775;
+  --shadow:0 20px 65px rgba(0,0,0,.55);
+}
+html{background:#070506}
+body{
+  color:var(--cream);
+  background:
+    radial-gradient(ellipse at 50% -8%,rgba(157,9,27,.29),transparent 42%),
+    radial-gradient(ellipse at 99% 65%,rgba(106,8,21,.15),transparent 36%),
+    linear-gradient(180deg,#080708 0%,#10090b 55%,#080608 100%);
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.014) 80px),
+             repeating-linear-gradient(0deg,transparent 0 79px,rgba(255,255,255,.009) 80px);
+}
+.power-bg{color:rgba(244,47,63,.05)!important}
+.hero{
+  border:1px solid rgba(225,175,77,.25)!important;
+  border-top:4px solid #b7192b!important;
+  background:linear-gradient(116deg,#0f090b 5%,#220d12 54%,#10090b 100%)!important;
+  box-shadow:0 22px 68px #000a,0 1px 0 rgba(250,209,127,.13) inset!important;
+}
+.hero::before{
+  background:radial-gradient(ellipse at 75% 45%,rgba(195,18,41,.2),transparent 48%),
+    repeating-linear-gradient(135deg,transparent 0 23px,rgba(235,179,66,.022) 24px 25px)!important;
+}
+.hero::after{color:#a99a91!important}
+.brand-lockup{color:#f0c368!important}
+.brand-mark{background:#280e12;border-color:#d6a44e;color:#e4b650;transform:none;border-radius:2px}
+.hero .eyebrow{color:#e95661!important}
+.hero h1{color:#f6f1e9!important}
+.hero h1 span{color:#d9283c!important;text-shadow:0 0 35px rgba(224,35,55,.19)!important}
+.hero-tagline{color:#d0b8b0!important}
+.hero-copy::before,.screen-card::before{color:#b62a35!important;opacity:.8!important}
+.hero-visual{filter:saturate(1)!important}
+.orbit{border-color:rgba(223,55,66,.33)!important}
+.math-core{background:radial-gradient(circle at 30% 20%,#3e111b,#10090b 72%)!important;border:2px solid #bd7835!important;box-shadow:inset 0 0 0 8px #10090c,0 0 0 1px #6c1723,0 12px 45px #000a!important}
+.math-core strong{color:#f5cf7c!important}
+.floating-chip{background:#220d13!important;color:#f8d791!important;border-color:#b7733e!important}
+.screen-card{
+  background:linear-gradient(180deg,#100e10,#0e0a0c)!important;
+  border:1px solid #413034!important;
+  border-top:3px solid #b82132!important;
+  box-shadow:0 20px 70px rgba(0,0,0,.5)!important;
+}
+.screen-heading{border-bottom:1px solid #493238!important}
+.kicker{color:#d52d3e!important}
+.screen-heading h2{color:#f1e9de!important}
+.screen-heading h2::after{content:"";display:block;height:2px;width:118px;margin-top:10px;background:linear-gradient(90deg,#d52c40,#e5b65c,transparent)}
+.screen-heading p,.panel-head p,.selector em,.option small{color:#b7a9a7!important}
+.ready{background:#101b17!important;border:1px solid #42644c!important;color:#afe1b7!important}
+.panel{
+  position:relative;
+  background:linear-gradient(136deg,#1a1215,#121012 65%,#191013)!important;
+  border:1px solid #473238!important;
+  box-shadow:inset 2px 0 0 rgba(176,28,45,.45),0 8px 24px #0004!important;
+  overflow:hidden;
+}
+.panel::after{
+  content:"";position:absolute;right:-36px;top:-40px;width:135px;height:135px;
+  border:14px double rgba(175,48,55,.055);border-radius:32px;transform:rotate(-36deg);pointer-events:none;
+}
+.panel-head>span{
+  background:linear-gradient(160deg,#2b1216,#130b0d)!important;
+  color:#e5b75c!important;
+  border:1px solid #765032!important;
+  padding:1px 9px!important;
+  border-radius:3px!important;
+  font-variant-numeric:tabular-nums;
+}
+.panel-head h3{color:#f2e9df!important}
+.selector,.time-card,.option,.choice{
+  background:linear-gradient(115deg,#100d0f,#0c0a0b)!important;
+  border:1px solid #4a373a!important;
+  color:#f6ede6!important;
+}
+.selector:hover,.time-card:hover,.option:hover,.choice:hover{
+  border-color:#cf9b49!important;
+  background:linear-gradient(115deg,#211015,#181012)!important;
+  box-shadow:inset 3px 0 0 #b12639!important;
+}
+.selector:focus-visible,.option:focus-visible,.choice:focus-visible,.time-card:focus-visible{outline:2px solid #e5b65c!important;outline-offset:3px}
+.selector-icon{background:#2b1517!important;border-color:#926c3b!important;color:#efc26b!important}
+.selector strong,.option strong{color:#f7f0eb!important}
+.selector b,.option>b{color:#efb94e!important}
+.time-card.active,.option.active,.choice.selected{
+  background:linear-gradient(120deg,#47101c,#200d12)!important;
+  border:1px solid #e5ad4a!important;
+  box-shadow:inset 3px 0 0 #e02b3d,0 0 0 1px rgba(228,173,74,.2),0 0 25px rgba(172,21,39,.16)!important;
+}
+.time-card.active strong,.time-card.active span,.option.active strong{color:#fbd48b!important}
+.time-card.active::after{content:"✓";position:absolute;right:12px;top:10px;color:#23120c;background:#e7b755;border-radius:50%;width:22px;height:22px;display:grid;place-items:center;font-weight:900;font-size:12px}
+.time-card{position:relative}
+.custom-time{background:#120d10!important;border-color:#493538!important}
+input{background:#0e0a0c!important;border:1px solid #5f4145!important;color:#f8f0e9!important}
+input:focus{border-color:#e9b855!important;box-shadow:0 0 0 3px #e0ad4a21!important}
+.launch,.check,.done{
+  background:linear-gradient(100deg,#760d20 0%,#b51b2e 52%,#7b1020 100%)!important;
+  color:#fff0d7!important;
+  border:1px solid #e2aa4f!important;
+  border-bottom:3px solid #a87937!important;
+  box-shadow:inset 0 1px 0 rgba(255,229,160,.18),0 8px 24px rgba(118,4,24,.35)!important;
+  text-shadow:0 1px 0 #420b13;
+}
+.launch:hover,.check:hover,.done:hover{
+  background:linear-gradient(100deg,#92152b,#d12640,#97152b)!important;
+  border-color:#f5cd78!important;
+  transform:translateY(-2px)!important;
+  box-shadow:0 12px 32px rgba(174,16,40,.33)!important;
+}
+.launch:active,.check:active,.done:active{transform:translateY(1px)!important;box-shadow:0 2px 9px rgba(174,16,40,.3)!important}
+.launch>span:first-child{background:#17080d!important;color:#f5c969!important;border:1px solid #b57440!important}
+.launch strong{color:#fff1d7!important}
+.launch small{color:#f2ccbe!important}
+.timer,.stats>div,.result-grid>div{background:#150d11!important;border:1px solid #473238!important}
+.timer strong,.stats strong,.result-grid strong{color:#f2c778!important}
+.progress{background:#352026!important}
+.progress i{background:linear-gradient(90deg,#a51b2f,#eab450)!important}
+.question-box{background:linear-gradient(150deg,#190e13,#110b0e)!important;border:1px solid #54313c!important;border-left:4px solid #db2940!important}
+.question{color:#fff4e9!important}
+.badges span:first-child{background:#321a14!important;color:#f4ce89!important;border-color:#79552e!important}
+.badges span:last-child{background:#2d151b!important;color:#f4b1b8!important;border-color:#79404b!important}
+.symbols button,.secondary,.solution-btn,.quit,.modal-tools button,.close{background:#1b1215!important;color:#f3e5df!important;border:1px solid #65464b!important}
+.symbols button:hover,.secondary:hover,.solution-btn:hover,.quit:hover,.modal-tools button:hover,.close:hover{background:#30141b!important;border-color:#d8a04b!important;color:#ffdc94!important}
+.choice.selected{color:#f8d793!important}
+.feedback.good{background:#102219!important;color:#a8e8bc!important;border-color:#36744b!important}
+.feedback.bad{background:#300d16!important;color:#ffadb6!important;border-color:#a33b4d!important}
+.solution{background:#1b1015!important;border:1px solid #6b4148!important;color:#f0e4dc!important}
+.law{background:#36191a!important;border:1px solid #826039!important;color:#f8d58d!important}
+.final{border-top-color:#745039!important;color:#f5cb81!important}
+.result{background:#160f12!important}
+.result-icon{color:#e7b85b!important}
+.modal{background:rgba(5,2,4,.87)!important}
+.dialog{background:#190f13!important;border:1px solid #6e4548!important;border-top:4px solid #c6283c!important}
+.dialog-head{border-bottom:1px solid #59343c!important}
+::selection{color:#0d0708;background:#efc36a}
+@media(max-width:700px){.panel::after{width:78px;height:78px;right:-25px;top:-25px}.screen-heading h2::after{width:80px}.time-card.active::after{right:7px;top:7px}}
+
+/* =====================================================
+   HULAGPOS — FIX SECTION NUMBER OVERLAP
+===================================================== */
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.panel-head > span {
+  flex: 0 0 48px !important;
+
+  width: 48px !important;
+  height: 48px !important;
+
+  padding: 0 !important;
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+
+  color: #e5b75c !important;
+  background: #241316 !important;
+  border: 1px solid #765032 !important;
+  border-radius: 3px !important;
+}
+
+.panel-head > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.panel-head h3 {
+  margin: 0 0 4px !important;
+  line-height: 1.15 !important;
+}
+
+.panel-head p {
+  margin: 0 !important;
+  line-height: 1.5 !important;
+}
+
+@media (max-width: 480px) {
+  .panel-head {
+    gap: 12px;
+  }
+
+  .panel-head > span {
+    flex-basis: 42px !important;
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 24px !important;
   }
 }
+
+/* REMOVE DECORATIVE CHAIN SYMBOLS */
+.hero-copy::before,
+.screen-card::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* HULAGPOS — RESULT ICON FIX */
+
+.result-icon {
+  background: #26090e !important;
+  color: #f0bc52 !important;
+  border: 1px solid #a92538 !important;
+
+  width: 80px;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 38px !important;
+  font-weight: 800;
+  border-radius: 12px;
+}
+
+/* HULAGPOS — STEP-BY-STEP SOLUTIONS */
+
+.solution-math {
+  margin: 14px 0;
+  padding: 16px;
+  overflow-x: auto;
+  text-align: center;
+  background: #100b0d;
+  border-left: 3px solid #c99a45;
+  color: #f5f0e8;
+  font-size: 1.25rem;
+}
+
+.solution-detail {
+  margin: 10px 0;
+  line-height: 1.85;
+  color: #d8ccc7;
+}
+
+.solution .final {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #765032;
+}
+
+/* =====================================================
+   HULAGPOS — COMPACT QUESTION INTERFACE
+   Cleaner spacing, tighter vertical rhythm
+===================================================== */
+
+/* Question container */
+.question-card {
+  padding: 24px 28px !important;
+}
+
+/* Question labels */
+.question-card .badges {
+  margin-bottom: 10px !important;
+  gap: 8px !important;
+}
+
+/* Instruction */
+#command {
+  margin: 8px 0 12px !important;
+  line-height: 1.45 !important;
+}
+
+/* Mathematical expression */
+#questionText {
+  margin: 12px auto 14px !important;
+  line-height: 1.35 !important;
+}
+
+/* Typed notation */
+#note {
+  margin: 8px 0 16px !important;
+  line-height: 1.5 !important;
+}
+
+/* Answer field */
+#typedArea {
+  margin-top: 8px !important;
+  margin-bottom: 10px !important;
+}
+
+#answerInput {
+  min-height: 52px !important;
+  padding: 10px 16px !important;
+}
+
+/* Mathematical symbol buttons */
+#symbols {
+  margin-top: 8px !important;
+  margin-bottom: 14px !important;
+  gap: 7px !important;
+}
+
+/* Feedback */
+#feedback {
+  margin: 12px auto !important;
+  padding: 11px 16px !important;
+  line-height: 1.5 !important;
+}
+
+/* Step-by-step solution */
+#solution {
+  margin-top: 14px !important;
+  padding: 18px 20px !important;
+  line-height: 1.65 !important;
+}
+
+/* Solution steps */
+#solution > div {
+  margin-bottom: 8px !important;
+}
+
+/* Equations inside explanations */
+.solution-math {
+  margin: 10px 0 !important;
+  padding: 12px 14px !important;
+}
+
+/* Final answer */
+#solution .final {
+  margin-top: 14px !important;
+  padding-top: 12px !important;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .question-card {
+    padding: 18px 14px !important;
+  }
+
+  #questionText {
+    margin: 10px auto 12px !important;
+  }
+
+  #solution {
+    padding: 15px !important;
+  }
+}
+
+/* HULAGPOS — START BUTTON REFINEMENT */
+
+#startBtn {
+  background: #240d13 !important;
+  border: 1px solid #9f3441 !important;
+  border-left: 4px solid #d5a64f !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+
+  padding: 19px 22px !important;
+  min-height: 78px;
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    transform .2s ease !important;
+}
+
+#startBtn:hover {
+  background: #371019 !important;
+  border-color: #e0b463 !important;
+  transform: translateY(-2px);
+}
+
+#startBtn:active {
+  transform: translateY(0);
+}
+
+/* Main text */
+#startBtn strong {
+  color: #f7eee6 !important;
+  letter-spacing: .09em;
+  font-size: 18px !important;
+}
+
+/* Secondary description */
+#startBtn small,
+#startBtn .sub {
+  color: #c59b9e !important;
+  font-size: 11px !important;
+  letter-spacing: .08em;
+}
+
+/* Icon */
+#startBtn .icon {
+  background: #44151e !important;
+  color: #e7b65a !important;
+  border: 1px solid #b88d44 !important;
+  box-shadow: none !important;
+}
+
 
   </style>
 
 </head>
 
 <body>
-
 
   <div
     class="power-bg"
@@ -3444,18 +4152,15 @@ main {
       <div class="hero-content">
 
         <div class="hero-copy">
+          <div class="brand-lockup"><span class="brand-mark" aria-hidden="true">⛓</span><span>HULAGPOS <small>UPCAT-AUDD</small></span></div>
 
-          <div class="eyebrow">
-            UPCAT-AUDD
-          </div>
+
 
           <h1>
-            Exponent
-            <span>xⁿ</span>
-            <br>
-            Arena
+            EXPONENTS
+            <span>ARENA</span>
           </h1>
-
+          <p class="hero-tagline">PRACTICE THE BASICS. SIRAIN ANG TANIKALA PAGKATAPOS.</p>
         </div>
 
 
@@ -3465,42 +4170,43 @@ main {
         >
 
           <div class="orbit orbit-one"></div>
-
           <div class="orbit orbit-two"></div>
 
 
           <div class="math-core">
 
-            <small>
-              EXPONENT
-            </small>
-
+           
             <strong>
               xⁿ
             </strong>
 
-            <small>
-              ARENA
-            </small>
+          
 
           </div>
 
 
-          <span class="floating-chip chip-a">
+          <!--
+            These four chips travel around one motion path.
+
+            offset-rotate: 0deg in CSS keeps the text upright
+            while each chip moves around the circle.
+          -->
+
+          <div class="floating-chip chip-one chip-gold">
             x²
-          </span>
+          </div>
 
-          <span class="floating-chip chip-b">
-            x⁻³
-          </span>
-
-          <span class="floating-chip chip-c">
+          <div class="floating-chip chip-two chip-red">
             ½
-          </span>
+          </div>
 
-          <span class="floating-chip chip-d">
+          <div class="floating-chip chip-three chip-gold">
+            x⁻³
+          </div>
+
+          <div class="floating-chip chip-four chip-dark">
             aᵐ
-          </span>
+          </div>
 
         </div>
 
@@ -3525,24 +4231,22 @@ main {
           <div>
 
             <div class="kicker">
-              Arena Setup
+              EXPONENTS
             </div>
 
             <h2>
-              Build Your Exponent Drill
+             BUILD YOUR BAKBAKAN
             </h2>
 
             <p>
-              Default: all exponent modes,
-              Intermediate, Random answer format,
-              Untimed.
+              Select your setup.
             </p>
 
           </div>
 
 
           <div class="ready">
-            ● READY
+            SYSTEM READY
           </div>
 
         </div>
@@ -3572,7 +4276,7 @@ main {
                 </h3>
 
                 <p>
-                  Choose which exponent skills can appear.
+                  Choose which exponent cases can appear.
                 </p>
 
               </div>
@@ -3601,7 +4305,7 @@ main {
                 </strong>
 
                 <em id="modeDesc">
-                  All 8 exponent skills are active
+                  All 8 exponent Cases are active
                 </em>
 
               </span>
@@ -3854,7 +4558,9 @@ main {
         </div>
 
 
-        <!-- START -->
+        <!-- =====================================================
+             START
+        ====================================================== -->
 
         <button
           class="launch"
@@ -3921,6 +4627,8 @@ main {
         </div>
 
 
+        <!-- TIMER -->
+
         <div class="timer">
 
           <span id="timerIcon">
@@ -3952,6 +4660,8 @@ main {
         </div>
 
 
+        <!-- STATS -->
+
         <div class="stats">
 
           <div>
@@ -3976,6 +4686,8 @@ main {
 
         </div>
 
+
+        <!-- QUESTION -->
 
         <div class="question-box">
 
@@ -4013,6 +4725,8 @@ main {
             id="note"
           ></div>
 
+
+          <!-- TYPED ANSWER -->
 
           <div id="typedArea">
 
@@ -4087,11 +4801,15 @@ main {
           </div>
 
 
+          <!-- MULTIPLE CHOICE -->
+
           <div
             class="choices hidden"
             id="choices"
           ></div>
 
+
+          <!-- FEEDBACK -->
 
           <div
             class="feedback"
@@ -4101,6 +4819,8 @@ main {
           </div>
 
 
+          <!-- SOLUTION -->
+
           <div
             class="solution hidden"
             id="solution"
@@ -4108,6 +4828,8 @@ main {
 
         </div>
 
+
+        <!-- GAME ACTIONS -->
 
         <div
           class="actions"
@@ -4161,18 +4883,22 @@ main {
           xⁿ
         </div>
 
+
         <div class="kicker">
           BAKBAKAN SUMMARY
         </div>
+
 
         <h2 id="resultTitle">
           Run Ended
         </h2>
 
+
         <div
           id="correctAnswer"
           class="correct-answer hidden"
         ></div>
+
 
         <p id="resultSetup"></p>
 
@@ -4202,47 +4928,45 @@ main {
         </div>
 
 
-      <div class="end-actions">
+        <div class="end-actions">
 
-  <button
-    class="secondary"
-    id="setupBtn"
-    type="button"
-  >
-    Change Setup
-  </button>
-
-
-  <button
-    class="launch"
-    id="againBtn"
-    type="button"
-  >
-
-    <span>
-      ↻
-    </span>
-
-    <span>
-
-      <strong>
-        Play Again
-      </strong>
-
-      <small>
-        Same setup
-      </small>
-
-    </span>
-
-  </button>
-
-</div>
+          <button
+            class="secondary"
+            id="setupBtn"
+            type="button"
+          >
+            Change Setup
+          </button>
 
 
-        <!-- =====================================================
-             RUN QUESTION HISTORY
-        ====================================================== -->
+          <button
+            class="launch"
+            id="againBtn"
+            type="button"
+          >
+
+            <span>
+              ↻
+            </span>
+
+            <span>
+
+              <strong>
+                Play Again
+              </strong>
+
+              <small>
+                Same setup
+              </small>
+
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <!-- QUESTION REVIEW -->
 
         <div
           class="run-history"
@@ -4262,6 +4986,7 @@ main {
               </h3>
 
             </div>
+
 
             <span id="historyCount">
               0 QUESTIONS
@@ -4308,7 +5033,7 @@ main {
           </h2>
 
           <p>
-            Select one or more skills.
+            Select one or more cases.
           </p>
 
         </div>
@@ -4356,9 +5081,7 @@ main {
           type="button"
         >
 
-          <span>
-            2⁵
-          </span>
+          <span>2⁵</span>
 
           <div>
             <strong>Basic Powers</strong>
@@ -4376,9 +5099,7 @@ main {
           type="button"
         >
 
-          <span>
-            ×÷
-          </span>
+          <span>×÷</span>
 
           <div>
             <strong>Product & Quotient Laws</strong>
@@ -4396,9 +5117,7 @@ main {
           type="button"
         >
 
-          <span>
-            (xᵃ)ᵇ
-          </span>
+          <span>(xᵃ)ᵇ</span>
 
           <div>
             <strong>Power Rules</strong>
@@ -4416,9 +5135,7 @@ main {
           type="button"
         >
 
-          <span>
-            x⁻ⁿ
-          </span>
+          <span>x⁻ⁿ</span>
 
           <div>
             <strong>Zero & Negative Exponents</strong>
@@ -4436,9 +5153,7 @@ main {
           type="button"
         >
 
-          <span>
-            x½
-          </span>
+          <span>x½</span>
 
           <div>
             <strong>Fractional Exponents</strong>
@@ -4456,9 +5171,7 @@ main {
           type="button"
         >
 
-          <span>
-            Σ
-          </span>
+          <span>Σ</span>
 
           <div>
             <strong>Full Simplification</strong>
@@ -4476,9 +5189,7 @@ main {
           type="button"
         >
 
-          <span>
-            =
-          </span>
+          <span>=</span>
 
           <div>
             <strong>Exponential Equations</strong>
@@ -4496,9 +5207,7 @@ main {
           type="button"
         >
 
-          <span>
-            ⚠
-          </span>
+          <span>⚠</span>
 
           <div>
             <strong>CET Mixed Challenge</strong>
@@ -4573,9 +5282,7 @@ main {
           type="button"
         >
 
-          <span>
-            1
-          </span>
+          <span>1</span>
 
           <div>
             <strong>Foundation</strong>
@@ -4593,9 +5300,7 @@ main {
           type="button"
         >
 
-          <span>
-            2
-          </span>
+          <span>2</span>
 
           <div>
             <strong>Intermediate</strong>
@@ -4613,9 +5318,7 @@ main {
           type="button"
         >
 
-          <span>
-            ⚡
-          </span>
+          <span>⚡</span>
 
           <div>
             <strong>CET Challenge</strong>
@@ -4681,9 +5384,7 @@ main {
           type="button"
         >
 
-          <span>
-            ⌨
-          </span>
+          <span>⌨</span>
 
           <div>
             <strong>Type Answer</strong>
@@ -4701,9 +5402,7 @@ main {
           type="button"
         >
 
-          <span>
-            AB
-          </span>
+          <span>AB</span>
 
           <div>
             <strong>Multiple Choice</strong>
@@ -4721,9 +5420,7 @@ main {
           type="button"
         >
 
-          <span>
-            ↯
-          </span>
+          <span>↯</span>
 
           <div>
             <strong>Random</strong>
@@ -4744,7 +5441,6 @@ main {
 </html>
 
   <script>
-
 "use strict";
 
 /* =========================================================
@@ -10125,159 +10821,59 @@ function generateFractional() {
    FULL SIMPLIFICATION
 ========================================================= */
 
+
 function generateFullSimplification() {
+  const outerPower = state.difficulty === "foundation" ? 2 : randomInteger(2, 3);
+  const a = randomInteger(1, 4);
+  const b = randomInteger(1, 4);
+  const c = randomInteger(1, 4);
+  const d = randomInteger(1, 4);
+  const e = randomInteger(1, 4);
+  const coefficientOne = randomInteger(2, 4);
+  const coefficientTwo = randomInteger(2, 4);
+  const denominatorCoefficient = randomInteger(2, 6);
+  const firstY = state.difficulty === "foundation" ? b : -b;
 
-  const outerPower =
-    state.difficulty ===
-    "foundation"
-      ? 2
-      : randomInteger(
-          2,
-          3
-        );
+  const raisedCoefficient = coefficientOne ** outerPower;
+  const raisedX = a * outerPower;
+  const raisedY = firstY * outerPower;
+  const numeratorCoefficient = raisedCoefficient * coefficientTwo;
+  const numeratorX = raisedX + c;
+  const numeratorY = raisedY + d;
+  const finalX = numeratorX - e;
+  const finalY = numeratorY - (-1);
 
+  const answer = monomialAnswer(
+    numeratorCoefficient,
+    denominatorCoefficient,
+    { x: finalX, y: finalY }
+  );
 
-  const a =
-    randomInteger(
-      1,
-      4
-    );
+  const original = fractionHtml(
+    `(${coefficientOne}${powerHtml("x", a)}${powerHtml("y", firstY)})${sup(outerPower)} · ${coefficientTwo}${powerHtml("x", c)}${powerHtml("y", d)}`,
+    `${denominatorCoefficient}${powerHtml("x", e)}${powerHtml("y", -1)}`
+  );
 
+  const afterPower = fractionHtml(
+    `${raisedCoefficient}${powerHtml("x", raisedX)}${powerHtml("y", raisedY)} · ${coefficientTwo}${powerHtml("x", c)}${powerHtml("y", d)}`,
+    `${denominatorCoefficient}${powerHtml("x", e)}${powerHtml("y", -1)}`
+  );
 
-  const b =
-    randomInteger(
-      1,
-      4
-    );
+  const afterProduct = fractionHtml(
+    `${numeratorCoefficient}${powerHtml("x", numeratorX)}${powerHtml("y", numeratorY)}`,
+    `${denominatorCoefficient}${powerHtml("x", e)}${powerHtml("y", -1)}`
+  );
 
-
-  const c =
-    randomInteger(
-      1,
-      4
-    );
-
-
-  const d =
-    randomInteger(
-      1,
-      4
-    );
-
-
-  const e =
-    randomInteger(
-      1,
-      4
-    );
-
-
-  const coefficientOne =
-    randomInteger(
-      2,
-      4
-    );
-
-
-  const coefficientTwo =
-    randomInteger(
-      2,
-      4
-    );
-
-
-  const denominatorCoefficient =
-    randomInteger(
-      2,
-      6
-    );
-
-
-  const firstY =
-    state.difficulty ===
-    "foundation"
-      ? b
-      : -b;
-
-
-  const answer =
-    monomialAnswer(
-
-      (
-        coefficientOne **
-        outerPower
-      ) *
-      coefficientTwo,
-
-      denominatorCoefficient,
-
-      {
-        x:
-          a *
-          outerPower +
-          c -
-          e,
-
-        y:
-          firstY *
-          outerPower +
-          d +
-          1
-      }
-
-    );
-
+  const rawCoefficient = `${numeratorCoefficient}/${denominatorCoefficient}`;
+  const simplifiedCoefficient = answer.den === 1
+    ? String(answer.num)
+    : `${answer.num}/${answer.den}`;
 
   return createQuestion(
-
     "FULL SIMPLIFICATION",
-
     "Simplify completely. Positive exponents only.",
-
-    fractionHtml(
-
-      `(${coefficientOne}${
-        powerHtml(
-          "x",
-          a
-        )
-      }${
-        powerHtml(
-          "y",
-          firstY
-        )
-      })${
-        sup(
-          outerPower
-        )
-      } · ${coefficientTwo}${
-        powerHtml(
-          "x",
-          c
-        )
-      }${
-        powerHtml(
-          "y",
-          d
-        )
-      }`,
-
-      `${denominatorCoefficient}${
-        powerHtml(
-          "x",
-          e
-        )
-      }${
-        powerHtml(
-          "y",
-          -1
-        )
-      }`
-
-    ),
-
+    original,
     answer,
-
     [
       "Power of a Product",
       "Power of a Power",
@@ -10285,18 +10881,56 @@ function generateFullSimplification() {
       "Quotient Rule",
       "Negative Exponent Rule"
     ],
-
     [
-      `Distribute the outer power ${outerPower}.`,
+      `<strong>Step 1 — Apply the outer power.</strong>
+       Raise the coefficient and multiply each exponent by ${outerPower}:
+       <div class="solution-math">${afterPower}</div>
+       <div class="solution-detail">
+         Coefficient: ${coefficientOne}${sup(outerPower)} = ${raisedCoefficient};
+         x exponent: ${a} × ${outerPower} = ${raisedX};
+         y exponent: (${firstY}) × ${outerPower} = ${raisedY}.
+       </div>`,
 
-      "Combine coefficient and variable exponents.",
+      `<strong>Step 2 — Multiply the numerator.</strong>
+       Multiply coefficients and add exponents with the same base:
+       <div class="solution-detail">
+         Coefficient: ${raisedCoefficient} × ${coefficientTwo} = ${numeratorCoefficient}.
+         <div>x: ${raisedX} + ${c} = ${numeratorX};
+         y: (${raisedY}) + ${d} = ${numeratorY}.</div>
+       </div>
+       <div class="solution-math">${afterProduct}</div>`,
 
-      "Rewrite negative exponents across the fraction bar."
+      `<strong>Step 3 — Divide powers of the same base.</strong>
+       Subtract denominator exponents from numerator exponents:
+       <div class="solution-detail">
+         x: ${numeratorX} − ${e} = ${finalX}.
+         <div>y: (${numeratorY}) − (−1) = ${finalY}.</div>
+       </div>
+       <div class="solution-math">
+         ${rawCoefficient} × ${powerHtml("x", finalX)} × ${powerHtml("y", finalY)}
+       </div>`,
+
+      `<strong>Step 4 — Simplify the coefficient and exponents.</strong>
+       <div class="solution-detail">
+         ${rawCoefficient} = ${simplifiedCoefficient}.
+         ${finalX === 0
+           ? " The x factor has exponent 0, so it becomes 1."
+           : finalX < 0
+             ? " The negative x exponent moves its factor to the denominator."
+             : ""}
+         ${finalY === 0
+           ? " The y factor has exponent 0, so it becomes 1."
+           : finalY < 0
+             ? " The negative y exponent moves its factor to the denominator."
+             : ""}
+       </div>
+       <div class="solution-math">
+         <strong>${answerHtml(answer)}</strong>
+       </div>`
     ]
-
   );
-
 }
+
 
 
 /* =========================================================
